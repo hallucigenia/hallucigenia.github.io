@@ -3,503 +3,503 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://hallucigenia.github.io/</loc>
     <lastmod>2020-03-13T10:18:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
-                href="https://example.com/sc/"
+                href="https://hallucigenia.github.io/sc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/"
+                href="https://hallucigenia.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/"
+                href="https://hallucigenia.github.io/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/page/</loc>
+    <loc>https://hallucigenia.github.io/page/</loc>
     <lastmod>2020-03-13T10:18:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
-                href="https://example.com/sc/page/"
+                href="https://hallucigenia.github.io/sc/page/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/page/"
+                href="https://hallucigenia.github.io/en/page/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/page/"
+                href="https://hallucigenia.github.io/page/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/page/about-me/</loc>
+    <loc>https://hallucigenia.github.io/page/about-me/</loc>
     <lastmod>2020-03-13T10:18:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
-                href="https://example.com/sc/page/about-me/"
+                href="https://hallucigenia.github.io/sc/page/about-me/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/page/about-me/"
+                href="https://hallucigenia.github.io/en/page/about-me/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/page/about-me/"
+                href="https://hallucigenia.github.io/page/about-me/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/article/</loc>
+    <loc>https://hallucigenia.github.io/article/</loc>
     <lastmod>2020-02-13T22:40:20+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/article/"
+                href="https://hallucigenia.github.io/en/article/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/article/"
+                href="https://hallucigenia.github.io/article/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/author/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://example.com/sc/author/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://example.com/en/author/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://example.com/author/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://example.com/tags/code/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://example.com/en/tags/code/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://example.com/tags/code/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://example.com/author/fancy/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://example.com/en/author/fancy/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://example.com/author/fancy/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://example.com/tags/python/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://example.com/en/tags/python/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://example.com/tags/python/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://example.com/tags/sqlalchemy/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://example.com/en/tags/sqlalchemy/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://example.com/tags/sqlalchemy/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://hallucigenia.github.io/author/</loc>
     <lastmod>2020-02-13T22:40:20+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
-                href="https://example.com/sc/tags/"
+                href="https://hallucigenia.github.io/sc/author/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/tags/"
+                href="https://hallucigenia.github.io/en/author/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/tags/"
+                href="https://hallucigenia.github.io/author/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/article/support-and-discussions/</loc>
+    <loc>https://hallucigenia.github.io/tags/code/</loc>
     <lastmod>2020-02-13T22:40:20+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/article/support-and-discussions/"
+                href="https://hallucigenia.github.io/en/tags/code/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/article/support-and-discussions/"
+                href="https://hallucigenia.github.io/tags/code/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/audio/</loc>
+    <loc>https://hallucigenia.github.io/author/fancy/</loc>
+    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hallucigenia.github.io/en/author/fancy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://hallucigenia.github.io/author/fancy/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://hallucigenia.github.io/tags/python/</loc>
+    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hallucigenia.github.io/en/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://hallucigenia.github.io/tags/python/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://hallucigenia.github.io/tags/sqlalchemy/</loc>
+    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hallucigenia.github.io/en/tags/sqlalchemy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://hallucigenia.github.io/tags/sqlalchemy/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://hallucigenia.github.io/tags/</loc>
+    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://hallucigenia.github.io/sc/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hallucigenia.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://hallucigenia.github.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://hallucigenia.github.io/article/support-and-discussions/</loc>
+    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hallucigenia.github.io/en/article/support-and-discussions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://hallucigenia.github.io/article/support-and-discussions/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://hallucigenia.github.io/audio/</loc>
     <lastmod>2020-02-07T09:15:08+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/audio/"
+                href="https://hallucigenia.github.io/en/audio/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/audio/"
+                href="https://hallucigenia.github.io/audio/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://hallucigenia.github.io/categories/</loc>
     <lastmod>2020-02-07T09:15:08+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
-                href="https://example.com/sc/categories/"
+                href="https://hallucigenia.github.io/sc/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/categories/"
+                href="https://hallucigenia.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/categories/"
+                href="https://hallucigenia.github.io/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/categories/music/</loc>
+    <loc>https://hallucigenia.github.io/categories/music/</loc>
     <lastmod>2020-02-07T09:15:08+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/categories/music/"
+                href="https://hallucigenia.github.io/en/categories/music/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/categories/music/"
+                href="https://hallucigenia.github.io/categories/music/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/tags/%E5%BC%B5%E5%9C%8B%E6%A6%AE/</loc>
+    <loc>https://hallucigenia.github.io/tags/%E5%BC%B5%E5%9C%8B%E6%A6%AE/</loc>
     <lastmod>2020-02-07T09:15:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/audio/you-xin-ren/</loc>
+    <loc>https://hallucigenia.github.io/audio/you-xin-ren/</loc>
     <lastmod>2020-02-07T09:15:08+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/audio/you-xin-ren/"
+                href="https://hallucigenia.github.io/en/audio/you-xin-ren/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/audio/you-xin-ren/"
+                href="https://hallucigenia.github.io/audio/you-xin-ren/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/gallery/</loc>
+    <loc>https://hallucigenia.github.io/gallery/</loc>
     <lastmod>2020-01-06T21:20:56+08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/gallery/"
+                href="https://hallucigenia.github.io/en/gallery/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/gallery/"
+                href="https://hallucigenia.github.io/gallery/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/tags/beijing/</loc>
+    <loc>https://hallucigenia.github.io/tags/beijing/</loc>
     <lastmod>2020-01-06T21:20:56+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/tags/beijing/"
+                href="https://hallucigenia.github.io/en/tags/beijing/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/tags/beijing/"
+                href="https://hallucigenia.github.io/tags/beijing/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/tags/canton/</loc>
+    <loc>https://hallucigenia.github.io/tags/canton/</loc>
     <lastmod>2020-01-06T21:20:56+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/tags/canton/"
+                href="https://hallucigenia.github.io/en/tags/canton/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/tags/canton/"
+                href="https://hallucigenia.github.io/tags/canton/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/categories/holidays/</loc>
+    <loc>https://hallucigenia.github.io/categories/holidays/</loc>
     <lastmod>2020-01-06T21:20:56+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/categories/holidays/"
+                href="https://hallucigenia.github.io/en/categories/holidays/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/categories/holidays/"
+                href="https://hallucigenia.github.io/categories/holidays/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/tags/qingdao/</loc>
+    <loc>https://hallucigenia.github.io/tags/qingdao/</loc>
     <lastmod>2020-01-06T21:20:56+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/tags/qingdao/"
+                href="https://hallucigenia.github.io/en/tags/qingdao/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/tags/qingdao/"
+                href="https://hallucigenia.github.io/tags/qingdao/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/categories/travelling/</loc>
+    <loc>https://hallucigenia.github.io/categories/travelling/</loc>
     <lastmod>2020-01-06T21:20:56+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/categories/travelling/"
+                href="https://hallucigenia.github.io/en/categories/travelling/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/categories/travelling/"
+                href="https://hallucigenia.github.io/categories/travelling/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/gallery/gallery-test/</loc>
+    <loc>https://hallucigenia.github.io/gallery/gallery-test/</loc>
     <lastmod>2020-01-06T21:20:56+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/gallery/gallery-test/"
+                href="https://hallucigenia.github.io/en/gallery/gallery-test/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/gallery/gallery-test/"
+                href="https://hallucigenia.github.io/gallery/gallery-test/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/link/</loc>
+    <loc>https://hallucigenia.github.io/link/</loc>
     <lastmod>2019-12-21T09:07:11+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/categories/privacy/</loc>
+    <loc>https://hallucigenia.github.io/categories/privacy/</loc>
     <lastmod>2019-12-21T09:07:11+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/categories/privacy/"
+                href="https://hallucigenia.github.io/en/categories/privacy/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/categories/privacy/"
+                href="https://hallucigenia.github.io/categories/privacy/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/tags/search-engine/</loc>
+    <loc>https://hallucigenia.github.io/tags/search-engine/</loc>
     <lastmod>2019-12-21T09:07:11+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/link/shodan.io/</loc>
+    <loc>https://hallucigenia.github.io/link/shodan.io/</loc>
     <lastmod>2019-12-21T09:07:11+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/video/lg-jazz-hdr-uhd-chromecast-ultra/</loc>
+    <loc>https://hallucigenia.github.io/video/lg-jazz-hdr-uhd-chromecast-ultra/</loc>
     <lastmod>2019-12-08T19:14:02+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/video/lg-jazz-hdr-uhd-chromecast-ultra/"
+                href="https://hallucigenia.github.io/en/video/lg-jazz-hdr-uhd-chromecast-ultra/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/video/lg-jazz-hdr-uhd-chromecast-ultra/"
+                href="https://hallucigenia.github.io/video/lg-jazz-hdr-uhd-chromecast-ultra/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/tags/the-hdr-channel/</loc>
+    <loc>https://hallucigenia.github.io/tags/the-hdr-channel/</loc>
     <lastmod>2019-12-08T19:14:02+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/tags/the-hdr-channel/"
+                href="https://hallucigenia.github.io/en/tags/the-hdr-channel/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/tags/the-hdr-channel/"
+                href="https://hallucigenia.github.io/tags/the-hdr-channel/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/video/</loc>
+    <loc>https://hallucigenia.github.io/video/</loc>
     <lastmod>2019-12-08T19:14:02+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/video/"
+                href="https://hallucigenia.github.io/en/video/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/video/"
+                href="https://hallucigenia.github.io/video/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/categories/%E7%9B%A3%E8%A6%96%E5%99%A8/</loc>
+    <loc>https://hallucigenia.github.io/categories/%E7%9B%A3%E8%A6%96%E5%99%A8/</loc>
     <lastmod>2019-12-08T19:14:02+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/categories/%E8%A6%96%E8%A8%8A/</loc>
+    <loc>https://hallucigenia.github.io/categories/%E8%A6%96%E8%A8%8A/</loc>
     <lastmod>2019-12-08T19:14:02+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/categories/%E9%9F%B3%E6%A8%82/</loc>
+    <loc>https://hallucigenia.github.io/categories/%E9%9F%B3%E6%A8%82/</loc>
     <lastmod>2019-12-08T19:14:02+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/categories/lyric/</loc>
+    <loc>https://hallucigenia.github.io/categories/lyric/</loc>
     <lastmod>2016-12-01T14:40:32+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/categories/lyric/"
+                href="https://hallucigenia.github.io/en/categories/lyric/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/categories/lyric/"
+                href="https://hallucigenia.github.io/categories/lyric/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/quote/</loc>
+    <loc>https://hallucigenia.github.io/quote/</loc>
     <lastmod>2016-12-01T14:40:32+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
-                href="https://example.com/sc/quote/"
+                href="https://hallucigenia.github.io/sc/quote/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/quote/"
+                href="https://hallucigenia.github.io/en/quote/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://example.com/quote/"
+                href="https://hallucigenia.github.io/quote/"
                 />
   </url>
   
   <url>
-    <loc>https://example.com/quote/ren-lai-ren-wang/</loc>
+    <loc>https://hallucigenia.github.io/quote/ren-lai-ren-wang/</loc>
     <lastmod>2016-12-01T14:40:32+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/author/%E6%9E%97%E5%A4%95/</loc>
+    <loc>https://hallucigenia.github.io/author/%E6%9E%97%E5%A4%95/</loc>
     <lastmod>2016-12-01T14:40:32+08:00</lastmod>
   </url>
   
