@@ -117,6 +117,11 @@
     <lastmod>2020-02-13T22:40:20+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/author/fancy/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/author/fancy/"
                 />
@@ -130,6 +135,11 @@
   <url>
     <loc>https://bbyy.io/tags/python/</loc>
     <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/python/"
+                />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -456,6 +466,81 @@
   <url>
     <loc>https://bbyy.io/categories/%E9%9F%B3%E6%A8%82/</loc>
     <lastmod>2019-12-08T19:14:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/categories/code/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/categories/code/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/code/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/code/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/gunicorn/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/gunicorn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/gunicorn/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/code/gunicorn-supervisor-deploy/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/gunicorn-supervisor-deploy/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/supervisor/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/supervisor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/supervisor/"
+                />
   </url>
   
   <url>

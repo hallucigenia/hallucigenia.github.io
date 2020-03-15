@@ -41,7 +41,7 @@
 <body class="bilberry-hugo-theme">
 
     
-    <nav>
+    <nav class="permanentTopNav sticky">
 
     <div class="container">
         <ul class="topnav">
@@ -63,7 +63,7 @@
 
 
     
-<header>
+<header class="sticky">
 
     <div class="container">
         <div class="logo">
@@ -101,8 +101,8 @@
         
 
         
-            <div class="toggler">
-                
+        <div class="toggler permanentTopNav">
+            
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </div>
         </div>
@@ -233,7 +233,7 @@
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "bilberry-hugo-theme" + '.disqus.com/embed.js';
+        s.src = '//' + "hallucigenia" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -276,7 +276,7 @@
                 </li>
                 
                 <li>
-                    <a href="https://bbyy.io/quote/ren-lai-ren-wang/">人來人往 - 林夕</a>
+                    <a href="https://bbyy.io/code/gunicorn-supervisor-deploy/">Gunicorn Supervisor Deploy</a>
                 </li>
                 
             </ul>
@@ -287,6 +287,11 @@
         <div class="categories">
             <a href="/categories/"><strong></strong></a>
             <ul>
+                
+                <li>
+                    <a href="/categories/code">Code
+                        (1)</a>
+                </li>
                 
                 <li>
                     <a href="/categories/holidays">Holidays
@@ -318,11 +323,6 @@
                         (1)</a>
                 </li>
                 
-                <li>
-                    <a href="/categories/%E8%A6%96%E8%A8%8A">視訊
-                        (1)</a>
-                </li>
-                
             </ul>
         </div>
         
@@ -334,6 +334,8 @@
 
                 
                 <a href="https://twitter.com/_fancyan" target="_blank"><i class="fab fa-twitter"></i></a>
+                
+                <a href="https://www.instagram.com/monophoton" target="_blank"><i class="fab fa-instagram"></i></a>
                 
                 <a href="https://github.com/hallucigenia" target="_blank"><i class="fab fa-github"></i></a>
                 
@@ -365,7 +367,7 @@
 <div class="credits">
     <div class="container">
         <div class="copyright">
-            <a href="https://github.com/hallucigenia" target="_blank">
+            <a href="https://github.com/hallucigenia/hallucigenia.github.io" target="_blank">
                 &copy;
                 
                 2020
@@ -383,6 +385,17 @@
 
 
     
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-160694437-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
 
     
 
@@ -395,13 +408,11 @@
 
     
     <div id="activate-algolia-search" class="hidden">
-  <input type="hidden" id="algolia-search-appId" value="Y2C4RWMPXW">
-  <input type="hidden" id="algolia-search-apiKey" value="50ea7f8c41c0ad233926e0be2b769ed1">
-  <input type="hidden" id="algolia-search-indexName" value="default-content">
+  <input type="hidden" id="algolia-search-appId" value="8JWRQ9KNXC">
+  <input type="hidden" id="algolia-search-apiKey" value="0f05c447096335c55a457fe4cfaae96a">
+  <input type="hidden" id="algolia-search-indexName" value="grimalog">
   <input type="hidden" id="algolia-search-noSearchResults" value="">
 
-  
-  <input type="hidden" id="algolia-search-currentLanguageOnly">
   
 </div>
 

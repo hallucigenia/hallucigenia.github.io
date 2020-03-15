@@ -122,6 +122,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/author/fancy/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/author/fancy/"
                 />
@@ -134,6 +139,11 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/python/"
                 />
     <xhtml:link
                 rel="alternate"

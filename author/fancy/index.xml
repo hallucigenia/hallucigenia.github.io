@@ -16,7 +16,7 @@
       <pubDate>Thu, 13 Feb 2020 22:40:20 +0800</pubDate>
       
       <guid>https://bbyy.io/article/support-and-discussions/</guid>
-      <description>舊文檔遷移中。。。</description>
+      <description>舊文檔遷移中</description>
     </item>
     
     <item>
@@ -26,6 +26,15 @@
       
       <guid>https://bbyy.io/gallery/gallery-test/</guid>
       <description>照片牆測試</description>
+    </item>
+    
+    <item>
+      <title>Gunicorn Supervisor Deploy</title>
+      <link>https://bbyy.io/code/gunicorn-supervisor-deploy/</link>
+      <pubDate>Tue, 19 Nov 2019 16:53:48 +0800</pubDate>
+      
+      <guid>https://bbyy.io/code/gunicorn-supervisor-deploy/</guid>
+      <description>&lt;p&gt;服務器部署 Pipenv + Gunicorn + Supervisor + Flask 項目標準化流程&lt;/p&gt;</description>
     </item>
     
   </channel>
