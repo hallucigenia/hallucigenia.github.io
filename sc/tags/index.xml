@@ -5,9 +5,37 @@
     <link>https://bbyy.io/sc/tags/</link>
     <description>Recent content in Tags on 方的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 19 Nov 2019 16:53:48 +0800</lastBuildDate>
     
 	<atom:link href="https://bbyy.io/sc/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gunicorn</title>
+      <link>https://bbyy.io/sc/tags/gunicorn/</link>
+      <pubDate>Tue, 19 Nov 2019 16:53:48 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/tags/gunicorn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://bbyy.io/sc/tags/python/</link>
+      <pubDate>Tue, 19 Nov 2019 16:53:48 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Supervisor</title>
+      <link>https://bbyy.io/sc/tags/supervisor/</link>
+      <pubDate>Tue, 19 Nov 2019 16:53:48 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/tags/supervisor/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

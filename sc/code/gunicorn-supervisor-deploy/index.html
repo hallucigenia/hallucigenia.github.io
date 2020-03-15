@@ -1,0 +1,460 @@
+<!doctype html>
+<html class="no-js" lang="sc">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Fancy">
+    <meta name="description" content="Bilberry Premium Theme for Hugo.">
+    <meta name="keywords" content="blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts">
+    <meta name="generator" content="Hugo 0.67.0" />
+    <title> Gunicorn Supervisor Deploy | 方的个人博客</title>
+    <meta name="description" content="Gunicorn Supervisor Deploy - Bilberry Premium Theme for Hugo.">
+    <meta itemprop="name" content="Gunicorn Supervisor Deploy">
+    <meta itemprop="description" content="Gunicorn Supervisor Deploy - Bilberry Premium Theme for Hugo.">
+    <meta property="og:title" content="Gunicorn Supervisor Deploy">
+    <meta property="og:description" content="Gunicorn Supervisor Deploy - Bilberry Premium Theme for Hugo.">
+    <meta property="og:image" content="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?size=200">
+    <meta property="og:url" content="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">
+    <meta property="og:site_name" content="方的个人博客">
+    <meta property="og:type" content="article">
+
+    
+
+
+    
+    <link href="/sc/code/gunicorn-supervisor-deploy/" rel="alternate" type="application/rss+xml" title="方的个人博客" />
+    <link href="/sc/code/gunicorn-supervisor-deploy/" rel="feed" type="application/rss+xml" title="方的个人博客" />
+    
+
+    
+
+    <link rel="stylesheet" href="https://bbyy.io/theme.css">
+
+    
+
+    
+    
+    
+</head>
+
+<body class="bilberry-hugo-theme">
+
+    
+    <nav class="permanentTopNav sticky">
+
+    <div class="container">
+        <ul class="topnav">
+            
+            
+            <li><a href="https://bbyy.io/sc/page/about-me/">关于本人</a></li>
+            
+            
+            
+            <li><a href="https://github.com/hallucigenia" target="_blank">Github</a></li>
+            
+            
+        </ul>
+
+        
+        <div id="search-box" class="search">
+            <i class="fas fa-search"></i>
+            <input id="search" type="text" placeholder="">
+        </div>
+        
+    </div>
+</nav>
+
+
+    
+<header class="sticky">
+
+    <div class="container">
+        <div class="logo">
+            <a id="siteBaseUrl" href="/sc" class="logo">
+                
+                <img src="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?d=mm&size=200" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a
+                    href="/sc">方的个人博客</a></h3>
+            
+            <span class="subtitle">你好，这是我的博客</span>
+            
+        </div>
+
+        <div class="languages">
+        
+            
+                <a href="https://bbyy.io/">tc</a>
+            
+        
+            
+                <a href="https://bbyy.io/sc/" class="active">sc</a>
+            
+        
+            
+                <a href="https://bbyy.io/en/">en</a>
+            
+        
+        </div>
+        
+
+        
+        <div class="toggler permanentTopNav">
+            
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+</header>
+
+
+    <div class="main container">
+        
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">
+    <i class="fas fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title"><a href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">Gunicorn Supervisor Deploy</a></h1>
+    <div class="meta">
+        
+        
+        <span class="date moment">2019-11-19</span>
+        
+        
+
+        
+
+        
+        <span class="categories">
+            
+                
+                <a href="https://bbyy.io/sc/categories/code/">Code</a>
+                
+            
+        </span>
+        
+
+        
+        <span class="author">
+            
+            <a href="https://bbyy.io/sc/author/fancy/">Fancy</a>
+            
+        </span>
+        
+    </div>
+
+    
+    <p>服务器部署 Pipenv + Gunicorn + Supervisor + Flask 项目标准化流程</p>
+<h1 id="基本部署">基本部署</h1>
+<ul>
+<li>项目clone</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://<span style="color:#f92672">[</span>your project<span style="color:#f92672">]</span>.git 
+$ cd <span style="color:#f92672">[</span>your project<span style="color:#f92672">]</span>
+</code></pre></div><ul>
+<li>[非pipenv]pip 和 env 环境安装</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ virtualenv --no-site-packages -p /usr/bin/python3 venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+</code></pre></div><ul>
+<li>[pipenv]环境安装</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pipenv install
+$ pipenv shell
+</code></pre></div><ul>
+<li>可选（环境设置）</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ export FLASK_CONFIG<span style="color:#f92672">=</span>development <span style="color:#75715e"># 开发环境</span>
+$ export FLASK_CONFIG<span style="color:#f92672">=</span>production <span style="color:#75715e"># 开发环境</span>
+$ export FLASK_CONFIG<span style="color:#f92672">=</span>testing <span style="color:#75715e"># 测试环境（默认）</span>
+</code></pre></div><ul>
+<li>WSGI测试</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ flask run
+</code></pre></div><p>wsgi部署结束，确认无报错可进行Gunicorn部署</p>
+<h3 id="gunicorn-部署pip包安装方式">Gunicorn 部署（pip包安装方式）</h3>
+<ul>
+<li>Gunicorn 启动测试</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gunicorn -w <span style="color:#ae81ff">4</span> -b 127.0.0.1:7878 wsgi:app <span style="color:#75715e"># 4核心 7878端口</span>
+</code></pre></div><p>gunicorn部署结束，确认无报错可进行supervisor部署</p>
+<h3 id="supervisor-部署">Supervisor 部署</h3>
+<ul>
+<li>下一步安装 superviosor( Centos RHEL Fedora 发行版问题诸多，<code>强烈不推荐</code>使用pip 安装)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo yum install supervisor <span style="color:#75715e"># RadHat</span>
+$ sudo brew install suepervisor <span style="color:#75715e"># Darwin</span>
+$ sudo apt install suepervisor <span style="color:#75715e"># Debian</span> 
+$ sudo pacman -S supervisor <span style="color:#75715e"># Arch</span>
+...
+</code></pre></div><ul>
+<li>Supervisor 生成配置文件</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir /etc/supervisor
+$ echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf
+</code></pre></div><ul>
+<li>
+<p><code>sudo vim /etc/supervisor/supervisord.conf</code></p>
+<ul>
+<li>(可选) 开启介面控制</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a6e22e">[inet_http_server]      </span>
+<span style="color:#a6e22e">port</span><span style="color:#f92672">=</span><span style="color:#e6db74">0.0.0.0:9001        </span>
+<span style="color:#a6e22e">username</span><span style="color:#f92672">=</span><span style="color:#e6db74">user            </span>
+<span style="color:#a6e22e">password</span><span style="color:#f92672">=</span><span style="color:#e6db74">123  </span>
+</code></pre></div><ul>
+<li>配置编码(部分模块如Click ，不进行编码设置则会报错，建议设置)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[supervisord]</span>
+<span style="color:#a6e22e">...</span>
+<span style="color:#a6e22e">environment</span><span style="color:#f92672">=</span><span style="color:#e6db74">LC_ALL=&#39;en_US.UTF-8&#39;,LANG=&#39;en_US.UTF-8&#39;</span>
+</code></pre></div><ul>
+<li>修改include</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[include]</span>
+<span style="color:#a6e22e">files</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/etc/supervisor/conf.d/*.conf</span>
+</code></pre></div></li>
+<li>
+<p><code>sudo vim /etc/supervisor/conf.d/vulnerabilitymanagement.conf</code></p>
+<ul>
+<li><code>/home/fancy/请修改为项目实际路径</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[program:test_project]</span>
+<span style="color:#75715e">;command=pipenv run gunicorn -w 4 -b 0.0.0.0:8686 wsgi:wsgi # pipenv模式</span>
+<span style="color:#a6e22e">command</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/[your project path]/venv/bin/gunicorn -w 4 -b 0.0.0.0:8778 wsgi:app</span>
+<span style="color:#a6e22e">directory</span><span style="color:#f92672">=</span><span style="color:#e6db74">/[your project path]</span>
+<span style="color:#a6e22e">user</span><span style="color:#f92672">=</span><span style="color:#e6db74">root</span>
+<span style="color:#a6e22e">autostart</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+<span style="color:#a6e22e">stopasgroup</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+<span style="color:#a6e22e">killasgroup</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+<span style="color:#a6e22e">stderr_logfile</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/[your project log path]/stderr.log</span>
+<span style="color:#a6e22e">stdout_logfile</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/[your project log path]/stdout.log</span>
+</code></pre></div></li>
+<li>
+<p>重启并启动supervisor</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo systemctl enable supervisord <span style="color:#75715e"># 开机启动</span>
+$ sudo systemctl start supervisord <span style="color:#75715e"># 启动</span>
+$ sudo supervisorctl reload <span style="color:#75715e"># 重启客户端</span>
+$ sudo supervisorctl test_project start <span style="color:#75715e"># 启动项目</span>
+</code></pre></div></li>
+</ul>
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                
+                <a href="https://bbyy.io/sc/tags/gunicorn/">Gunicorn</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/supervisor/">Supervisor</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/python/">Python</a>
+                
+                
+            </div>
+        </div>
+    
+
+    
+    <div class="languages">
+        <i class="fa fa-language"></i>
+        <div class="links">
+            
+                <a href="https://bbyy.io/code/gunicorn-supervisor-deploy/">tc</a>
+            
+        </div>
+    </div>
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hallucigenia" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+     
+
+    </div>
+
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong></strong>
+            <ul>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">Gunicorn Supervisor Deploy</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/quote/xing-you-bu-de/">人來人往 - 林夕</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="/sc/categories/"><strong></strong></a>
+            <ul>
+                
+                <li>
+                    <a href="/sc/categories/code">Code
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/sc/categories/%E5%AD%9F%E5%AD%90">孟子
+                        (1)</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong></strong>
+
+                
+                <a href="https://twitter.com/_fancyan" target="_blank"><i class="fab fa-twitter"></i></a>
+                
+                <a href="https://www.instagram.com/monophoton" target="_blank"><i class="fab fa-instagram"></i></a>
+                
+                <a href="https://github.com/hallucigenia" target="_blank"><i class="fab fa-github"></i></a>
+                
+            </div>
+            
+
+            <div class="languages">
+                <strong></strong>
+                
+                
+                <a href="https://bbyy.io/">tc</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/" class="active">sc</a>
+                
+                
+                
+                <a href="https://bbyy.io/en/">en</a>
+                
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/hallucigenia/hallucigenia.github.io" target="_blank">
+                &copy;
+                
+                2020
+                
+                by Fancy
+            </a>
+            
+        </div>
+        <div class="author">
+            <a href="https://bbyy.io"
+                target="_blank">Fancy&#39;s Blog</a>
+        </div>
+    </div>
+</div>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-160694437-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+
+    <script type="text/javascript" src="https://bbyy.io/theme.js"></script>
+
+    
+    
+    
+
+    
+    <div id="activate-algolia-search" class="hidden">
+  <input type="hidden" id="algolia-search-appId" value="8JWRQ9KNXC">
+  <input type="hidden" id="algolia-search-apiKey" value="0f05c447096335c55a457fe4cfaae96a">
+  <input type="hidden" id="algolia-search-indexName" value="grimalog">
+  <input type="hidden" id="algolia-search-noSearchResults" value="">
+
+  
+</div>
+
+    
+
+
+</body>
+
+</html>

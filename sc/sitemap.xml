@@ -63,23 +63,8 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/sc/page/github/</loc>
-    <lastmod>2017-11-01T13:17:56+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/page/github/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/page/github/"
-                />
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/sc/author/</loc>
-    <lastmod>2016-12-01T14:40:32+08:00</lastmod>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -99,7 +84,7 @@
   
   <url>
     <loc>https://bbyy.io/sc/categories/</loc>
-    <lastmod>2016-12-01T14:40:32+08:00</lastmod>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -114,6 +99,156 @@
                 rel="alternate"
                 hreflang="sc"
                 href="https://bbyy.io/sc/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/categories/code/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/code/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/categories/code/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/code/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/author/fancy/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/author/fancy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/author/fancy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/author/fancy/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/tags/gunicorn/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/gunicorn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/gunicorn/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/code/gunicorn-supervisor-deploy/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/gunicorn-supervisor-deploy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/tags/python/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/python/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/tags/supervisor/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/supervisor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/supervisor/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/tags/</loc>
+    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/page/github/</loc>
+    <lastmod>2017-11-01T13:17:56+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/page/github/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/page/github/"
                 />
   </url>
   
@@ -150,25 +285,6 @@
   <url>
     <loc>https://bbyy.io/sc/author/%E5%AD%9F%E5%AD%90%E7%A6%BB%E5%A8%84%E4%B8%8A/</loc>
     <lastmod>2016-12-01T14:40:32+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/sc/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/tags/"
-                />
   </url>
   
 </urlset>
