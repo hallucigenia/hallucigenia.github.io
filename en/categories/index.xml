@@ -5,19 +5,10 @@
     <link>https://bbyy.io/en/categories/</link>
     <description>Recent content in Categories on Fancy&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 07 Feb 2020 09:15:08 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jan 2020 21:20:56 +0800</lastBuildDate>
     
 	<atom:link href="https://bbyy.io/en/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Music</title>
-      <link>https://bbyy.io/en/categories/music/</link>
-      <pubDate>Fri, 07 Feb 2020 09:15:08 +0800</pubDate>
-      
-      <guid>https://bbyy.io/en/categories/music/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Holidays</title>
@@ -34,6 +25,15 @@
       <pubDate>Mon, 06 Jan 2020 21:20:56 +0800</pubDate>
       
       <guid>https://bbyy.io/en/categories/travelling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Music</title>
+      <link>https://bbyy.io/en/categories/music/</link>
+      <pubDate>Thu, 02 Jan 2020 09:15:08 +0800</pubDate>
+      
+      <guid>https://bbyy.io/en/categories/music/</guid>
       <description></description>
     </item>
     

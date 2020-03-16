@@ -5,62 +5,26 @@
     <link>https://bbyy.io/tags/</link>
     <description>Recent content in Tags on Fancy‘s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 13 Feb 2020 22:40:20 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2020 15:40:01 +0800</lastBuildDate>
     
 	<atom:link href="https://bbyy.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Code</title>
-      <link>https://bbyy.io/tags/code/</link>
-      <pubDate>Thu, 13 Feb 2020 22:40:20 +0800</pubDate>
+      <title>Debug</title>
+      <link>https://bbyy.io/tags/debug/</link>
+      <pubDate>Thu, 20 Feb 2020 15:40:01 +0800</pubDate>
       
-      <guid>https://bbyy.io/tags/code/</guid>
+      <guid>https://bbyy.io/tags/debug/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
       <link>https://bbyy.io/tags/python/</link>
-      <pubDate>Thu, 13 Feb 2020 22:40:20 +0800</pubDate>
+      <pubDate>Thu, 20 Feb 2020 15:40:01 +0800</pubDate>
       
       <guid>https://bbyy.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SQLAlchemy</title>
-      <link>https://bbyy.io/tags/sqlalchemy/</link>
-      <pubDate>Thu, 13 Feb 2020 22:40:20 +0800</pubDate>
-      
-      <guid>https://bbyy.io/tags/sqlalchemy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Excel</title>
-      <link>https://bbyy.io/tags/excel/</link>
-      <pubDate>Wed, 12 Feb 2020 17:32:24 +0800</pubDate>
-      
-      <guid>https://bbyy.io/tags/excel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Openpyxl</title>
-      <link>https://bbyy.io/tags/openpyxl/</link>
-      <pubDate>Wed, 12 Feb 2020 17:32:24 +0800</pubDate>
-      
-      <guid>https://bbyy.io/tags/openpyxl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>張國榮</title>
-      <link>https://bbyy.io/tags/%E5%BC%B5%E5%9C%8B%E6%A6%AE/</link>
-      <pubDate>Fri, 07 Feb 2020 09:15:08 +0800</pubDate>
-      
-      <guid>https://bbyy.io/tags/%E5%BC%B5%E5%9C%8B%E6%A6%AE/</guid>
       <description></description>
     </item>
     
@@ -92,6 +56,51 @@
     </item>
     
     <item>
+      <title>Excel</title>
+      <link>https://bbyy.io/tags/excel/</link>
+      <pubDate>Sun, 05 Jan 2020 17:32:24 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/excel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Openpyxl</title>
+      <link>https://bbyy.io/tags/openpyxl/</link>
+      <pubDate>Sun, 05 Jan 2020 17:32:24 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/openpyxl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>張國榮</title>
+      <link>https://bbyy.io/tags/%E5%BC%B5%E5%9C%8B%E6%A6%AE/</link>
+      <pubDate>Thu, 02 Jan 2020 09:15:08 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/%E5%BC%B5%E5%9C%8B%E6%A6%AE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gunicorn</title>
+      <link>https://bbyy.io/tags/gunicorn/</link>
+      <pubDate>Wed, 25 Dec 2019 16:53:48 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/gunicorn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Supervisor</title>
+      <link>https://bbyy.io/tags/supervisor/</link>
+      <pubDate>Wed, 25 Dec 2019 16:53:48 +0800</pubDate>
+      
+      <guid>https://bbyy.io/tags/supervisor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>search engine</title>
       <link>https://bbyy.io/tags/search-engine/</link>
       <pubDate>Sat, 21 Dec 2019 09:07:11 +0800</pubDate>
@@ -106,24 +115,6 @@
       <pubDate>Sun, 08 Dec 2019 19:14:02 +0800</pubDate>
       
       <guid>https://bbyy.io/tags/the-hdr-channel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gunicorn</title>
-      <link>https://bbyy.io/tags/gunicorn/</link>
-      <pubDate>Tue, 19 Nov 2019 16:53:48 +0800</pubDate>
-      
-      <guid>https://bbyy.io/tags/gunicorn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Supervisor</title>
-      <link>https://bbyy.io/tags/supervisor/</link>
-      <pubDate>Tue, 19 Nov 2019 16:53:48 +0800</pubDate>
-      
-      <guid>https://bbyy.io/tags/supervisor/</guid>
       <description></description>
     </item>
     

@@ -63,28 +63,8 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/article/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/article/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/article/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/article/"
-                />
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/author/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <lastmod>2020-02-20T15:40:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -104,7 +84,7 @@
   
   <url>
     <loc>https://bbyy.io/categories/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <lastmod>2020-02-20T15:40:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -123,23 +103,8 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/tags/code/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/tags/code/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/code/"
-                />
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/categories/code/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <lastmod>2020-02-20T15:40:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -153,8 +118,38 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/code/</loc>
+    <lastmod>2020-02-20T15:40:01+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/debug/</loc>
+    <lastmod>2020-02-20T15:40:01+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/debug/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/debug/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/author/fancy/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <lastmod>2020-02-20T15:40:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -174,7 +169,7 @@
   
   <url>
     <loc>https://bbyy.io/tags/python/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <lastmod>2020-02-20T15:40:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -193,23 +188,23 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/tags/sqlalchemy/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <loc>https://bbyy.io/code/getting-started-gdb/</loc>
+    <lastmod>2020-02-20T15:40:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/tags/sqlalchemy/"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/getting-started-gdb/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://bbyy.io/tags/sqlalchemy/"
+                href="https://bbyy.io/code/getting-started-gdb/"
                 />
   </url>
   
   <url>
     <loc>https://bbyy.io/tags/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <lastmod>2020-02-20T15:40:01+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -224,131 +219,6 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/article/support-and-discussions/</loc>
-    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/article/support-and-discussions/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/article/support-and-discussions/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/code/</loc>
-    <lastmod>2020-02-12T17:32:24+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/code/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/code/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/tags/excel/</loc>
-    <lastmod>2020-02-12T17:32:24+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/tags/excel/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/excel/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/tags/openpyxl/</loc>
-    <lastmod>2020-02-12T17:32:24+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/tags/openpyxl/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/openpyxl/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/code/openpyxl/</loc>
-    <lastmod>2020-02-12T17:32:24+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/code/openpyxl/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/code/openpyxl/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/audio/</loc>
-    <lastmod>2020-02-07T09:15:08+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/audio/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/audio/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/categories/music/</loc>
-    <lastmod>2020-02-07T09:15:08+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/categories/music/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/categories/music/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/tags/%E5%BC%B5%E5%9C%8B%E6%A6%AE/</loc>
-    <lastmod>2020-02-07T09:15:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/audio/you-xin-ren/</loc>
-    <lastmod>2020-02-07T09:15:08+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/audio/you-xin-ren/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/audio/you-xin-ren/"
                 />
   </url>
   
@@ -459,6 +329,146 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/tags/excel/</loc>
+    <lastmod>2020-01-05T17:32:24+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/excel/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/excel/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/openpyxl/</loc>
+    <lastmod>2020-01-05T17:32:24+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/openpyxl/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/openpyxl/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/code/openpyxl/</loc>
+    <lastmod>2020-01-05T17:32:24+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/openpyxl/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/openpyxl/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/audio/</loc>
+    <lastmod>2020-01-02T09:15:08+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/audio/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/audio/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/categories/music/</loc>
+    <lastmod>2020-01-02T09:15:08+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/categories/music/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/music/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/%E5%BC%B5%E5%9C%8B%E6%A6%AE/</loc>
+    <lastmod>2020-01-02T09:15:08+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/audio/you-xin-ren/</loc>
+    <lastmod>2020-01-02T09:15:08+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/audio/you-xin-ren/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/audio/you-xin-ren/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/gunicorn/</loc>
+    <lastmod>2019-12-25T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/gunicorn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/gunicorn/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/code/gunicorn-supervisor-deploy/</loc>
+    <lastmod>2019-12-25T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/gunicorn-supervisor-deploy/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/supervisor/</loc>
+    <lastmod>2019-12-25T16:53:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/supervisor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/supervisor/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/link/</loc>
     <lastmod>2019-12-21T09:07:11+08:00</lastmod>
   </url>
@@ -549,47 +559,22 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/tags/gunicorn/</loc>
-    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
+    <loc>https://bbyy.io/article/</loc>
+    <lastmod>2018-11-26T13:07:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
-                href="https://bbyy.io/sc/tags/gunicorn/"
+                href="https://bbyy.io/sc/article/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/article/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://bbyy.io/tags/gunicorn/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/code/gunicorn-supervisor-deploy/</loc>
-    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/code/gunicorn-supervisor-deploy/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/tags/supervisor/</loc>
-    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/tags/supervisor/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/supervisor/"
+                href="https://bbyy.io/article/"
                 />
   </url>
   

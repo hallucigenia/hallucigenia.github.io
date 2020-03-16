@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>方的技术博客</title>
+    <title>Fancy‘s Technology Blog</title>
     <link>https://bbyy.io/sc/</link>
-    <description>Recent content on 方的技术博客</description>
+    <description>Recent content on Fancy‘s Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 13 Mar 2020 10:18:45 +0800</lastBuildDate>
     
@@ -12,7 +12,7 @@
     <item>
       <title>Codes</title>
       <link>https://bbyy.io/sc/code/</link>
-      <pubDate>Wed, 12 Feb 2020 17:32:24 +0800</pubDate>
+      <pubDate>Thu, 20 Feb 2020 15:40:01 +0800</pubDate>
       
       <guid>https://bbyy.io/sc/code/</guid>
       <description></description>

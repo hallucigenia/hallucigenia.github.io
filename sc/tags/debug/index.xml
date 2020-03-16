@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debug on Fancy‘s Technology Blog</title>
+    <link>https://bbyy.io/sc/tags/debug/</link>
+    <description>Recent content in Debug on Fancy‘s Technology Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 20 Feb 2020 15:40:01 +0800</lastBuildDate>
+    
+	<atom:link href="https://bbyy.io/sc/tags/debug/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python标准库 —— pdb调试工具使用</title>
+      <link>https://bbyy.io/sc/code/getting-started-gdb/</link>
+      <pubDate>Thu, 20 Feb 2020 15:40:01 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/code/getting-started-gdb/</guid>
+      <description>&lt;p&gt;日常DEBUG中，我常用traceback以及Pycharm的无脑断点调试，直到有一天线上在高并发下，僵尸进程暴涨导致卡死，无法精准的定位某些异常时，掌握Python3自带的pdb标准库或ipdb进行单步调试就显得十分必要。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

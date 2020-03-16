@@ -105,16 +105,6 @@
   <url>
     <loc>https://bbyy.io/en/tags/code/</loc>
     <lastmod>2020-02-13T22:40:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/code/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/tags/code/"
-                />
   </url>
   
   <url>
@@ -160,31 +150,11 @@
   <url>
     <loc>https://bbyy.io/en/tags/sqlalchemy/</loc>
     <lastmod>2020-02-13T22:40:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/sqlalchemy/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/tags/sqlalchemy/"
-                />
   </url>
   
   <url>
-    <loc>https://bbyy.io/en/article/support-and-discussions/</loc>
+    <loc>https://bbyy.io/en/article/sqlalchemy-add-page/</loc>
     <lastmod>2020-02-13T22:40:20+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/article/support-and-discussions/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/article/support-and-discussions/"
-                />
   </url>
   
   <url>
@@ -204,81 +174,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/en/audio/</loc>
-    <lastmod>2020-02-07T09:15:08+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/audio/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/audio/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/en/categories/</loc>
-    <lastmod>2020-02-07T09:15:08+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/categories/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/en/tags/leslie/</loc>
-    <lastmod>2020-02-07T09:15:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/en/tags/lossless/</loc>
-    <lastmod>2020-02-07T09:15:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/en/categories/music/</loc>
-    <lastmod>2020-02-07T09:15:08+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/categories/music/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/categories/music/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/en/audio/you-xin-ren/</loc>
-    <lastmod>2020-02-07T09:15:08+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/audio/you-xin-ren/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/audio/you-xin-ren/"
                 />
   </url>
   
@@ -309,6 +204,26 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/tags/canton/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/en/categories/</loc>
+    <lastmod>2020-01-06T21:20:56+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/categories/"
                 />
   </url>
   
@@ -389,6 +304,61 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/categories/travelling/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/en/audio/</loc>
+    <lastmod>2020-01-02T09:15:08+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/audio/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/audio/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/en/tags/leslie/</loc>
+    <lastmod>2020-01-02T09:15:08+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/en/tags/lossless/</loc>
+    <lastmod>2020-01-02T09:15:08+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/en/categories/music/</loc>
+    <lastmod>2020-01-02T09:15:08+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/music/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/categories/music/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/en/audio/you-xin-ren/</loc>
+    <lastmod>2020-01-02T09:15:08+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/audio/you-xin-ren/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/audio/you-xin-ren/"
                 />
   </url>
   

@@ -5,7 +5,7 @@
     <link>https://bbyy.io/tags/excel/</link>
     <description>Recent content in Excel on Fancy‘s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 12 Feb 2020 17:32:24 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2020 17:32:24 +0800</lastBuildDate>
     
 	<atom:link href="https://bbyy.io/tags/excel/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +13,7 @@
     <item>
       <title>Openpyxl使用 —— Python操作Excel文件總結</title>
       <link>https://bbyy.io/code/openpyxl/</link>
-      <pubDate>Wed, 12 Feb 2020 17:32:24 +0800</pubDate>
+      <pubDate>Sun, 05 Jan 2020 17:32:24 +0800</pubDate>
       
       <guid>https://bbyy.io/code/openpyxl/</guid>
       <description>&lt;p&gt;本文將基本操作結合工作中常用的代碼塊提煉作為進階，期望能帶來更多啟發&lt;/p&gt;</description>

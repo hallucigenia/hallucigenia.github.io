@@ -8,7 +8,7 @@
     <meta name="description" content="Bilberry Premium Theme for Hugo.">
     <meta name="keywords" content="blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts">
     <meta name="generator" content="Hugo 0.67.0" />
-    <title> Fancy | 方的技术博客</title>
+    <title> Fancy | Fancy‘s Technology Blog</title>
     <meta name="description" content="Fancy - Bilberry Premium Theme for Hugo.">
     <meta itemprop="name" content="Fancy">
     <meta itemprop="description" content="Fancy - Bilberry Premium Theme for Hugo.">
@@ -16,7 +16,7 @@
     <meta property="og:description" content="Fancy - Bilberry Premium Theme for Hugo.">
     <meta property="og:image" content="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?size=200">
     <meta property="og:url" content="https://bbyy.io/sc/author/fancy/">
-    <meta property="og:site_name" content="方的技术博客"><meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fancy‘s Technology Blog"><meta property="og:type" content="website">
 
     
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -28,8 +28,8 @@
 <meta name="theme-color" content="#e2619c">
 
     
-    <link href="/sc/author/fancy/" rel="alternate" type="application/rss+xml" title="方的技术博客" />
-    <link href="/sc/author/fancy/" rel="feed" type="application/rss+xml" title="方的技术博客" />
+    <link href="/sc/author/fancy/" rel="alternate" type="application/rss+xml" title="Fancy‘s Technology Blog" />
+    <link href="/sc/author/fancy/" rel="feed" type="application/rss+xml" title="Fancy‘s Technology Blog" />
     
 
     
@@ -81,14 +81,14 @@
                 <img src="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?d=mm&size=200" alt="">
                 
 
-                <span class="overlay"><i class="fa fa-home"></i></span>
+                <span class="overlay"><i class="fa fa-tape"></i></span>
             </a>
         </div>
         <div class="titles">
             <h3 class="title"><a
-                    href="/sc">方的技术博客</a></h3>
+                    href="/sc">Fancy‘s Technology Blog</a></h3>
             
-            <span class="subtitle">你好，这是我的技术博客</span>
+            <span class="subtitle">Fancy的技术博客</span>
             
         </div>
 
@@ -124,6 +124,100 @@
     
         <div class="article-wrapper u-cf">
             
+                <a class="bubble" href="https://bbyy.io/sc/code/getting-started-gdb/">
+    <i class="fas fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://bbyy.io/sc/code/getting-started-gdb/">
+            
+                <img src="/sc/code/getting-started-gdb/featuredImage.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h1 class="article-title"><a href="https://bbyy.io/sc/code/getting-started-gdb/">Python标准库 —— pdb调试工具使用</a></h1>
+    <div class="meta">
+        
+        
+        <span class="date moment">2020-02-20</span>
+        
+        
+
+        
+
+        
+        <span class="categories">
+            
+                
+                <a href="https://bbyy.io/sc/categories/code/">Code</a>
+                
+            
+        </span>
+        
+
+        
+        <span class="author">
+            
+            <a href="https://bbyy.io/sc/author/fancy/">Fancy</a>
+            
+        </span>
+        
+    </div>
+
+    
+    <p>日常DEBUG中，我常用traceback以及Pycharm的无脑断点调试，直到有一天线上在高并发下，僵尸进程暴涨导致卡死，无法精准的定位某些异常时，掌握Python3自带的pdb标准库或ipdb进行单步调试就显得十分必要。</p>
+
+    
+    <a href="https://bbyy.io/sc/code/getting-started-gdb/" class="more"></a>
+    
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                
+                <a href="https://bbyy.io/sc/tags/debug/">Debug</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/python/">Python</a>
+                
+                
+            </div>
+        </div>
+    
+
+    
+    <div class="languages">
+        <i class="fa fa-language"></i>
+        <div class="links">
+            
+                <a href="https://bbyy.io/code/getting-started-gdb/">tc</a>
+            
+        </div>
+    </div>
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
                 <a class="bubble" href="https://bbyy.io/sc/code/openpyxl/">
     <i class="fas fa-fw fa-code"></i>
 </a>
@@ -136,7 +230,7 @@
     <div class="meta">
         
         
-        <span class="date moment">2020-02-12</span>
+        <span class="date moment">2020-01-05</span>
         
         
 
@@ -226,7 +320,7 @@
     <div class="meta">
         
         
-        <span class="date moment">2019-11-19</span>
+        <span class="date moment">2019-12-25</span>
         
         
 
@@ -253,10 +347,100 @@
 
     
     <p>服务器部署 Pipenv + Gunicorn + Supervisor + Flask 项目标准化流程</p>
-
-    
-    <a href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/" class="more"></a>
-    
+<h1 id="基本部署">基本部署</h1>
+<ul>
+<li>项目clone</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://<span style="color:#f92672">[</span>your project<span style="color:#f92672">]</span>.git 
+$ cd <span style="color:#f92672">[</span>your project<span style="color:#f92672">]</span>
+</code></pre></div><ul>
+<li>[非pipenv]pip 和 env 环境安装</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ virtualenv --no-site-packages -p /usr/bin/python3 venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+</code></pre></div><ul>
+<li>[pipenv]环境安装</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pipenv install
+$ pipenv shell
+</code></pre></div><ul>
+<li>可选（环境设置）</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ export FLASK_CONFIG<span style="color:#f92672">=</span>development <span style="color:#75715e"># 开发环境</span>
+$ export FLASK_CONFIG<span style="color:#f92672">=</span>production <span style="color:#75715e"># 开发环境</span>
+$ export FLASK_CONFIG<span style="color:#f92672">=</span>testing <span style="color:#75715e"># 测试环境（默认）</span>
+</code></pre></div><ul>
+<li>WSGI测试</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ flask run
+</code></pre></div><p>wsgi部署结束，确认无报错可进行Gunicorn部署</p>
+<h3 id="gunicorn-部署pip包安装方式">Gunicorn 部署（pip包安装方式）</h3>
+<ul>
+<li>Gunicorn 启动测试</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gunicorn -w <span style="color:#ae81ff">4</span> -b 127.0.0.1:7878 wsgi:app <span style="color:#75715e"># 4核心 7878端口</span>
+</code></pre></div><p>gunicorn部署结束，确认无报错可进行supervisor部署</p>
+<h3 id="supervisor-部署">Supervisor 部署</h3>
+<ul>
+<li>下一步安装 superviosor( Centos RHEL Fedora 发行版问题诸多，<code>强烈不推荐</code>使用pip 安装)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo yum install supervisor <span style="color:#75715e"># RadHat</span>
+$ sudo brew install suepervisor <span style="color:#75715e"># Darwin</span>
+$ sudo apt install suepervisor <span style="color:#75715e"># Debian</span> 
+$ sudo pacman -S supervisor <span style="color:#75715e"># Arch</span>
+...
+</code></pre></div><ul>
+<li>Supervisor 生成配置文件</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir /etc/supervisor
+$ echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf
+</code></pre></div><ul>
+<li>
+<p><code>sudo vim /etc/supervisor/supervisord.conf</code></p>
+<ul>
+<li>(可选) 开启介面控制</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a6e22e">[inet_http_server]      </span>
+<span style="color:#a6e22e">port</span><span style="color:#f92672">=</span><span style="color:#e6db74">0.0.0.0:9001        </span>
+<span style="color:#a6e22e">username</span><span style="color:#f92672">=</span><span style="color:#e6db74">user            </span>
+<span style="color:#a6e22e">password</span><span style="color:#f92672">=</span><span style="color:#e6db74">123  </span>
+</code></pre></div><ul>
+<li>配置编码(部分模块如Click ，不进行编码设置则会报错，建议设置)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[supervisord]</span>
+<span style="color:#a6e22e">...</span>
+<span style="color:#a6e22e">environment</span><span style="color:#f92672">=</span><span style="color:#e6db74">LC_ALL=&#39;en_US.UTF-8&#39;,LANG=&#39;en_US.UTF-8&#39;</span>
+</code></pre></div><ul>
+<li>修改include</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[include]</span>
+<span style="color:#a6e22e">files</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/etc/supervisor/conf.d/*.conf</span>
+</code></pre></div></li>
+<li>
+<p><code>sudo vim /etc/supervisor/conf.d/vulnerabilitymanagement.conf</code></p>
+<ul>
+<li><code>/home/fancy/请修改为项目实际路径</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[program:test_project]</span>
+<span style="color:#75715e">;command=pipenv run gunicorn -w 4 -b 0.0.0.0:8686 wsgi:wsgi # pipenv模式</span>
+<span style="color:#a6e22e">command</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/[your project path]/venv/bin/gunicorn -w 4 -b 0.0.0.0:8778 wsgi:app</span>
+<span style="color:#a6e22e">directory</span><span style="color:#f92672">=</span><span style="color:#e6db74">/[your project path]</span>
+<span style="color:#a6e22e">user</span><span style="color:#f92672">=</span><span style="color:#e6db74">root</span>
+<span style="color:#a6e22e">autostart</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+<span style="color:#a6e22e">stopasgroup</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+<span style="color:#a6e22e">killasgroup</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+<span style="color:#a6e22e">stderr_logfile</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/[your project log path]/stderr.log</span>
+<span style="color:#a6e22e">stdout_logfile</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/[your project log path]/stdout.log</span>
+</code></pre></div></li>
+<li>
+<p>重启并启动supervisor</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo systemctl enable supervisord <span style="color:#75715e"># 开机启动</span>
+$ sudo systemctl start supervisord <span style="color:#75715e"># 启动</span>
+$ sudo supervisorctl reload <span style="color:#75715e"># 重启客户端</span>
+$ sudo supervisorctl test_project start <span style="color:#75715e"># 启动项目</span>
+</code></pre></div></li>
+</ul>
     
 </div>
 
@@ -422,6 +606,10 @@
             <ul>
                 
                 <li>
+                    <a href="https://bbyy.io/sc/code/getting-started-gdb/">Python标准库 —— pdb调试工具使用</a>
+                </li>
+                
+                <li>
                     <a href="https://bbyy.io/sc/code/openpyxl/">Openpyxl使用 —— Python操作Excel文件总结</a>
                 </li>
                 
@@ -448,7 +636,7 @@
                 
                 <li>
                     <a href="/sc/categories/code">Code
-                        (3)</a>
+                        (4)</a>
                 </li>
                 
                 <li>
@@ -547,6 +735,8 @@ if (!doNotTrack) {
   <input type="hidden" id="algolia-search-indexName" value="grimalog">
   <input type="hidden" id="algolia-search-noSearchResults" value="">
 
+  
+  <input type="hidden" id="algolia-search-currentLanguageOnly">
   
 </div>
 
