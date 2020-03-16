@@ -5,10 +5,28 @@
     <link>https://bbyy.io/categories/code/</link>
     <description>Recent content in Code on Fancy‘s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 19 Nov 2019 16:53:48 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2020 22:40:20 +0800</lastBuildDate>
     
 	<atom:link href="https://bbyy.io/categories/code/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>為 SqlAlchemy 添加分頁邏輯</title>
+      <link>https://bbyy.io/article/support-and-discussions/</link>
+      <pubDate>Thu, 13 Feb 2020 22:40:20 +0800</pubDate>
+      
+      <guid>https://bbyy.io/article/support-and-discussions/</guid>
+      <description>舊文檔遷移中</description>
+    </item>
+    
+    <item>
+      <title>Openpyxl使用 —— Python操作Excel文件總結</title>
+      <link>https://bbyy.io/code/openpyxl/</link>
+      <pubDate>Wed, 12 Feb 2020 17:32:24 +0800</pubDate>
+      
+      <guid>https://bbyy.io/code/openpyxl/</guid>
+      <description>&lt;p&gt;本文將基本操作結合工作中常用的代碼塊提煉作為進階，期望能帶來更多啟發&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Gunicorn Supervisor Deploy</title>
@@ -17,6 +35,15 @@
       
       <guid>https://bbyy.io/code/gunicorn-supervisor-deploy/</guid>
       <description>&lt;p&gt;服務器部署 Pipenv + Gunicorn + Supervisor + Flask 項目標準化流程&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用Flask創建微信公眾號</title>
+      <link>https://bbyy.io/article/flask-wechat-official-accounts/</link>
+      <pubDate>Mon, 26 Nov 2018 13:07:13 +0800</pubDate>
+      
+      <guid>https://bbyy.io/article/flask-wechat-official-accounts/</guid>
+      <description>&lt;p&gt;基於Flask搭建微信公眾號後台&lt;/p&gt;</description>
     </item>
     
   </channel>

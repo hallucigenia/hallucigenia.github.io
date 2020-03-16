@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flask on Fancy‘s Blog</title>
+    <link>https://bbyy.io/tags/flask/</link>
+    <description>Recent content in Flask on Fancy‘s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 26 Nov 2018 13:07:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://bbyy.io/tags/flask/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Flask創建微信公眾號</title>
+      <link>https://bbyy.io/article/flask-wechat-official-accounts/</link>
+      <pubDate>Mon, 26 Nov 2018 13:07:13 +0800</pubDate>
+      
+      <guid>https://bbyy.io/article/flask-wechat-official-accounts/</guid>
+      <description>&lt;p&gt;基於Flask搭建微信公眾號後台&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

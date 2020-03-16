@@ -19,5 +19,14 @@
       <description>舊文檔遷移中</description>
     </item>
     
+    <item>
+      <title>使用Flask創建微信公眾號</title>
+      <link>https://bbyy.io/article/flask-wechat-official-accounts/</link>
+      <pubDate>Mon, 26 Nov 2018 13:07:13 +0800</pubDate>
+      
+      <guid>https://bbyy.io/article/flask-wechat-official-accounts/</guid>
+      <description>&lt;p&gt;基於Flask搭建微信公眾號後台&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

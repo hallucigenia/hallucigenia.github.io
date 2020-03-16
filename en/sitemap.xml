@@ -72,6 +72,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/article/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/article/"
                 />

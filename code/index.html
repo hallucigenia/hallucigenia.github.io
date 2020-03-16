@@ -19,7 +19,13 @@
     <meta property="og:site_name" content="Fancy‘s Blog"><meta property="og:type" content="website">
 
     
-
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e2619c">
+<meta name="msapplication-TileColor" content="#e2619c">
+<meta name="theme-color" content="#e2619c">
 
     
     <link href="/code/" rel="alternate" type="application/rss+xml" title="Fancy‘s Blog" />
@@ -78,7 +84,7 @@
             <h3 class="title"><a
                     href="/">Fancy‘s Blog</a></h3>
             
-            <span class="subtitle">方方哥的Blog</span>
+            <span class="subtitle">這是我的全內容Blog，技術Blog可移步sc語言</span>
             
         </div>
 
@@ -111,6 +117,96 @@
     <div class="main container">
         
     
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://bbyy.io/code/openpyxl/">
+    <i class="fas fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title"><a href="https://bbyy.io/code/openpyxl/">Openpyxl使用 —— Python操作Excel文件總結</a></h1>
+    <div class="meta">
+        
+        
+        <span class="date moment">2020-02-12</span>
+        
+        
+
+        
+
+        
+        <span class="categories">
+            
+                
+                <a href="https://bbyy.io/categories/code/">Code</a>
+                
+            
+        </span>
+        
+
+        
+        <span class="author">
+            
+            <a href="https://bbyy.io/author/fancy/">Fancy</a>
+            
+        </span>
+        
+    </div>
+
+    
+    <p>本文將基本操作結合工作中常用的代碼塊提煉作為進階，期望能帶來更多啟發</p>
+
+    
+    <a href="https://bbyy.io/code/openpyxl/" class="more"></a>
+    
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                
+                <a href="https://bbyy.io/tags/openpyxl/">Openpyxl</a>
+                
+                
+                
+                <a href="https://bbyy.io/tags/excel/">Excel</a>
+                
+                
+                
+                <a href="https://bbyy.io/tags/python/">Python</a>
+                
+                
+            </div>
+        </div>
+    
+
+    
+    <div class="languages">
+        <i class="fa fa-language"></i>
+        <div class="links">
+            
+                <a href="https://bbyy.io/sc/code/openpyxl/">sc</a>
+            
+        </div>
+    </div>
+    
+</div>
+
+</article>
+
+            
+        </div>
     
         <div class="article-wrapper u-cf">
             
@@ -153,100 +249,10 @@
 
     
     <p>服務器部署 Pipenv + Gunicorn + Supervisor + Flask 項目標準化流程</p>
-<h1 id="基本部署">基本部署</h1>
-<ul>
-<li>项目clone</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://<span style="color:#f92672">[</span>your project<span style="color:#f92672">]</span>.git 
-$ cd <span style="color:#f92672">[</span>your project<span style="color:#f92672">]</span>
-</code></pre></div><ul>
-<li>[非pipenv]pip 和 env 环境安装</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ virtualenv --no-site-packages -p /usr/bin/python3 venv
-$ source venv/bin/activate
-$ pip install -r requirements.txt -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
-</code></pre></div><ul>
-<li>[pipenv]环境安装</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pipenv install
-$ pipenv shell
-</code></pre></div><ul>
-<li>可选（环境设置）</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ export FLASK_CONFIG<span style="color:#f92672">=</span>development <span style="color:#75715e"># 开发环境</span>
-$ export FLASK_CONFIG<span style="color:#f92672">=</span>production <span style="color:#75715e"># 开发环境</span>
-$ export FLASK_CONFIG<span style="color:#f92672">=</span>testing <span style="color:#75715e"># 测试环境（默认）</span>
-</code></pre></div><ul>
-<li>WSGI测试</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ flask run
-</code></pre></div><p>wsgi部署結束，確認無報錯可進行Gunicorn部署</p>
-<h3 id="gunicorn-部署pip包安裝方式">Gunicorn 部署（pip包安裝方式）</h3>
-<ul>
-<li>Gunicorn 啟動測試</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gunicorn -w <span style="color:#ae81ff">4</span> -b 127.0.0.1:7878 wsgi:app <span style="color:#75715e"># 4核心 7878端口</span>
-</code></pre></div><p>gunicorn部署結束，確認無報錯可進行supervisor部署</p>
-<h3 id="supervisor-部署">Supervisor 部署</h3>
-<ul>
-<li>下一步安裝 superviosor( Centos RHEL Fedora 發行版問題諸多，<code>強烈不推薦</code>使用pip 安装)</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo yum install supervisor <span style="color:#75715e"># RadHat</span>
-$ sudo brew install suepervisor <span style="color:#75715e"># Darwin</span>
-$ sudo apt install suepervisor <span style="color:#75715e"># Debian</span> 
-$ sudo pacman -S supervisor <span style="color:#75715e"># Arch</span>
-...
-</code></pre></div><ul>
-<li>Supervisor 生成配置文件</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir /etc/supervisor
-$ echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf
-</code></pre></div><ul>
-<li>
-<p><code>sudo vim /etc/supervisor/supervisord.conf</code></p>
-<ul>
-<li>(可选) 開啟介面控制</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a6e22e">[inet_http_server]      </span>
-<span style="color:#a6e22e">port</span><span style="color:#f92672">=</span><span style="color:#e6db74">0.0.0.0:9001        </span>
-<span style="color:#a6e22e">username</span><span style="color:#f92672">=</span><span style="color:#e6db74">user            </span>
-<span style="color:#a6e22e">password</span><span style="color:#f92672">=</span><span style="color:#e6db74">123  </span>
-</code></pre></div><ul>
-<li>配置編碼(部分模塊如Click ，不進行編碼設置則會報錯，建議設置)</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[supervisord]</span>
-<span style="color:#a6e22e">...</span>
-<span style="color:#a6e22e">environment</span><span style="color:#f92672">=</span><span style="color:#e6db74">LC_ALL=&#39;en_US.UTF-8&#39;,LANG=&#39;en_US.UTF-8&#39;</span>
-</code></pre></div><ul>
-<li>修改include</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[include]</span>
-<span style="color:#a6e22e">files</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/etc/supervisor/conf.d/*.conf</span>
-</code></pre></div></li>
-<li>
-<p><code>sudo vim /etc/supervisor/conf.d/vulnerabilitymanagement.conf</code></p>
-<ul>
-<li><code>/home/fancy/请修改为项目实际路径</code></li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#66d9ef">[program:vul_management]</span>
-<span style="color:#75715e">;command=pipenv run gunicorn -w 4 -b 0.0.0.0:8686 wsgi:wsgi # pipenv模式</span>
-<span style="color:#a6e22e">command</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/[your project path]/venv/bin/gunicorn -w 4 -b 0.0.0.0:8778 wsgi:app</span>
-<span style="color:#a6e22e">directory</span><span style="color:#f92672">=</span><span style="color:#e6db74">/[your project path]</span>
-<span style="color:#a6e22e">user</span><span style="color:#f92672">=</span><span style="color:#e6db74">root</span>
-<span style="color:#a6e22e">autostart</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
-<span style="color:#a6e22e">stopasgroup</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
-<span style="color:#a6e22e">killasgroup</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
-<span style="color:#a6e22e">stderr_logfile</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/[your project log path]/stderr.log</span>
-<span style="color:#a6e22e">stdout_logfile</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/[your project log path]/stdout.log</span>
-</code></pre></div></li>
-<li>
-<p>重启并启动supervisor</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo systemctl enable supervisord <span style="color:#75715e"># 开机启动</span>
-$ sudo systemctl start supervisord <span style="color:#75715e"># 启动</span>
-$ sudo supervisorctl reload <span style="color:#75715e"># 重启客户端</span>
-$ sudo supervisorctl test_project start <span style="color:#75715e"># 启动项目</span>
-</code></pre></div></li>
-</ul>
+
+    
+    <a href="https://bbyy.io/code/gunicorn-supervisor-deploy/" class="more"></a>
+    
     
 </div>
 
@@ -318,6 +324,10 @@ $ sudo supervisorctl test_project start <span style="color:#75715e"># 启动项�
                 </li>
                 
                 <li>
+                    <a href="https://bbyy.io/code/openpyxl/">Openpyxl使用 —— Python操作Excel文件總結</a>
+                </li>
+                
+                <li>
                     <a href="https://bbyy.io/audio/you-xin-ren/">有心人 - 張國榮</a>
                 </li>
                 
@@ -333,10 +343,6 @@ $ sudo supervisorctl test_project start <span style="color:#75715e"># 启动项�
                     <a href="https://bbyy.io/video/lg-jazz-hdr-uhd-chromecast-ultra/">Real 4K HDR 60fps</a>
                 </li>
                 
-                <li>
-                    <a href="https://bbyy.io/code/gunicorn-supervisor-deploy/">Gunicorn Supervisor Deploy</a>
-                </li>
-                
             </ul>
         </div>
         
@@ -348,7 +354,7 @@ $ sudo supervisorctl test_project start <span style="color:#75715e"># 启动项�
                 
                 <li>
                     <a href="/categories/code">Code
-                        (1)</a>
+                        (4)</a>
                 </li>
                 
                 <li>

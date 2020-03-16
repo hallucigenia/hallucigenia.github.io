@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Code on 方的个人博客</title>
+    <title>Code on 方的技术博客</title>
     <link>https://bbyy.io/sc/categories/code/</link>
-    <description>Recent content in Code on 方的个人博客</description>
+    <description>Recent content in Code on 方的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 19 Nov 2019 16:53:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Feb 2020 17:32:24 +0800</lastBuildDate>
     
 	<atom:link href="https://bbyy.io/sc/categories/code/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Openpyxl使用 —— Python操作Excel文件总结</title>
+      <link>https://bbyy.io/sc/code/openpyxl/</link>
+      <pubDate>Wed, 12 Feb 2020 17:32:24 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/code/openpyxl/</guid>
+      <description>&lt;p&gt;本文将基本操作结合工作中常用的代码块提炼作为进阶，期望能带来更多启发&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Gunicorn Supervisor Deploy</title>
@@ -17,6 +26,15 @@
       
       <guid>https://bbyy.io/sc/code/gunicorn-supervisor-deploy/</guid>
       <description>&lt;p&gt;服务器部署 Pipenv + Gunicorn + Supervisor + Flask 项目标准化流程&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用Flask创建微信公众号</title>
+      <link>https://bbyy.io/sc/article/flask-wechat-official-accounts/</link>
+      <pubDate>Mon, 26 Nov 2018 13:07:13 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/article/flask-wechat-official-accounts/</guid>
+      <description>&lt;p&gt;基于Python3搭建Flask微信公众号后台&lt;/p&gt;</description>
     </item>
     
   </channel>

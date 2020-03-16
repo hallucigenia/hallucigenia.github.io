@@ -67,6 +67,11 @@
     <lastmod>2020-02-13T22:40:20+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/article/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/article/"
                 />
@@ -98,6 +103,26 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/categories/</loc>
+    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/tags/code/</loc>
     <lastmod>2020-02-13T22:40:20+08:00</lastmod>
     <xhtml:link
@@ -109,6 +134,21 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/tags/code/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/categories/code/</loc>
+    <lastmod>2020-02-13T22:40:20+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/categories/code/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/code/"
                 />
   </url>
   
@@ -203,6 +243,66 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/code/</loc>
+    <lastmod>2020-02-12T17:32:24+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/excel/</loc>
+    <lastmod>2020-02-12T17:32:24+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/excel/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/excel/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/openpyxl/</loc>
+    <lastmod>2020-02-12T17:32:24+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/openpyxl/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/openpyxl/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/code/openpyxl/</loc>
+    <lastmod>2020-02-12T17:32:24+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/openpyxl/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/openpyxl/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/audio/</loc>
     <lastmod>2020-02-07T09:15:08+08:00</lastmod>
     <xhtml:link
@@ -214,26 +314,6 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/audio/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/categories/</loc>
-    <lastmod>2020-02-07T09:15:08+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/categories/"
                 />
   </url>
   
@@ -469,36 +549,6 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/categories/code/</loc>
-    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/categories/code/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/categories/code/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/code/</loc>
-    <lastmod>2019-11-19T16:53:48+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/code/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/code/"
-                />
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/tags/gunicorn/</loc>
     <lastmod>2019-11-19T16:53:48+08:00</lastmod>
     <xhtml:link
@@ -540,6 +590,51 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/tags/supervisor/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/flask/</loc>
+    <lastmod>2018-11-26T13:07:13+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/flask/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/flask/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/wechat/</loc>
+    <lastmod>2018-11-26T13:07:13+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/wechat/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/wechat/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/article/flask-wechat-official-accounts/</loc>
+    <lastmod>2018-11-26T13:07:13+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/article/flask-wechat-official-accounts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/article/flask-wechat-official-accounts/"
                 />
   </url>
   
