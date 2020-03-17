@@ -1,0 +1,501 @@
+<!doctype html>
+<html class="no-js" lang="sc">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Fancy">
+    <meta name="description" content="Bilberry Premium Theme for Hugo.">
+    <meta name="keywords" content="blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts">
+    <meta name="generator" content="Hugo 0.67.0" />
+    <title> uWSGI | Fancy‘s Technology Blog</title>
+    <meta name="description" content="uWSGI - Bilberry Premium Theme for Hugo.">
+    <meta itemprop="name" content="uWSGI">
+    <meta itemprop="description" content="uWSGI - Bilberry Premium Theme for Hugo.">
+    <meta property="og:title" content="uWSGI">
+    <meta property="og:description" content="uWSGI - Bilberry Premium Theme for Hugo.">
+    <meta property="og:image" content="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?size=200">
+    <meta property="og:url" content="https://bbyy.io/sc/tags/uwsgi/">
+    <meta property="og:site_name" content="Fancy‘s Technology Blog"><meta property="og:type" content="website">
+
+    
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e2619c">
+<meta name="msapplication-TileColor" content="#e2619c">
+<meta name="theme-color" content="#e2619c">
+
+    
+    <link href="/sc/tags/uwsgi/" rel="alternate" type="application/rss+xml" title="Fancy‘s Technology Blog" />
+    <link href="/sc/tags/uwsgi/" rel="feed" type="application/rss+xml" title="Fancy‘s Technology Blog" />
+    
+
+    
+
+    <link rel="stylesheet" href="https://bbyy.io/theme.css">
+
+    
+
+    
+    
+    
+</head>
+
+<body class="bilberry-hugo-theme">
+
+    
+    <nav class="permanentTopNav sticky">
+
+    <div class="container">
+        <ul class="topnav">
+            
+            
+            <li><a href="https://bbyy.io/sc/page/about-me/">关于本人</a></li>
+            
+            
+            
+            <li><a href="https://github.com/hallucigenia" target="_blank">Github</a></li>
+            
+            
+        </ul>
+
+        
+        <div id="search-box" class="search">
+            <i class="fas fa-search"></i>
+            <input id="search" type="text" placeholder="">
+        </div>
+        
+    </div>
+</nav>
+
+
+    
+<header class="sticky">
+
+    <div class="container">
+        <div class="logo">
+            <a id="siteBaseUrl" href="/sc" class="logo">
+                
+                <img src="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?d=mm&size=200" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-tape"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a
+                    href="/sc">Fancy‘s Technology Blog</a></h3>
+            
+            <span class="subtitle">Fancy的技术博客</span>
+            
+        </div>
+
+        <div class="languages">
+        
+            
+                <a href="https://bbyy.io/">tc</a>
+            
+        
+            
+                <a href="https://bbyy.io/sc/" class="active">sc</a>
+            
+        
+            
+                <a href="https://bbyy.io/en/">en</a>
+            
+        
+        </div>
+        
+
+        
+        <div class="toggler permanentTopNav">
+            
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+</header>
+
+
+    <div class="main container">
+        
+    
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://bbyy.io/sc/article/uwsgi-gunicorn/">
+    <i class="fas fa-fw fa-pencil-alt"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://bbyy.io/sc/article/uwsgi-gunicorn/">
+            
+                <img src="/sc/article/uwsgi-gunicorn/featuredImage.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h1 class="article-title"><a href="https://bbyy.io/sc/article/uwsgi-gunicorn/">uWSGI和Gunicorn对比实践笔记</a></h1>
+    <div class="meta">
+        
+        
+        <span class="date moment">2019-01-27</span>
+        
+        
+
+        
+
+        
+
+        
+        <span class="author">
+            
+            <a href="https://bbyy.io/sc/author/fancy/">Fancy</a>
+            
+        </span>
+        
+    </div>
+
+    
+    <blockquote>
+<p>从flask微信公众号后台分析
+Ubuntu+Python3+pipenv+flask环境下 uWSGI/Gunicorn+supervisor+nginx配置问题</p>
+<p>这里的示例程序代码接上篇<a href="https://link.zhihu.com/?target=https%3A//fancysly.com/post/9">使用Flask创建微信公众号</a></p>
+</blockquote>
+<p>在服务器能正常通信后，Werkzeug提供的的WSGI并不适合生产环境，调试完代码第一件事就找个独立WSGI容器。我们这里选择uWSGI和gunicorn，相对来说这两个比gevent更适合大型项目，uWSGI出现的比较早，gunicorn是从Ruby的unicorn移植而来，配置也简单。为了熟悉uwsgi我都尝试一下吧</p>
+<h2 id="uwsgi配置">uWSGI配置</h2>
+<p>这里我们先配置uwsgi，或者使用gunicorn，这两个任选其一。 如果是新浪SAE的话记得删除app.run()里的port，并且以下所有端口都是5050。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pipenv install uwsgi
+</code></pre></div><p>然后运行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ uwsgi --socket 0.0.0.0:5000 -w main:app
+</code></pre></div><p>可以加上&ndash;protocol=http以指定协议，我们的项目启动文件名为<code>main.py</code>对应修改即可，运行<code>http://server_domain_or_IP:5000</code>倘若能看到我们在视图函数写的<code>Hello World!</code>即可。 如果开了防火墙莫忘了开启端口，以Ubuntu的ufw为例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ufw allow <span style="color:#ae81ff">5000</span>
+</code></pre></div><p>到此，可以到项目根目录创建配置文件wepub_uwsgi.ini，这里名字随意。</p>
+<p><em>wepub_uwsgi.ini:</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">[uwsgi]
+module = main:app
+<span style="color:#75715e">#用以启动程序名</span>
+master = <span style="color:#66d9ef">true</span>
+processes = <span style="color:#ae81ff">4</span>
+<span style="color:#75715e">#子进程数量</span>
+chdir = /root/WePub/wepub
+<span style="color:#75715e">#python启动程序目录</span>
+socket = /root/WePub/wepub/wepub_uwsgi.sock
+<span style="color:#75715e">#uwsgi 启动后所需要创建的文件，和 Nginx 通信，配置 Nginx 时用</span>
+logto = /root/WePub/wepub/%n.log
+chmod-socket = <span style="color:#ae81ff">660</span>
+<span style="color:#75715e">#赋予 .sock 文件权限与 Nginx 通信</span>
+vacuum = <span style="color:#66d9ef">true</span>
+http = <span style="color:#ae81ff">0.0.0.0</span>:<span style="color:#ae81ff">5050</span>
+<span style="color:#75715e">#http地址和端口</span>
+</code></pre></div><p>保存后运行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ uwsgi --ini wepub_uwsgi.ini
+</code></pre></div><p>此时<strong>运行时</strong>会在设置的目录生成与配置文件同名的.sock文件，先不要关闭，等配置好Nginx后方可关闭确认后跳过gunicorn章节，即配置Nginx。</p>
+<h2 id="gunicorn配置">gunicorn配置</h2>
+<p>个人偏好于gunicorn，用的比较多了，至于区别，gunicorn比较好部署理解，性能上的短板还在我身上，安装gunicorn</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pipenv install gunicorn
+</code></pre></div><p>运行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gunicorn -w <span style="color:#ae81ff">4</span> -b 0.0.0.0:8000 main:app
+</code></pre></div><p>其中-w 是&ndash;workers是定义同步worker的数量，&ndash;bind为主机地址和端口，不用异步的话这就够了 gunicorn的配置文件还能实现复杂的配置，目前学有不精，先不做讨论</p>
+<h2 id="uwsgi配置nginx">uWSGI配置nginx</h2>
+<p>nginx反向代理使用比较多了，流程都比较一致，这里就简洁带过吧</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install nginx
+</code></pre></div><p>这里我们先把nginx的配置文件找个位置备份好</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mv /etc/nginx/sites-enabled/default ~/nginx.backup
+</code></pre></div><p>而后直接定义server块，listen监听80端口 (新浪SAE为5050端口）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vi /etc/nginx/sites-enabled/wepub
+</code></pre></div><p><em>wepub:</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">server</span> {
+    <span style="color:#960050;background-color:#1e0010">listen</span>  <span style="color:#960050;background-color:#1e0010">80;</span>
+    <span style="color:#960050;background-color:#1e0010">server_name</span> <span style="color:#960050;background-color:#1e0010">_;</span>
+
+    <span style="color:#960050;background-color:#1e0010">location</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#960050;background-color:#1e0010">{</span>
+    <span style="color:#960050;background-color:#1e0010">include</span>      <span style="color:#960050;background-color:#1e0010">uwsgi_params;</span>
+    <span style="color:#960050;background-color:#1e0010">uwsgi_pass</span> <span style="color:#960050;background-color:#1e0010">unix:/root/WePub/wepub/wepub_uwsgi.sock;</span>
+    }
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><p><code>server_name</code>可以指定HOST域名解析后的公网地址，这里默认用的是通配符 这里是最简配置，定义日志存放重写请求头部这些，有机会再详细说明吧 如果项目有静态文件的话，设置路径与过期时间</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">location</span> <span style="color:#960050;background-color:#1e0010">/static</span> {
+    <span style="color:#960050;background-color:#1e0010">alias</span> <span style="color:#960050;background-color:#1e0010">/the/path/to/staitic;</span>
+    <span style="color:#960050;background-color:#1e0010">expires</span> <span style="color:#960050;background-color:#1e0010">30d;</span>
+}
+</code></pre></div><p>保存退出，最后 sudo nginx -t 检查语法错误，期待返回</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+</code></pre></div><p>有错误的话检查一下，而后重启nginx使配置生效</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo service nginx restart
+</code></pre></div><h2 id="gunicorn配置nginx">gunicorn配置nginx</h2>
+<p>只是配置文件不同</p>
+<p><em>wepub:</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">server</span> {
+    <span style="color:#960050;background-color:#1e0010">listen</span> <span style="color:#960050;background-color:#1e0010">80;</span>
+    <span style="color:#960050;background-color:#1e0010">server_name</span> <span style="color:#960050;background-color:#1e0010">example.org;</span>
+
+
+    <span style="color:#960050;background-color:#1e0010">location</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#960050;background-color:#1e0010">{</span>
+    <span style="color:#960050;background-color:#1e0010">proxy_pass</span> <span style="color:#960050;background-color:#1e0010">http://127.0.0.1:8000;</span> <span style="color:#960050;background-color:#1e0010">#转发gunicorn运行地址</span>
+    }
+ <span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><p>location 只需要直接转发gunicorn运行地址即可运行，这里是最简配置，成功后直接80地址即可访问服务器反向代理部分：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">    <span style="color:#960050;background-color:#1e0010">location</span> <span style="color:#960050;background-color:#1e0010">/</span> {
+        <span style="color:#960050;background-color:#1e0010">proxy_pass</span>         <span style="color:#960050;background-color:#1e0010">http://localhost:8000/;</span> <span style="color:#960050;background-color:#1e0010">#gunicorn</span> <span style="color:#960050;background-color:#1e0010">运行地址</span>
+        <span style="color:#960050;background-color:#1e0010">proxy_redirect</span>     <span style="color:#960050;background-color:#1e0010">off;</span>
+
+        <span style="color:#960050;background-color:#1e0010">proxy_set_header</span>   <span style="color:#960050;background-color:#1e0010">Host</span>             <span style="color:#960050;background-color:#1e0010">$http_host;</span>
+        <span style="color:#960050;background-color:#1e0010">proxy_set_header</span>   <span style="color:#960050;background-color:#1e0010">X-Real-IP</span>        <span style="color:#960050;background-color:#1e0010">$remote_addr;</span>
+        <span style="color:#960050;background-color:#1e0010">proxy_set_header</span>   <span style="color:#960050;background-color:#1e0010">X-Forwarded-For</span>  <span style="color:#960050;background-color:#1e0010">$proxy_add_x_forwarded_for;</span>
+    }
+</code></pre></div><h2 id="管理uwsgi进程">管理uWSGI进程：</h2>
+<p>这里的差别主要就各自的命令而已，就放在一起说吧 对于uWSGI来说，uWSGI服务与nginx通信时依赖于sock文件，网站运行时无法关闭，始终不可靠，这里我们利用Supervisor管理并监控uWSGI的进程，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install supervisor
+</code></pre></div><p>这里我们不更改全局配置，为我们的程序单独创建配置文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo vi /etc/supervisor/conf.d/wepub.conf
+</code></pre></div><p><em>wepub.conf:</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">[program:wepub]
+command = pipenv run uwsgi /root/WePub/wepub/wepub_uwsgi.ini ;监控uWSGI
+<span style="color:#75715e"># command=pipenv run gunicorn -w 4 main:app       监控Gunicorn</span>
+directory=/root/WePub/wepub                    ;程序目录
+user=root                    ; 程序启动用户，最好不要用root
+autostart=<span style="color:#66d9ef">true</span>                 ; 随supervisor启动而启动
+autorestart=<span style="color:#66d9ef">true</span>              ; 自动重启
+stopasgroup=<span style="color:#66d9ef">true</span>           ; 关闭程序时关闭子进程
+killasgroup=<span style="color:#66d9ef">true</span>             ; 杀死程序时杀死子进程
+stderr_logfile=/root/WePub/wepub/err.log   ;错误日志文件
+stdout_logfile=/root/WePub/wepub/out.log  ;程序日志文件
+stopsignal=INT          ; 杀死进程的自定信号
+startretries=<span style="color:#ae81ff">10</span>               ; 启动失败时的重试次数
+
+[supervisord]
+</code></pre></div><p>我们:wq保存后检查配置文件是否正确：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ supervisord -c /path/to/my/config.conf
+</code></pre></div><p>返回的错误信息挺详细的，根据问题修改即可。确认无返回的时候重启supervisor</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo service supervisor restart
+</code></pre></div><p>如果运行过程中出现错误，可以查看supervisor的错误日志。也可以在<code>supervisorctl</code>命令行中进行查看与操作程序，也可以开启9001浏览器访问。</p>
+<hr>
+<p>浏览器输入Nginx显示502badway，一般这时候是防火墙没打开或者sock文件位置有误</p>
+<p>提示<code>unix:///var/run/supervisor.sock no such file</code>除了supervisor安装问题之外， 一般来说是指定位置或者和权限的问题</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">[unix_http_server]
+file=/var/run/supervisor.sock   ; (socket 文件位置)
+chmod=<span style="color:#ae81ff">0700</span>                       ; sockef file mode (default <span style="color:#ae81ff">0700</span>)
+</code></pre></div><p>如果是提示编码出错还需解决pipenv的编码问题</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo vi /etc/supervisor/supervisord.conf
+</code></pre></div><p>在[supervisord]的最后添加环境设置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">environment<span style="color:#f92672">=</span>LC_ALL<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;zh_CN.UTF-8&#39;</span>, LANG<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;zh_CN.UTF-8&#39;</span>
+</code></pre></div><ul>
+<li>不知道新浪SAE怎么搞得非要debian系限定的C.UTF-8，我想这并不是个好办法</li>
+</ul>
+<p><img src="https://pic4.zhimg.com/80/v2-d553a36c276824c97c686d079d873d33_1440w.jpg" alt="img"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">environment<span style="color:#f92672">=</span>LC_ALL<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;C.UTF-8&#39;</span>, LANG<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;C.UTF-8&#39;</span>
+</code></pre></div><p>至此应该能得到一个还算稳定安全的部署程序了，应该足以应对个人微信公众号这些并发不高无需协程的了。 关于每个部分的详细设置都有很多，还是详细阅读文档吧。这里如果遇到什么问题的话还请指教</p>
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                
+                <a href="https://bbyy.io/sc/tags/python/">Python</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/gunicorn/">Gunicorn</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/uwsgi/">uWSGI</a>
+                
+                
+            </div>
+        </div>
+    
+
+    
+    <div class="languages">
+        <i class="fa fa-language"></i>
+        <div class="links">
+            
+                <a href="https://bbyy.io/article/uwsgi-gunicorn/">tc</a>
+            
+        </div>
+    </div>
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+
+    
+    <div class="paginator">
+        
+
+        
+    </div>
+
+
+
+    </div>
+
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong></strong>
+            <ul>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/getting-started-gdb/">Python标准库 —— pdb调试工具使用</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/openpyxl/">Openpyxl使用 —— Python操作Excel文件总结</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">Gunicorn Supervisor Deploy</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/article/uwsgi-gunicorn/">uWSGI和Gunicorn对比实践笔记</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/article/flask-wechat-official-accounts/">使用Flask创建微信公众号</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="/sc/categories/"><strong></strong></a>
+            <ul>
+                
+                <li>
+                    <a href="/sc/categories/code">Code
+                        (4)</a>
+                </li>
+                
+                <li>
+                    <a href="/sc/categories/%E5%AD%9F%E5%AD%90">孟子
+                        (1)</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong></strong>
+
+                
+                <a href="https://twitter.com/_fancyan" target="_blank"><i class="fab fa-twitter"></i></a>
+                
+                <a href="https://www.instagram.com/monophoton" target="_blank"><i class="fab fa-instagram"></i></a>
+                
+                <a href="https://github.com/hallucigenia" target="_blank"><i class="fab fa-github"></i></a>
+                
+            </div>
+            
+
+            <div class="languages">
+                <strong></strong>
+                
+                
+                <a href="https://bbyy.io/">tc</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/" class="active">sc</a>
+                
+                
+                
+                <a href="https://bbyy.io/en/">en</a>
+                
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://t.me/hallucigenia" target="_blank">
+                &copy;
+                
+                2020
+                
+                by Fancy
+            </a>
+            -
+            <a href="https://bbyy.io/sc/tags/uwsgi/index.xml">RSS</a>
+        </div>
+        <div class="author">
+            <a href="https://bbyy.io"
+                target="_blank">Fancy&#39;s Blog</a>
+        </div>
+    </div>
+</div>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-160694437-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+
+    <script type="text/javascript" src="https://bbyy.io/theme.js"></script>
+
+    
+    
+    
+
+    
+    <div id="activate-algolia-search" class="hidden">
+  <input type="hidden" id="algolia-search-appId" value="8JWRQ9KNXC">
+  <input type="hidden" id="algolia-search-apiKey" value="0f05c447096335c55a457fe4cfaae96a">
+  <input type="hidden" id="algolia-search-indexName" value="grimalog">
+  <input type="hidden" id="algolia-search-noSearchResults" value="">
+
+  
+  <input type="hidden" id="algolia-search-currentLanguageOnly">
+  
+</div>
+
+    
+
+
+</body>
+
+</html>

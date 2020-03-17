@@ -314,7 +314,7 @@
   
   <url>
     <loc>https://bbyy.io/sc/article/</loc>
-    <lastmod>2018-11-26T13:07:13+08:00</lastmod>
+    <lastmod>2019-01-27T12:13:48+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -329,6 +329,36 @@
                 rel="alternate"
                 hreflang="sc"
                 href="https://bbyy.io/sc/article/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/tags/uwsgi/</loc>
+    <lastmod>2019-01-27T12:13:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/uwsgi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/uwsgi/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/article/uwsgi-gunicorn/</loc>
+    <lastmod>2019-01-27T12:13:48+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/article/uwsgi-gunicorn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/article/uwsgi-gunicorn/"
                 />
   </url>
   

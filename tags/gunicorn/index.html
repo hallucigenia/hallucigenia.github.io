@@ -208,6 +208,221 @@
             
         </div>
     
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="https://bbyy.io/article/uwsgi-gunicorn/">
+    <i class="fas fa-fw fa-pencil-alt"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://bbyy.io/article/uwsgi-gunicorn/">
+            
+                <img src="/article/uwsgi-gunicorn/featuredImage.jpg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h1 class="article-title"><a href="https://bbyy.io/article/uwsgi-gunicorn/">uWSGI和Gunicorn對比實踐筆記</a></h1>
+    <div class="meta">
+        
+        
+        <span class="date moment">2019-01-27</span>
+        
+        
+
+        
+
+        
+
+        
+        <span class="author">
+            
+            <a href="https://bbyy.io/author/fancy/">Fancy</a>
+            
+        </span>
+        
+    </div>
+
+    
+    <blockquote>
+<p>從flask微信公眾號後臺分析
+Ubuntu+Python3+pipenv+flask環境下 uWSGI/Gunicorn+supervisor+nginx配置問題</p>
+<p>這裏的示例程序代碼接上篇<a href="https://link.zhihu.com/?target=https%3A//fancysly.com/post/9">使用Flask創建微信公眾號</a></p>
+</blockquote>
+<p>在服務器能正常通信後，Werkzeug提供的的WSGI並不適合生產環境，調試完代碼第一件事就找個獨立WSGI容器。我們這裏選擇uWSGI和gunicorn，相對來說這兩個比gevent更適合大型項目，uWSGI出現的比較早，gunicorn是從Ruby的unicorn移植而來，配置也簡單。為了熟悉uwsgi我都嘗試一下吧</p>
+<h2 id="uwsgi配置">uWSGI配置</h2>
+<p>這裏我們先配置uwsgi，或者使用gunicorn，這兩個任選其一。 如果是新浪SAE的話記得刪除app.run()裏的port，並且以下所有端口都是5050。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pipenv install uwsgi
+</code></pre></div><p>然後運行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ uwsgi --socket 0.0.0.0:5000 -w main:app
+</code></pre></div><p>可以加上&ndash;protocol=http以指定協議，我們的項目啟動文件名為<code>main.py</code>對應修改即可，運行<code>http://server_domain_or_IP:5000</code>倘若能看到我們在視圖函數寫的<code>Hello World!</code>即可。 如果開了防火墻莫忘了開啟端口，以Ubuntu的ufw為例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ufw allow <span style="color:#ae81ff">5000</span>
+</code></pre></div><p>到此，可以到項目根目錄創建配置文件wepub_uwsgi.ini，這裏名字隨意。</p>
+<p><em>wepub_uwsgi.ini:</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">[uwsgi]
+module = main:app
+<span style="color:#75715e">#用以啟動程序名</span>
+master = <span style="color:#66d9ef">true</span>
+processes = <span style="color:#ae81ff">4</span>
+<span style="color:#75715e">#子進程數量</span>
+chdir = /root/WePub/wepub
+<span style="color:#75715e">#python啟動程序目錄</span>
+socket = /root/WePub/wepub/wepub_uwsgi.sock
+<span style="color:#75715e">#uwsgi 啟動後所需要創建的文件，和 Nginx 通信，配置 Nginx 時用</span>
+logto = /root/WePub/wepub/%n.log
+chmod-socket = <span style="color:#ae81ff">660</span>
+<span style="color:#75715e">#賦予 .sock 文件權限與 Nginx 通信</span>
+vacuum = <span style="color:#66d9ef">true</span>
+http = <span style="color:#ae81ff">0.0.0.0</span>:<span style="color:#ae81ff">5050</span>
+<span style="color:#75715e">#http地址和端口</span>
+</code></pre></div><p>保存後運行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ uwsgi --ini wepub_uwsgi.ini
+</code></pre></div><p>此時<strong>運行時</strong>會在設置的目錄生成與配置文件同名的.sock文件，先不要關閉，等配置好Nginx後方可關閉確認後跳過gunicorn章節，即配置Nginx。</p>
+<h2 id="gunicorn配置">gunicorn配置</h2>
+<p>個人偏好於gunicorn，用的比較多了，至於區別，gunicorn比較好部署理解，性能上的短板還在我身上，安裝gunicorn</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pipenv install gunicorn
+</code></pre></div><p>運行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gunicorn -w <span style="color:#ae81ff">4</span> -b 0.0.0.0:8000 main:app
+</code></pre></div><p>其中-w 是&ndash;workers是定義同步worker的數量，&ndash;bind為主機地址和端口，不用異步的話這就夠了 gunicorn的配置文件還能實現復雜的配置，目前學有不精，先不做討論</p>
+<h2 id="uwsgi配置nginx">uWSGI配置nginx</h2>
+<p>nginx反向代理使用比較多了，流程都比較一致，這裏就簡潔帶過吧</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install nginx
+</code></pre></div><p>這裏我們先把nginx的配置文件找個位置備份好</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mv /etc/nginx/sites-enabled/default ~/nginx.backup
+</code></pre></div><p>而後直接定義server塊，listen監聽80端口 (新浪SAE為5050端口）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vi /etc/nginx/sites-enabled/wepub
+</code></pre></div><p><em>wepub:</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">server</span> {
+    <span style="color:#960050;background-color:#1e0010">listen</span>  <span style="color:#960050;background-color:#1e0010">80;</span>
+    <span style="color:#960050;background-color:#1e0010">server_name</span> <span style="color:#960050;background-color:#1e0010">_;</span>
+
+    <span style="color:#960050;background-color:#1e0010">location</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#960050;background-color:#1e0010">{</span>
+    <span style="color:#960050;background-color:#1e0010">include</span>      <span style="color:#960050;background-color:#1e0010">uwsgi_params;</span>
+    <span style="color:#960050;background-color:#1e0010">uwsgi_pass</span> <span style="color:#960050;background-color:#1e0010">unix:/root/WePub/wepub/wepub_uwsgi.sock;</span>
+    }
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><p><code>server_name</code>可以指定HOST域名解析後的公網地址，這裏默認用的是通配符 這裏是最簡配置，定義日誌存放重寫請求頭部這些，有機會再詳細說明吧 如果項目有靜態文件的話，設置路徑與過期時間</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">location</span> <span style="color:#960050;background-color:#1e0010">/static</span> {
+    <span style="color:#960050;background-color:#1e0010">alias</span> <span style="color:#960050;background-color:#1e0010">/the/path/to/staitic;</span>
+    <span style="color:#960050;background-color:#1e0010">expires</span> <span style="color:#960050;background-color:#1e0010">30d;</span>
+}
+</code></pre></div><p>保存退出，最後 sudo nginx -t 檢查語法錯誤，期待返回</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+</code></pre></div><p>有錯誤的話檢查一下，而後重啟nginx使配置生效</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo service nginx restart
+</code></pre></div><h2 id="gunicorn配置nginx">gunicorn配置nginx</h2>
+<p>只是配置文件不同</p>
+<p><em>wepub:</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">server</span> {
+    <span style="color:#960050;background-color:#1e0010">listen</span> <span style="color:#960050;background-color:#1e0010">80;</span>
+    <span style="color:#960050;background-color:#1e0010">server_name</span> <span style="color:#960050;background-color:#1e0010">example.org;</span>
+
+
+    <span style="color:#960050;background-color:#1e0010">location</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#960050;background-color:#1e0010">{</span>
+    <span style="color:#960050;background-color:#1e0010">proxy_pass</span> <span style="color:#960050;background-color:#1e0010">http://127.0.0.1:8000;</span> <span style="color:#960050;background-color:#1e0010">#轉發gunicorn運行地址</span>
+    }
+ <span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><p>location 只需要直接轉發gunicorn運行地址即可運行，這裏是最簡配置，成功後直接80地址即可訪問服務器反向代理部分：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">    <span style="color:#960050;background-color:#1e0010">location</span> <span style="color:#960050;background-color:#1e0010">/</span> {
+        <span style="color:#960050;background-color:#1e0010">proxy_pass</span>         <span style="color:#960050;background-color:#1e0010">http://localhost:8000/;</span> <span style="color:#960050;background-color:#1e0010">#gunicorn</span> <span style="color:#960050;background-color:#1e0010">運行地址</span>
+        <span style="color:#960050;background-color:#1e0010">proxy_redirect</span>     <span style="color:#960050;background-color:#1e0010">off;</span>
+
+        <span style="color:#960050;background-color:#1e0010">proxy_set_header</span>   <span style="color:#960050;background-color:#1e0010">Host</span>             <span style="color:#960050;background-color:#1e0010">$http_host;</span>
+        <span style="color:#960050;background-color:#1e0010">proxy_set_header</span>   <span style="color:#960050;background-color:#1e0010">X-Real-IP</span>        <span style="color:#960050;background-color:#1e0010">$remote_addr;</span>
+        <span style="color:#960050;background-color:#1e0010">proxy_set_header</span>   <span style="color:#960050;background-color:#1e0010">X-Forwarded-For</span>  <span style="color:#960050;background-color:#1e0010">$proxy_add_x_forwarded_for;</span>
+    }
+</code></pre></div><h2 id="管理uwsgi進程">管理uWSGI進程：</h2>
+<p>這裏的差別主要就各自的命令而已，就放在一起說吧 對於uWSGI來說，uWSGI服務與nginx通信時依賴於sock文件，網站運行時無法關閉，始終不可靠，這裏我們利用Supervisor管理並監控uWSGI的進程，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install supervisor
+</code></pre></div><p>這裏我們不更改全局配置，為我們的程序單獨創建配置文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo vi /etc/supervisor/conf.d/wepub.conf
+</code></pre></div><p><em>wepub.conf:</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">[program:wepub]
+command = pipenv run uwsgi /root/WePub/wepub/wepub_uwsgi.ini ;監控uWSGI
+<span style="color:#75715e"># command=pipenv run gunicorn -w 4 main:app       監控Gunicorn</span>
+directory=/root/WePub/wepub                    ;程序目錄
+user=root                    ; 程序啟動用戶，最好不要用root
+autostart=<span style="color:#66d9ef">true</span>                 ; 隨supervisor啟動而啟動
+autorestart=<span style="color:#66d9ef">true</span>              ; 自動重啟
+stopasgroup=<span style="color:#66d9ef">true</span>           ; 關閉程序時關閉子進程
+killasgroup=<span style="color:#66d9ef">true</span>             ; 殺死程序時殺死子進程
+stderr_logfile=/root/WePub/wepub/err.log   ;錯誤日誌文件
+stdout_logfile=/root/WePub/wepub/out.log  ;程序日誌文件
+stopsignal=INT          ; 殺死進程的自定信號
+startretries=<span style="color:#ae81ff">10</span>               ; 啟動失敗時的重試次數
+
+[supervisord]
+</code></pre></div><p>我們:wq保存後檢查配置文件是否正確：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ supervisord -c /path/to/my/config.conf
+</code></pre></div><p>返回的錯誤信息挺詳細的，根據問題修改即可。確認無返回的時候重啟supervisor</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo service supervisor restart
+</code></pre></div><p>如果運行過程中出現錯誤，可以查看supervisor的錯誤日誌。也可以在<code>supervisorctl</code>命令行中進行查看與操作程序，也可以開啟9001瀏覽器訪問。</p>
+<hr>
+<p>瀏覽器輸入Nginx顯示502badway，一般這時候是防火墻沒打開或者sock文件位置有誤</p>
+<p>提示<code>unix:///var/run/supervisor.sock no such file</code>除了supervisor安裝問題之外， 一般來說是指定位置或者和權限的問題</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">[unix_http_server]
+file=/var/run/supervisor.sock   ; (socket 文件位置)
+chmod=<span style="color:#ae81ff">0700</span>                       ; sockef file mode (default <span style="color:#ae81ff">0700</span>)
+</code></pre></div><p>如果是提示編碼出錯還需解決pipenv的編碼問題</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo vi /etc/supervisor/supervisord.conf
+</code></pre></div><p>在[supervisord]的最後添加環境設置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">environment<span style="color:#f92672">=</span>LC_ALL<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;zh_CN.UTF-8&#39;</span>, LANG<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;zh_CN.UTF-8&#39;</span>
+</code></pre></div><ul>
+<li>不知道新浪SAE怎麽搞得非要debian系限定的C.UTF-8，我想這並不是個好辦法</li>
+</ul>
+<p><img src="https://pic4.zhimg.com/80/v2-d553a36c276824c97c686d079d873d33_1440w.jpg" alt="img"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">environment<span style="color:#f92672">=</span>LC_ALL<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;C.UTF-8&#39;</span>, LANG<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;C.UTF-8&#39;</span>
+</code></pre></div><p>至此應該能得到一個還算穩定安全的部署程序了，應該足以應對個人微信公眾號這些並發不高無需協程的了。 關於每個部分的詳細設置都有很多，還是詳細閱讀文檔吧。這裏如果遇到什麽問題的話還請指教</p>
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                
+                <a href="https://bbyy.io/tags/python/">Python</a>
+                
+                
+                
+                <a href="https://bbyy.io/tags/gunicorn/">Gunicorn</a>
+                
+                
+                
+                <a href="https://bbyy.io/tags/uwsgi/">uWSGI</a>
+                
+                
+            </div>
+        </div>
+    
+
+    
+    <div class="languages">
+        <i class="fa fa-language"></i>
+        <div class="links">
+            
+                <a href="https://bbyy.io/sc/article/uwsgi-gunicorn/">sc</a>
+            
+        </div>
+    </div>
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
 
     
     <div class="paginator">
