@@ -20,6 +20,15 @@
     </item>
     
     <item>
+      <title>为 SqlAlchemy 添加分页逻辑</title>
+      <link>https://bbyy.io/sc/article/sqlalchemy-add-page/</link>
+      <pubDate>Mon, 13 Jan 2020 22:40:20 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/article/sqlalchemy-add-page/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Openpyxl使用 —— Python操作Excel文件总结</title>
       <link>https://bbyy.io/sc/code/openpyxl_tutorial/</link>
       <pubDate>Sun, 05 Jan 2020 17:32:24 +0800</pubDate>
@@ -43,7 +52,7 @@
       <pubDate>Sun, 27 Jan 2019 12:13:48 +0800</pubDate>
       
       <guid>https://bbyy.io/sc/article/uwsgi-gunicorn/</guid>
-      <description>&lt;p&gt;在服务器能正常通信后，Werkzeug提供的的WSGI并不适合生产环境，调试完代码第一件事就找个独立WSGI容器。我们这里选择uWSGI和gunicorn，相对来说这两个比gevent更适合大型项目，uWSGI出现的比较早，gunicorn是从Ruby的unicorn移植而来，配置也简单。为了熟悉uwsgi我都尝试一下吧&lt;/p&gt;</description>
+      <description>&lt;p&gt;从flask微信公众号后台分析Ubuntu+Python3+pipenv+flask环境下 uWSGI/Gunicorn+supervisor+nginx配置问题&lt;/p&gt;</description>
     </item>
     
     <item>
