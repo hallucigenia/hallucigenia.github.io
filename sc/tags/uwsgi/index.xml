@@ -16,12 +16,7 @@
       <pubDate>Sun, 27 Jan 2019 12:13:48 +0800</pubDate>
       
       <guid>https://bbyy.io/sc/article/uwsgi-gunicorn/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;从flask微信公众号后台分析
-Ubuntu+Python3+pipenv+flask环境下 uWSGI/Gunicorn+supervisor+nginx配置问题&lt;/p&gt;
-&lt;p&gt;这里的示例程序代码接上篇&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//fancysly.com/post/9&#34;&gt;使用Flask创建微信公众号&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在服务器能正常通信后，Werkzeug提供的的WSGI并不适合生产环境，调试完代码第一件事就找个独立WSGI容器。我们这里选择uWSGI和gunicorn，相对来说这两个比gevent更适合大型项目，uWSGI出现的比较早，gunicorn是从Ruby的unicorn移植而来，配置也简单。为了熟悉uwsgi我都尝试一下吧&lt;/p&gt;</description>
+      <description>&lt;p&gt;在服务器能正常通信后，Werkzeug提供的的WSGI并不适合生产环境，调试完代码第一件事就找个独立WSGI容器。我们这里选择uWSGI和gunicorn，相对来说这两个比gevent更适合大型项目，uWSGI出现的比较早，gunicorn是从Ruby的unicorn移植而来，配置也简单。为了熟悉uwsgi我都尝试一下吧&lt;/p&gt;</description>
     </item>
     
   </channel>

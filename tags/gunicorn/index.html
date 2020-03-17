@@ -248,12 +248,12 @@
     </div>
 
     
-    <blockquote>
+    <p>在服務器能正常通信後，Werkzeug提供的的WSGI並不適合生產環境，調試完代碼第一件事就找個獨立WSGI容器。我們這裏選擇uWSGI和gunicorn，相對來說這兩個比gevent更適合大型項目，uWSGI出現的比較早，gunicorn是從Ruby的unicorn移植而來，配置也簡單。為了熟悉uwsgi我都嘗試一下吧</p>
+<blockquote>
 <p>從flask微信公眾號後臺分析
 Ubuntu+Python3+pipenv+flask環境下 uWSGI/Gunicorn+supervisor+nginx配置問題</p>
 <p>這裏的示例程序代碼接上篇<a href="https://link.zhihu.com/?target=https%3A//fancysly.com/post/9">使用Flask創建微信公眾號</a></p>
 </blockquote>
-<p>在服務器能正常通信後，Werkzeug提供的的WSGI並不適合生產環境，調試完代碼第一件事就找個獨立WSGI容器。我們這裏選擇uWSGI和gunicorn，相對來說這兩個比gevent更適合大型項目，uWSGI出現的比較早，gunicorn是從Ruby的unicorn移植而來，配置也簡單。為了熟悉uwsgi我都嘗試一下吧</p>
 <h2 id="uwsgi配置">uWSGI配置</h2>
 <p>這裏我們先配置uwsgi，或者使用gunicorn，這兩個任選其一。 如果是新浪SAE的話記得刪除app.run()裏的port，並且以下所有端口都是5050。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pipenv install uwsgi
