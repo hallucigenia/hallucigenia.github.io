@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="sc">
+<html class="no-js" lang="tc">
 
 <head>
     <meta charset="utf-8">
@@ -8,15 +8,16 @@
     <meta name="description" content="Bilberry Premium Theme for Hugo.">
     <meta name="keywords" content="blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts">
     <meta name="generator" content="Hugo 0.67.0" />
-    <title> Codes | Fancy‘s Technology Blog</title>
-    <meta name="description" content="Codes - Bilberry Premium Theme for Hugo.">
-    <meta itemprop="name" content="Codes">
-    <meta itemprop="description" content="Codes - Bilberry Premium Theme for Hugo.">
-    <meta property="og:title" content="Codes">
-    <meta property="og:description" content="Codes - Bilberry Premium Theme for Hugo.">
+    <title> Openpyxl使用 —— Python操作Excel文件總結 | Fancy‘s Blog</title>
+    <meta name="description" content="Openpyxl使用 —— Python操作Excel文件總結 - Bilberry Premium Theme for Hugo.">
+    <meta itemprop="name" content="Openpyxl使用 —— Python操作Excel文件總結">
+    <meta itemprop="description" content="Openpyxl使用 —— Python操作Excel文件總結 - Bilberry Premium Theme for Hugo.">
+    <meta property="og:title" content="Openpyxl使用 —— Python操作Excel文件總結">
+    <meta property="og:description" content="Openpyxl使用 —— Python操作Excel文件總結 - Bilberry Premium Theme for Hugo.">
     <meta property="og:image" content="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?size=200">
-    <meta property="og:url" content="https://bbyy.io/sc/code/">
-    <meta property="og:site_name" content="Fancy‘s Technology Blog"><meta property="og:type" content="website">
+    <meta property="og:url" content="https://bbyy.io/code/openpyxl_tutorial/">
+    <meta property="og:site_name" content="Fancy‘s Blog">
+    <meta property="og:type" content="article">
 
     
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -28,8 +29,8 @@
 <meta name="theme-color" content="#e2619c">
 
     
-    <link href="/sc/code/" rel="alternate" type="application/rss+xml" title="Fancy‘s Technology Blog" />
-    <link href="/sc/code/" rel="feed" type="application/rss+xml" title="Fancy‘s Technology Blog" />
+    <link href="/code/openpyxl_tutorial/" rel="alternate" type="application/rss+xml" title="Fancy‘s Blog" />
+    <link href="/code/openpyxl_tutorial/" rel="feed" type="application/rss+xml" title="Fancy‘s Blog" />
     
 
     
@@ -52,11 +53,7 @@
         <ul class="topnav">
             
             
-            <li><a href="https://bbyy.io/sc/page/about-me/">关于本人</a></li>
-            
-            
-            
-            <li><a href="https://github.com/hallucigenia" target="_blank">Github</a></li>
+            <li><a href="https://bbyy.io/page/about-me/">關於本人</a></li>
             
             
         </ul>
@@ -76,7 +73,7 @@
 
     <div class="container">
         <div class="logo">
-            <a id="siteBaseUrl" href="/sc" class="logo">
+            <a id="siteBaseUrl" href="/" class="logo">
                 
                 <img src="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?d=mm&size=200" alt="">
                 
@@ -86,20 +83,20 @@
         </div>
         <div class="titles">
             <h3 class="title"><a
-                    href="/sc">Fancy‘s Technology Blog</a></h3>
+                    href="/">Fancy‘s Blog</a></h3>
             
-            <span class="subtitle">Fancy的技术博客</span>
+            <span class="subtitle">Fancy的個人Blog，技術Blog可移步SC語言</span>
             
         </div>
 
         <div class="languages">
         
             
-                <a href="https://bbyy.io/">tc</a>
+                <a href="https://bbyy.io/" class="active">tc</a>
             
         
             
-                <a href="https://bbyy.io/sc/" class="active">sc</a>
+                <a href="https://bbyy.io/sc/">sc</a>
             
         
             
@@ -120,105 +117,10 @@
 
     <div class="main container">
         
-    
-    
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="https://bbyy.io/sc/code/getting-started-gdb/">
-    <i class="fas fa-fw fa-code"></i>
-</a>
-
-<article class="default article">
-    
-    <div class="featured-image">
-        <a href="https://bbyy.io/sc/code/getting-started-gdb/">
-            
-                <img src="/sc/code/getting-started-gdb/featuredImage.jpg" alt="">
-            
-        </a>
-    </div>
-
-
-    <div class="content">
-    <h1 class="article-title"><a href="https://bbyy.io/sc/code/getting-started-gdb/">Python标准库 —— pdb调试工具使用</a></h1>
-    <div class="meta">
+     
+    <div class="article-wrapper u-cf single">
         
-        
-        <span class="date moment">2020-02-20</span>
-        
-        
-
-        
-
-        
-        <span class="categories">
-            
-                
-                <a href="https://bbyy.io/sc/categories/code/">Code</a>
-                
-            
-        </span>
-        
-
-        
-        <span class="author">
-            
-            <a href="https://bbyy.io/sc/author/fancy/">Fancy</a>
-            
-        </span>
-        
-    </div>
-
-    
-    <p>日常DEBUG中，我常用traceback以及Pycharm的无脑断点调试，直到有一天线上在高并发下，僵尸进程暴涨导致卡死，无法精准的定位某些异常时，掌握Python3自带的pdb标准库或ipdb进行单步调试就显得十分必要。</p>
-
-    
-    <a href="https://bbyy.io/sc/code/getting-started-gdb/" class="more"></a>
-    
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                
-                <a href="https://bbyy.io/sc/tags/debug/">Debug</a>
-                
-                
-                
-                <a href="https://bbyy.io/sc/tags/python/">Python</a>
-                
-                
-            </div>
-        </div>
-    
-
-    
-    <div class="languages">
-        <i class="fa fa-language"></i>
-        <div class="links">
-            
-                <a href="https://bbyy.io/code/getting-started-gdb/">tc</a>
-            
-        </div>
-    </div>
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="https://bbyy.io/sc/code/openpyxl_tutorial/">
+            <a class="bubble" href="https://bbyy.io/code/openpyxl_tutorial/">
     <i class="fas fa-fw fa-code"></i>
 </a>
 
@@ -226,7 +128,7 @@
     
 
     <div class="content">
-    <h1 class="article-title"><a href="https://bbyy.io/sc/code/openpyxl_tutorial/">Openpyxl使用 —— Python操作Excel文件总结</a></h1>
+    <h1 class="article-title"><a href="https://bbyy.io/code/openpyxl_tutorial/">Openpyxl使用 —— Python操作Excel文件總結</a></h1>
     <div class="meta">
         
         
@@ -240,7 +142,7 @@
         <span class="categories">
             
                 
-                <a href="https://bbyy.io/sc/categories/code/">Code</a>
+                <a href="https://bbyy.io/categories/code/">Code</a>
                 
             
         </span>
@@ -249,71 +151,71 @@
         
         <span class="author">
             
-            <a href="https://bbyy.io/sc/author/fancy/">Fancy</a>
+            <a href="https://bbyy.io/author/fancy/">Fancy</a>
             
         </span>
         
     </div>
 
     
-    <p>本文将基本操作结合工作中常用的代码块提炼作为进阶，期望能带来更多启发</p>
+    <p>本文將基本操作結合工作中常用的代碼塊提煉作為進階，期望能帶來更多啟發</p>
 <blockquote>
-<p>近期经常在微信发现推送的通过学习Python处理表格早点下班种种，推给主Python程序员只能说这个推荐算法还是差点意思，在日常工作当中，无论是读取Excel试算表抑或生成数据报告，基本每隔半个月就要写个相关代码，有必要总结一下并在有补充的时候更新</p>
+<p>近期經常在微信發現推送的通過學習Python處理表格早點下班種種，推給主Python程序員只能說這個推薦算法還是差點意思，在日常工作當中，無論是讀取Excel試算表抑或生成數據報告，基本每隔半個月就要寫個相關代碼，有必要總結一下並在有補充的時候更新</p>
 </blockquote>
 <ul>
-<li>Q&amp;A：为何不是<code>xlrd</code>与<code>xlwt</code>？
+<li>Q&amp;A：為何不是<code>xlrd</code>與<code>xlwt</code>？
 <ul>
-<li>在一开始，我的常用库是<code>xlrd</code>与<code>xlwt</code>，直到遇到xlwt一个大量数据生成不了报告的BUG，係xls格式超过65535行则会报错，而openpyxl支持xlsx，其实两者差不多意思，xlrd和xlwt相较openpyxl快一点，如果写入行数可控或对速度敏感的话，我会建议使用xlrd和xlwt，或者xlrd读openpyxl写。</li>
+<li>在一開始，我的常用庫是<code>xlrd</code>與<code>xlwt</code>，直到遇到xlwt一個大量數據生成不了報告的BUG，係xls格式超過65535行則會報錯，而openpyxl支持xlsx，其實兩者差不多意思，xlrd和xlwt相較openpyxl快一點，如果寫入行數可控或對速度敏感的話，我會建議使用xlrd和xlwt，或者xlrd讀openpyxl寫。</li>
 </ul>
 </li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pipenv install openpyxl
-</code></pre></div><h2 id="openpyxl-读取">openpyxl 读取</h2>
+</code></pre></div><h2 id="openpyxl-讀取">openpyxl 讀取</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> openpyxl
-</code></pre></div><p>引入Workbook类，并初始化。Workbook实际上对应的就是工作簿</p>
+</code></pre></div><p>引入Workbook類，並初始化。Workbook實際上對應的就是工作簿</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">workbook <span style="color:#f92672">=</span> openpyxl<span style="color:#f92672">.</span>Workbook()
 </code></pre></div><p>定位到工作表（Worksheet）</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sheet <span style="color:#f92672">=</span> workbook<span style="color:#f92672">.</span>active
-</code></pre></div><p>或者创建sheet</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sheet <span style="color:#f92672">=</span> workbook<span style="color:#f92672">.</span>create_sheet(<span style="color:#960050;background-color:#1e0010">“</span>sheet_name<span style="color:#960050;background-color:#1e0010">”</span>) <span style="color:#75715e"># 指定名称</span>
+</code></pre></div><p>或者創建sheet</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sheet <span style="color:#f92672">=</span> workbook<span style="color:#f92672">.</span>create_sheet(<span style="color:#960050;background-color:#1e0010">“</span>sheet_name<span style="color:#960050;background-color:#1e0010">”</span>) <span style="color:#75715e"># 指定名稱</span>
 sheet <span style="color:#f92672">=</span> workbook<span style="color:#f92672">.</span>create_sheet(<span style="color:#960050;background-color:#1e0010">“</span>sheet_name<span style="color:#960050;background-color:#1e0010">”，</span> <span style="color:#ae81ff">1</span>) <span style="color:#75715e"># 指定索引位置</span>
-</code></pre></div><p>获取sheet</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sheets <span style="color:#f92672">=</span> workbook<span style="color:#f92672">.</span>get_sheet_names() <span style="color:#75715e">#获取所有worksheet的名称,返回可迭代对象</span>
+</code></pre></div><p>獲取sheet</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sheets <span style="color:#f92672">=</span> workbook<span style="color:#f92672">.</span>get_sheet_names() <span style="color:#75715e">#獲取所有worksheet的名稱,返回可迭代對象</span>
 sheet_first <span style="color:#f92672">=</span> sheets[<span style="color:#ae81ff">0</span>]
 
-sheet <span style="color:#f92672">=</span> workbook<span style="color:#f92672">.</span>get_sheet_by_name(sheet_first) <span style="color:#75715e">#通过名称获取worksheet</span>
-</code></pre></div><p>删除表</p>
+sheet <span style="color:#f92672">=</span> workbook<span style="color:#f92672">.</span>get_sheet_by_name(sheet_first) <span style="color:#75715e">#通過名稱獲取worksheet</span>
+</code></pre></div><p>刪除表</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sheet <span style="color:#f92672">=</span> workbook[<span style="color:#e6db74">&#39;sheet_name&#39;</span>]
 workbook<span style="color:#f92672">.</span>remove(sheet)
-</code></pre></div><p>重命名表名，默认为sheet1 sheet2 。。。</p>
+</code></pre></div><p>重命名表名，默認為sheet1 sheet2 。。。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sheet<span style="color:#f92672">.</span>title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;My New Title&#34;</span>
-</code></pre></div><p>获取行列</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rows <span style="color:#f92672">=</span> sheet<span style="color:#f92672">.</span>rows <span style="color:#75715e"># 行，返回可迭代对象</span>
-columns <span style="color:#f92672">=</span> sheet<span style="color:#f92672">.</span>columns <span style="color:#75715e"># 列，返回可迭代对象</span>
+</code></pre></div><p>獲取行列</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rows <span style="color:#f92672">=</span> sheet<span style="color:#f92672">.</span>rows <span style="color:#75715e"># 行，返回可迭代對象</span>
+columns <span style="color:#f92672">=</span> sheet<span style="color:#f92672">.</span>columns <span style="color:#75715e"># 列，返回可迭代對象</span>
 
 fat <span style="color:#f92672">=</span> sheet<span style="color:#f92672">.</span>max_row <span style="color:#75715e"># 获取表最大工作行数</span>
 high <span style="color:#f92672">=</span> sheet<span style="color:#f92672">.</span>max_column <span style="color:#75715e"># 获取表最大工作列数</span>
 
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> sheet[<span style="color:#e6db74">&#34;C&#34;</span>]:   <span style="color:#75715e"># 获取列</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> sheet[<span style="color:#e6db74">&#34;C&#34;</span>]:   <span style="color:#75715e"># 獲取列</span>
     <span style="color:#66d9ef">print</span>(i<span style="color:#f92672">.</span>value, <span style="color:#e6db74">&#39; &#39;</span>)
     
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> sheet[<span style="color:#e6db74">&#34;1&#34;</span>]:   <span style="color:#75715e"># 获取行</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> sheet[<span style="color:#e6db74">&#34;1&#34;</span>]:   <span style="color:#75715e"># 獲取行</span>
     <span style="color:#66d9ef">print</span>(i<span style="color:#f92672">.</span>value, <span style="color:#e6db74">&#39; &#39;</span>)
 
 <span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> rows:
     line <span style="color:#f92672">=</span> [col<span style="color:#f92672">.</span>value <span style="color:#66d9ef">for</span> col <span style="color:#f92672">in</span> row]
-    <span style="color:#66d9ef">print</span>(line) <span style="color:#75715e"># 获取行</span>
-</code></pre></div><p>通过坐标获取单元格</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">c <span style="color:#f92672">=</span> sheet<span style="color:#f92672">.</span>cell(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>) <span style="color:#75715e"># 推荐使用</span>
+    <span style="color:#66d9ef">print</span>(line) <span style="color:#75715e"># 獲取行</span>
+</code></pre></div><p>通过坐标獲取單元格</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">c <span style="color:#f92672">=</span> sheet<span style="color:#f92672">.</span>cell(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>) <span style="color:#75715e"># 推薦使用</span>
 c <span style="color:#f92672">=</span> sheet<span style="color:#f92672">.</span>cell(row <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>, column <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
 c <span style="color:#f92672">=</span> sheet<span style="color:#f92672">.</span>cell(<span style="color:#e6db74">&#39;E2&#39;</span>)
 c <span style="color:#f92672">=</span> sheet[<span style="color:#e6db74">&#34;E2&#34;</span>]
-</code></pre></div><p>单元格样式</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"> sheet<span style="color:#f92672">.</span>merge_cells(<span style="color:#e6db74">&#39;A1:A4&#39;</span>) <span style="color:#75715e"># 合併单元格</span>
- sheet<span style="color:#f92672">.</span>unmerge_cells(<span style="color:#e6db74">&#39;A1:A4&#39;</span>) <span style="color:#75715e"># 分解单元格</span>
-</code></pre></div><p>常用的更新单元格方式</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sheet<span style="color:#f92672">.</span>cell(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>value <span style="color:#f92672">=</span> sheet_name <span style="color:#75715e"># 变量</span>
-sheet<span style="color:#f92672">.</span>cell(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>value <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now() <span style="color:#75715e"># datatime时间</span>
+</code></pre></div><p>單元格樣式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"> sheet<span style="color:#f92672">.</span>merge_cells(<span style="color:#e6db74">&#39;A1:A4&#39;</span>) <span style="color:#75715e"># 合併單元格</span>
+ sheet<span style="color:#f92672">.</span>unmerge_cells(<span style="color:#e6db74">&#39;A1:A4&#39;</span>) <span style="color:#75715e"># 分解單元格</span>
+</code></pre></div><p>常用的更新單元格方式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sheet<span style="color:#f92672">.</span>cell(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>value <span style="color:#f92672">=</span> sheet_name <span style="color:#75715e"># 變量</span>
+sheet<span style="color:#f92672">.</span>cell(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>value <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now() <span style="color:#75715e"># datatime時間</span>
 sheet[<span style="color:#e6db74">&#39;E2&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;=SUM(A1:E1)&#39;</span> <span style="color:#75715e"># 公式</span>
 
 
@@ -322,14 +224,14 @@ sheet[<span style="color:#e6db74">&#39;E2&#39;</span>] <span style="color:#f9267
         sheet<span style="color:#f92672">.</span>cell(row<span style="color:#f92672">=</span>row, column<span style="color:#f92672">=</span>col)<span style="color:#f92672">.</span>value <span style="color:#f92672">=</span> get_column_letter(col) <span style="color:#75715e"># OOP传递位置数据</span>
         
 
-list1 <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;abandon&#34;</span>,<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#f92672">...</span> <span style="color:#e6db74">&#34;zygote&#34;</span>] <span style="color:#75715e"># 行内容的list数据</span>
+list1 <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;abandon&#34;</span>,<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#f92672">...</span> <span style="color:#e6db74">&#34;zygote&#34;</span>] <span style="color:#75715e"># 行內容的list數據</span>
 sheet<span style="color:#f92672">.</span>append(list1) <span style="color:#75715e"># 插入一整行</span>
 
-line1 <span style="color:#f92672">=</span> [[Apple, Banana, Cherry], [Ant, Bee, Cicada], [Andy, Bill, Carmen]] <span style="color:#75715e">#分组的数据</span>
+line1 <span style="color:#f92672">=</span> [[Apple, Banana, Cherry], [Ant, Bee, Cicada], [Andy, Bill, Carmen]] <span style="color:#75715e">#分組的數據</span>
 <span style="color:#66d9ef">for</span> index_row, line <span style="color:#f92672">in</span> enumerate(line1, start<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>):
     <span style="color:#66d9ef">for</span> index_col, i <span style="color:#f92672">in</span> enumerate(line, start<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>):
         sheet<span style="color:#f92672">.</span>cell(index_row <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, index_col)<span style="color:#f92672">.</span>value <span style="color:#f92672">=</span> i <span style="color:#75715e"># 嵌套批量追加list数据</span>
-</code></pre></div><h2 id="openpyxl-写入">openpyxl 写入</h2>
+</code></pre></div><h2 id="openpyxl-寫入">openpyxl 寫入</h2>
 <p>保存工作簿（文本方式）</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">workbook<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#39;test_report.xlsx&#39;</span>)
 </code></pre></div><p>保存工作簿（文件流方式）</p>
@@ -341,8 +243,8 @@ file_stream<span style="color:#f92672">.</span>seek(<span style="color:#ae81ff">
 
 <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;test_report.xlsx&#34;</span>, <span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> fp:
   fp<span style="color:#f92672">.</span>write(file_stream<span style="color:#f92672">.</span>read())
-</code></pre></div><h2 id="openpyxl-导入">openpyxl 导入</h2>
-<p>打开工作簿</p>
+</code></pre></div><h2 id="openpyxl-導入">openpyxl 導入</h2>
+<p>打開工作簿</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> openpyxl <span style="color:#f92672">import</span> load_workbook
 
 workbook2 <span style="color:#f92672">=</span> load_workbook(<span style="color:#e6db74">&#39;test_report.xlsx&#39;</span>)
@@ -361,105 +263,15 @@ workbook2 <span style="color:#f92672">=</span> load_workbook(<span style="color:
             <div class="links">
                 
                 
-                <a href="https://bbyy.io/sc/tags/openpyxl/">Openpyxl</a>
+                <a href="https://bbyy.io/tags/openpyxl/">Openpyxl</a>
                 
                 
                 
-                <a href="https://bbyy.io/sc/tags/excel/">Excel</a>
+                <a href="https://bbyy.io/tags/excel/">Excel</a>
                 
                 
                 
-                <a href="https://bbyy.io/sc/tags/python/">Python</a>
-                
-                
-            </div>
-        </div>
-    
-
-    
-    <div class="languages">
-        <i class="fa fa-language"></i>
-        <div class="links">
-            
-                <a href="https://bbyy.io/code/openpyxl_tutorial/">tc</a>
-            
-        </div>
-    </div>
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">
-    <i class="fas fa-fw fa-code"></i>
-</a>
-
-<article class="default article">
-    
-
-    <div class="content">
-    <h1 class="article-title"><a href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">Gunicorn Supervisor Deploy</a></h1>
-    <div class="meta">
-        
-        
-        <span class="date moment">2019-12-25</span>
-        
-        
-
-        
-
-        
-        <span class="categories">
-            
-                
-                <a href="https://bbyy.io/sc/categories/code/">Code</a>
-                
-            
-        </span>
-        
-
-        
-        <span class="author">
-            
-            <a href="https://bbyy.io/sc/author/fancy/">Fancy</a>
-            
-        </span>
-        
-    </div>
-
-    
-    <p>服务器部署 Pipenv + Gunicorn + Supervisor + Flask 项目标准化流程</p>
-
-    
-    <a href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/" class="more"></a>
-    
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                
-                <a href="https://bbyy.io/sc/tags/gunicorn/">Gunicorn</a>
-                
-                
-                
-                <a href="https://bbyy.io/sc/tags/supervisor/">Supervisor</a>
-                
-                
-                
-                <a href="https://bbyy.io/sc/tags/python/">Python</a>
+                <a href="https://bbyy.io/tags/python/">Python</a>
                 
                 
             </div>
@@ -471,7 +283,7 @@ workbook2 <span style="color:#f92672">=</span> load_workbook(<span style="color:
         <i class="fa fa-language"></i>
         <div class="links">
             
-                <a href="https://bbyy.io/code/gunicorn-supervisor-deploy/">tc</a>
+                <a href="https://bbyy.io/sc/code/openpyxl_tutorial/">sc</a>
             
         </div>
     </div>
@@ -480,18 +292,33 @@ workbook2 <span style="color:#f92672">=</span> load_workbook(<span style="color:
 
 </article>
 
-            
-        </div>
-    
-
-    
-    <div class="paginator">
-        
-
         
     </div>
 
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hallucigenia" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
 
+     
 
     </div>
 
@@ -505,23 +332,27 @@ workbook2 <span style="color:#f92672">=</span> load_workbook(<span style="color:
             <ul>
                 
                 <li>
-                    <a href="https://bbyy.io/sc/code/getting-started-gdb/">Python标准库 —— pdb调试工具使用</a>
+                    <a href="https://bbyy.io/code/getting-started-gdb/">Python標準庫 —— pdb調試工具使用</a>
                 </li>
                 
                 <li>
-                    <a href="https://bbyy.io/sc/code/openpyxl_tutorial/">Openpyxl使用 —— Python操作Excel文件总结</a>
+                    <a href="https://bbyy.io/gallery/gallery-test/">我的旅游记录</a>
                 </li>
                 
                 <li>
-                    <a href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">Gunicorn Supervisor Deploy</a>
+                    <a href="https://bbyy.io/code/openpyxl_tutorial/">Openpyxl使用 —— Python操作Excel文件總結</a>
                 </li>
                 
                 <li>
-                    <a href="https://bbyy.io/sc/article/uwsgi-gunicorn/">uWSGI和Gunicorn对比实践笔记</a>
+                    <a href="https://bbyy.io/audio/you-xin-ren/">有心人 - 張國榮</a>
                 </li>
                 
                 <li>
-                    <a href="https://bbyy.io/sc/article/flask-wechat-official-accounts/">使用Flask创建微信公众号</a>
+                    <a href="https://bbyy.io/code/gunicorn-supervisor-deploy/">Gunicorn Supervisor Deploy</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/link/shodan.io/">shodan.io</a>
                 </li>
                 
             </ul>
@@ -530,16 +361,41 @@ workbook2 <span style="color:#f92672">=</span> load_workbook(<span style="color:
 
         
         <div class="categories">
-            <a href="/sc/categories/"><strong></strong></a>
+            <a href="/categories/"><strong></strong></a>
             <ul>
                 
                 <li>
-                    <a href="/sc/categories/code">Code
+                    <a href="/categories/code">Code
                         (4)</a>
                 </li>
                 
                 <li>
-                    <a href="/sc/categories/%E5%AD%9F%E5%AD%90">孟子
+                    <a href="/categories/holidays">Holidays
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/categories/lyric">Lyric
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/categories/music">Music
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/categories/privacy">Privacy
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/categories/travelling">Travelling
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/categories/%E7%9B%A3%E8%A6%96%E5%99%A8">監視器
                         (1)</a>
                 </li>
                 
@@ -566,11 +422,11 @@ workbook2 <span style="color:#f92672">=</span> load_workbook(<span style="color:
                 <strong></strong>
                 
                 
-                <a href="https://bbyy.io/">tc</a>
+                <a href="https://bbyy.io/" class="active">tc</a>
                 
                 
                 
-                <a href="https://bbyy.io/sc/" class="active">sc</a>
+                <a href="https://bbyy.io/sc/">sc</a>
                 
                 
                 
@@ -594,8 +450,7 @@ workbook2 <span style="color:#f92672">=</span> load_workbook(<span style="color:
                 
                 by Fancy
             </a>
-            -
-            <a href="https://bbyy.io/sc/code/index.xml">RSS</a>
+            
         </div>
         <div class="author">
             <a href="https://bbyy.io"
