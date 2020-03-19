@@ -242,6 +242,11 @@
                 />
     <xhtml:link
                 rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/audio/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/audio/"
                 />
@@ -264,6 +269,11 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/categories/music/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/categories/music/"
                 />
     <xhtml:link
                 rel="alternate"

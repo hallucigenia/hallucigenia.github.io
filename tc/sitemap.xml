@@ -413,6 +413,11 @@
     <lastmod>2020-01-02T09:15:08+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/audio/"
+                />
+    <xhtml:link
+                rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/audio/"
                 />
@@ -426,6 +431,11 @@
   <url>
     <loc>https://bbyy.io/categories/music/</loc>
     <lastmod>2020-01-02T09:15:08+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/categories/music/"
+                />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"

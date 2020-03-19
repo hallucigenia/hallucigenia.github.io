@@ -176,269 +176,10 @@
 
     
     <p>日常DEBUG中，我常用traceback以及Pycharm的无脑断点调试，直到有一天线上在高并发下，僵尸进程暴涨导致卡死，无法精准的定位某些异常时，掌握Python3自带的pdb标准库或ipdb进行单步调试就显得十分必要。</p>
-<ul>
-<li>
-<p>Q&amp;A：为何不是Pycharm的远程调试？</p>
-<ul>
-<li>当时的我只用了Pycharm SFTP上传代码和本地调试，至于远程Debug，就像一开始从Vim转到Pycharm一样，感觉多学点积累并不是坏事，后来自己在空闲的时候补习实践了更多Pycharm的进阶，后期进行Pycharm相关的积累记录时会进行总结比较，熟练之后，pdb还是很高效的一种debug方式。</li>
-</ul>
-</li>
-<li>
-<p>ipdb</p>
-<ul>
-<li>pdb时Python标准库提供的调试器，而ipdb则需要pip install，基本功能相同，相当于Ipython + pdb，增强型的pdb多了代码补全以及语法高亮种种。</li>
-</ul>
-</li>
-</ul>
-<h3 id="pdb全部-debugger-命令">PDB全部 Debugger 命令</h3>
-<p>重点关注加粗部分即可，有需要再来速查</p>
-<table>
-<thead>
-<tr>
-<th align="left">命令</th>
-<th align="left">解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>h(elp)</strong></td>
-<td align="left">帮助</td>
-</tr>
-<tr>
-<td align="left"><strong>w(here)</strong></td>
-<td align="left">打印当前堆栈跟踪位置</td>
-</tr>
-<tr>
-<td align="left">d(own)</td>
-<td align="left">执行跳转到在当前堆栈的下一层</td>
-</tr>
-<tr>
-<td align="left">u(p)</td>
-<td align="left">执行跳转到当前堆栈的上一层</td>
-</tr>
-<tr>
-<td align="left"><strong>b(reak)</strong></td>
-<td align="left">设置断点,line_no：当前脚本的line_no行添加断点        filename:line_no：脚本filename的line_no行添加断点         function：在函数function的第一条可执行语句处添加断点</td>
-</tr>
-<tr>
-<td align="left"><strong>tbreak</strong></td>
-<td align="left">临时断点，运行一次即删除，参数与 <em>break</em> 同</td>
-</tr>
-<tr>
-<td align="left"><strong>cl(ear)</strong></td>
-<td align="left">清除断点，默认清除所有断点     bpnumber1 bpnumber2&hellip; 清除断点号为bpnumber1,bpnumber2&hellip;的断点       lineno 清除当前脚本lineno行的断点      filename:line_no 清除脚本filename的line_no行的断点</td>
-</tr>
-<tr>
-<td align="left"><strong>disable/enable</strong></td>
-<td align="left">停用但不清除/激活断点</td>
-</tr>
-<tr>
-<td align="left">ignore</td>
-<td align="left">忽略断点</td>
-</tr>
-<tr>
-<td align="left">condition</td>
-<td align="left">设置条件断点</td>
-</tr>
-<tr>
-<td align="left">commands</td>
-<td align="left">指定断点号 <em>bpnumber</em> 的命令</td>
-</tr>
-<tr>
-<td align="left"><strong>s(tep)</strong></td>
-<td align="left">继续执行，进入函数或当前函数</td>
-</tr>
-<tr>
-<td align="left"><strong>n(ext)</strong></td>
-<td align="left">继续执行，当前函数下一行</td>
-</tr>
-<tr>
-<td align="left"><strong>unt(il)</strong></td>
-<td align="left">默认执行到更大一个行数（跳出循环），支持指定行数</td>
-</tr>
-<tr>
-<td align="left"><strong>r(eturn)</strong></td>
-<td align="left">执行代码直到从当前函数返回</td>
-</tr>
-<tr>
-<td align="left"><strong>c(ont(inue))</strong></td>
-<td align="left">继续执行程序直到下一条断点</td>
-</tr>
-<tr>
-<td align="left"><strong>j(ump)</strong></td>
-<td align="left">跳转到指定的行数</td>
-</tr>
-<tr>
-<td align="left"><strong>l(ist)</strong></td>
-<td align="left">查看当前行的代码段</td>
-</tr>
-<tr>
-<td align="left">ll</td>
-<td align="left">列出所有代码，行标记为列表</td>
-</tr>
-<tr>
-<td align="left"><strong>a(rgs)</strong></td>
-<td align="left">打印当前函数的参数</td>
-</tr>
-<tr>
-<td align="left"><strong>p</strong></td>
-<td align="left">打印变量（expression）的值</td>
-</tr>
-<tr>
-<td align="left"><strong>pp</strong></td>
-<td align="left">以一种更漂亮的方式打印变量（expression）的值</td>
-</tr>
-<tr>
-<td align="left">whatis</td>
-<td align="left">打印变量（expression）的类型</td>
-</tr>
-<tr>
-<td align="left">source</td>
-<td align="left">显示尝试获取的源代码</td>
-</tr>
-<tr>
-<td align="left">display</td>
-<td align="left">显示已更改的表达式的值</td>
-</tr>
-<tr>
-<td align="left">undisplay</td>
-<td align="left">不显示已更改的表达式的值</td>
-</tr>
-<tr>
-<td align="left">interact</td>
-<td align="left">启动交互式解释器</td>
-</tr>
-<tr>
-<td align="left">alias</td>
-<td align="left">创建执行命令的别名</td>
-</tr>
-<tr>
-<td align="left">unalias</td>
-<td align="left">删除别名</td>
-</tr>
-<tr>
-<td align="left">!</td>
-<td align="left">后面跟单行语句，可以直接在当前堆栈框架执行</td>
-</tr>
-<tr>
-<td align="left"><strong>run</strong></td>
-<td align="left">重新运行程序</td>
-</tr>
-<tr>
-<td align="left">restart</td>
-<td align="left">run的别名</td>
-</tr>
-<tr>
-<td align="left"><strong>q(uit)</strong></td>
-<td align="left">中止并退出</td>
-</tr>
-<tr>
-<td align="left">debug</td>
-<td align="left">输入递归调试器，用于遍历参数。</td>
-</tr>
-<tr>
-<td align="left">retval</td>
-<td align="left">打印函数最后一次返回值</td>
-</tr>
-</tbody>
-</table>
-<h3 id="根据应用场景选择不同的方式">根据应用场景选择不同的方式：</h3>
-<ul>
-<li>pdb启动Python文件</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 -m pdb myscript.py
-</code></pre></div><ul>
-<li>内部调用</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># !usr/bin/python</span>
-<span style="color:#75715e"># -*- coding: utf-8 -*-</span>
 
-<span style="color:#f92672">import</span> pdb
-<span style="color:#f92672">import</span> time
-
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">countit</span>(n):
-    s<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
-        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">1</span>)
-        pdb<span style="color:#f92672">.</span>set_trace()
-        <span style="color:#66d9ef">print</span>(s)
-        s <span style="color:#f92672">+=</span> i
-        
-<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
-    seconds <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
-    countit(seconds)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">$</span> python3 myscript<span style="color:#f92672">.</span>py
-</code></pre></div><p>两种方式没有实际上的区别，根据文件大小以及应用环境灵活运用即可。</p>
-<p>启动调试器后，如第一种方式pdb会在每一步停止，第二种则在指定的断点处停止，pdb显示断点下一行，便可以使用上部表格提供的命令，进行断点调试</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 -m pdb test.py
-&gt; /Users/dilophosaurus/PycharmProjects/untitled1/test.py<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>&lt;module&gt;<span style="color:#f92672">()</span>
--&gt; print<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span>
-</code></pre></div><h3 id="堆栈跟踪">堆栈跟踪</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python3 myscript.py
-&gt; /Users/fancy/test_pdb.py<span style="color:#f92672">(</span>13<span style="color:#f92672">)</span>countit<span style="color:#f92672">()</span>
--&gt; print<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span> w         <span style="color:#75715e"># 显示当前行及堆栈位置</span>
-  /Users/fancy/test_pdb.py<span style="color:#f92672">(</span>18<span style="color:#f92672">)</span>&lt;module&gt;<span style="color:#f92672">()</span>
--&gt; countit<span style="color:#f92672">(</span>seconds<span style="color:#f92672">)</span>
-&gt; /Users/fancy/test_pdb.py<span style="color:#f92672">(</span>13<span style="color:#f92672">)</span>countit<span style="color:#f92672">()</span>
--&gt; print<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span> l         <span style="color:#75715e"># 显示代码上下文</span>
-  <span style="color:#ae81ff">8</span>  	def countit<span style="color:#f92672">(</span>n<span style="color:#f92672">)</span>:
-  <span style="color:#ae81ff">9</span>  	    s<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
- <span style="color:#ae81ff">10</span>  	    <span style="color:#66d9ef">for</span> i in range<span style="color:#f92672">(</span>n<span style="color:#f92672">)</span>:
- <span style="color:#ae81ff">11</span>  	        time.sleep<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>
- <span style="color:#ae81ff">12</span>  	        pdb.set_trace<span style="color:#f92672">()</span>
- <span style="color:#ae81ff">13</span>  -&gt;	        print<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>
- <span style="color:#ae81ff">14</span>  	        s <span style="color:#f92672">+=</span> i
- <span style="color:#ae81ff">15</span>
- <span style="color:#ae81ff">16</span>  	<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
- <span style="color:#ae81ff">17</span>  	    seconds <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
- <span style="color:#ae81ff">18</span>  	    countit<span style="color:#f92672">(</span>seconds<span style="color:#f92672">)</span>
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span> n         <span style="color:#75715e"># 向下单步执行</span>
-<span style="color:#ae81ff">0</span>
-&gt; /Users/fancy/test_pdb.py<span style="color:#f92672">(</span>14<span style="color:#f92672">)</span>countit<span style="color:#f92672">()</span>
--&gt; s <span style="color:#f92672">+=</span> i
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span> up        <span style="color:#75715e"># 向上调用堆栈</span>
-&gt; /Users/fancy/test_pdb.py<span style="color:#f92672">(</span>18<span style="color:#f92672">)</span>&lt;module&gt;<span style="color:#f92672">()</span>
--&gt; countit<span style="color:#f92672">(</span>seconds<span style="color:#f92672">)</span>
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span> down      <span style="color:#75715e"># 向下调用堆栈</span>
-&gt; /Users/fancy/test_pdb.py<span style="color:#f92672">(</span>14<span style="color:#f92672">)</span>countit<span style="color:#f92672">()</span>
--&gt; s <span style="color:#f92672">+=</span> i
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span> c         <span style="color:#75715e"># 继续执行程序直到下一条断点</span>  
-&gt; /Users/dilophosaurus/PycharmProjects/untitled1/test_pdb.py<span style="color:#f92672">(</span>12<span style="color:#f92672">)</span>countit<span style="color:#f92672">()</span>
--&gt; pdb.set_trace<span style="color:#f92672">()</span>
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span> s         <span style="color:#75715e"># 继续执行，区别于n（可见会进入调用函数内部）</span>
---Call--
-&gt; /usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pdb.py<span style="color:#f92672">(</span>1604<span style="color:#f92672">)</span>set_trace<span style="color:#f92672">()</span>
--&gt; def set_trace<span style="color:#f92672">(</span>*, header<span style="color:#f92672">=</span>None<span style="color:#f92672">)</span>:
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span> a        <span style="color:#75715e"># 打印**当前**函数的参数</span>
-header <span style="color:#f92672">=</span> None 
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span> c
-<span style="color:#ae81ff">0</span>
-&gt; /Users/dilophosaurus/PycharmProjects/untitled1/test_pdb.py<span style="color:#f92672">(</span>13<span style="color:#f92672">)</span>countit<span style="color:#f92672">()</span>
--&gt; print<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span> pp s     <span style="color:#75715e"># `s`作为pdb保留关键字（step），必须用过`p`或者`pp`进行显示</span>
-<span style="color:#ae81ff">1</span>
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span> h        <span style="color:#75715e"># 回顾下我们所使用的命令</span>
-
-Documented commands <span style="color:#f92672">(</span>type help &lt;topic&gt;<span style="color:#f92672">)</span>:
-<span style="color:#f92672">========================================</span>
-EOF    c          d        h         list      q        rv       undisplay
-a      cl         debug    help      ll        quit     s        unt
-alias  clear      disable  ignore    longlist  r        source   <span style="color:#66d9ef">until</span>
-args   commands   display  interact  n         restart  step     up
-b      condition  down     j         next      <span style="color:#66d9ef">return</span>   tbreak   w
-break  cont       enable   jump      p         retval   u        whatis
-bt     <span style="color:#66d9ef">continue</span>   exit     l         pp        run      unalias  where
-
-Miscellaneous help topics:
-<span style="color:#f92672">==========================</span>
-exec  pdb
-
-<span style="color:#f92672">(</span>Pdb<span style="color:#f92672">)</span>
-</code></pre></div><p>更多请参考<a href="https://docs.python.org/3/library/pdb.html">官方文档</a></p>
+    
+    <a href="https://bbyy.io/sc/code/getting-started-gdb/" class="more"></a>
+    
     
 </div>
 
@@ -1197,6 +938,86 @@ Query<span style="color:#f92672">.</span>paginate <span style="color:#f92672">=<
         
     <div class="article-wrapper u-cf">
         
+            <a class="bubble" href="https://bbyy.io/sc/audio/may-it-be/">
+    <i class="fas fa-fw fa-music"></i>
+</a>
+
+<article class="audio">
+    
+
+
+    
+    
+    <div class="responsive-audio soundcloud">
+        <iframe width="100%" height="166" scrolling="no" frameborder="no"
+            src="https://w.soundcloud.com/player/?url=https%3a%2f%2fsoundcloud.com%2fenya%2fmay-it-be&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>
+    </div>
+    
+    
+    
+
+    <div class="content">
+    <h1 class="article-title"><a href="https://bbyy.io/sc/audio/may-it-be/">May It Be - 恩雅</a></h1>
+    <div class="meta">
+        
+        
+        <span class="date moment">2020-01-02</span>
+        
+        
+
+        
+
+        
+        <span class="categories">
+            
+                
+                <a href="https://bbyy.io/sc/categories/music/">Music</a>
+                
+            
+        </span>
+        
+
+        
+    </div>
+
+    
+    SoundCloud音樂測試。
+
+    
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/new-age/">New Age</a>
+                
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
             <a class="bubble" href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">
     <i class="fas fa-fw fa-code"></i>
 </a>
@@ -1660,11 +1481,11 @@ chmod=<span style="color:#ae81ff">0700</span>                       ; sockef fil
                 </li>
                 
                 <li>
-                    <a href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">Gunicorn Supervisor Deploy</a>
+                    <a href="https://bbyy.io/sc/audio/may-it-be/">May It Be - 恩雅</a>
                 </li>
                 
                 <li>
-                    <a href="https://bbyy.io/sc/article/uwsgi-gunicorn/">uWSGI和Gunicorn对比实践笔记</a>
+                    <a href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">Gunicorn Supervisor Deploy</a>
                 </li>
                 
             </ul>
@@ -1679,6 +1500,11 @@ chmod=<span style="color:#ae81ff">0700</span>                       ; sockef fil
                 <li>
                     <a href="/sc/categories/code">Code
                         (6)</a>
+                </li>
+                
+                <li>
+                    <a href="/sc/categories/music">Music
+                        (1)</a>
                 </li>
                 
                 <li>
