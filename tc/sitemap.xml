@@ -213,6 +213,51 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/tags/excel/</loc>
+    <lastmod>2020-01-29T01:45:09+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/excel/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/excel/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/code/a-tour-of-go-exercise-solutions/</loc>
+    <lastmod>2020-01-29T01:45:09+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/a-tour-of-go-exercise-solutions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/a-tour-of-go-exercise-solutions/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/openpyxl/</loc>
+    <lastmod>2020-01-29T01:45:09+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/openpyxl/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/openpyxl/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/gallery/</loc>
     <lastmod>2020-01-06T21:20:56+08:00</lastmod>
     <priority>0</priority>
@@ -315,36 +360,6 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/gallery/gallery-test/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/tags/excel/</loc>
-    <lastmod>2020-01-05T17:32:24+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/tags/excel/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/excel/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/tags/openpyxl/</loc>
-    <lastmod>2020-01-05T17:32:24+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/tags/openpyxl/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/openpyxl/"
                 />
   </url>
   
