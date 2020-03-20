@@ -258,17 +258,62 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/sc/article/</loc>
-    <lastmod>2020-01-13T22:40:20+08:00</lastmod>
+    <loc>https://bbyy.io/sc/tags/crontab/</loc>
+    <lastmod>2020-01-20T14:10:12+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://bbyy.io/article/"
+                href="https://bbyy.io/tags/crontab/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
-                href="https://bbyy.io/sc/article/"
+                href="https://bbyy.io/sc/tags/crontab/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/tags/docker/</loc>
+    <lastmod>2020-01-20T14:10:12+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/docker/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/code/docker-gitlab-deploy/</loc>
+    <lastmod>2020-01-20T14:10:12+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/docker-gitlab-deploy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/docker-gitlab-deploy/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/tags/gitlab/</loc>
+    <lastmod>2020-01-20T14:10:12+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/gitlab/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/gitlab/"
                 />
   </url>
   
@@ -283,7 +328,7 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/sc/article/sqlalchemy-add-page/</loc>
+    <loc>https://bbyy.io/sc/code/sqlalchemy-add-page/</loc>
     <lastmod>2020-01-13T22:40:20+08:00</lastmod>
   </url>
   
@@ -448,17 +493,17 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/sc/article/uwsgi-gunicorn/</loc>
+    <loc>https://bbyy.io/sc/code/uwsgi-gunicorn/</loc>
     <lastmod>2019-01-27T12:13:48+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://bbyy.io/article/uwsgi-gunicorn/"
+                href="https://bbyy.io/code/uwsgi-gunicorn/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
-                href="https://bbyy.io/sc/article/uwsgi-gunicorn/"
+                href="https://bbyy.io/sc/code/uwsgi-gunicorn/"
                 />
   </url>
   
@@ -493,17 +538,17 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/sc/article/flask-wechat-official-accounts/</loc>
+    <loc>https://bbyy.io/sc/code/flask-wechat-official-accounts/</loc>
     <lastmod>2018-11-26T13:07:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://bbyy.io/article/flask-wechat-official-accounts/"
+                href="https://bbyy.io/code/flask-wechat-official-accounts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
-                href="https://bbyy.io/sc/article/flask-wechat-official-accounts/"
+                href="https://bbyy.io/sc/code/flask-wechat-official-accounts/"
                 />
   </url>
   

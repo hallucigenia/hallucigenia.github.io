@@ -12,10 +12,10 @@
     
     <item>
       <title>使用Flask创建微信公众号</title>
-      <link>https://bbyy.io/sc/article/flask-wechat-official-accounts/</link>
+      <link>https://bbyy.io/sc/code/flask-wechat-official-accounts/</link>
       <pubDate>Mon, 26 Nov 2018 13:07:13 +0800</pubDate>
       
-      <guid>https://bbyy.io/sc/article/flask-wechat-official-accounts/</guid>
+      <guid>https://bbyy.io/sc/code/flask-wechat-official-accounts/</guid>
       <description>&lt;p&gt;基于Python3搭建Flask微信公众号后台&lt;/p&gt;</description>
     </item>
     

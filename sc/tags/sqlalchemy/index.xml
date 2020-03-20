@@ -12,11 +12,11 @@
     
     <item>
       <title>为 SqlAlchemy 添加分页逻辑</title>
-      <link>https://bbyy.io/sc/article/sqlalchemy-add-page/</link>
+      <link>https://bbyy.io/sc/code/sqlalchemy-add-page/</link>
       <pubDate>Mon, 13 Jan 2020 22:40:20 +0800</pubDate>
       
-      <guid>https://bbyy.io/sc/article/sqlalchemy-add-page/</guid>
-      <description></description>
+      <guid>https://bbyy.io/sc/code/sqlalchemy-add-page/</guid>
+      <description>&lt;p&gt;有过这样一个需求，需要返回的RESTful API里，需要通过后端实现不同字段的排序或筛选或者兼而有之，并返回给前端包含当前页码以及总页数的分页逻辑。&lt;/p&gt;</description>
     </item>
     
   </channel>

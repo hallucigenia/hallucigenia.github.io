@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Crontab on Fancy‘s Technology Blog</title>
+    <link>https://bbyy.io/sc/tags/crontab/</link>
+    <description>Recent content in Crontab on Fancy‘s Technology Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 20 Jan 2020 14:10:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://bbyy.io/sc/tags/crontab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker搭建维护Gitlab </title>
+      <link>https://bbyy.io/sc/code/docker-gitlab-deploy/</link>
+      <pubDate>Mon, 20 Jan 2020 14:10:12 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/code/docker-gitlab-deploy/</guid>
+      <description>&lt;p&gt;Gitlab 从安装到升级维护，内含 Gitlab 的维护指南，Docker基本操作，Crontab基本操作&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -234,7 +234,7 @@
     <div class="featured-image">
         <a href="https://bbyy.io/sc/code/a-tour-of-go-exercise-solutions/">
             
-                <img src="/sc/code/a-tour-of-go-exercise-solutions/featuredImage_hube8e9dd9e2adde6277b1430c4ad6fb74_31957_700x350_fill_q95_box_smart1.jpg" alt="">
+                <img src="/sc/code/a-tour-of-go-exercise-solutions/featuredImage.jpg" alt="">
             
         </a>
     </div>
@@ -272,293 +272,10 @@
 
     
     <p>golang练手项目，一周每天做两个Golang练习，近期温习一下并适当做些注释</p>
-<p>在主Python的时候，也要巩固提升自己的Go姿势水平，练习题目来自<a href="https://go-tour-zh-tw.appspot.com">A Tour of Go</a>，提供多语言，教程说实话比较经典了，闲的时候值得一看的Golang初中级进阶教程，比想象中的要闹心。干拉会很吃力，刚好查漏补缺，还是需要其他Golang基础的。</p>
-<h2 id="練習循環和函式">練習：循環和函式</h2>
-<p>作為練習函式和循環的簡單途徑，用牛頓法實現開方函式。</p>
-<p>在這個例子中，牛頓法是通過選擇一個初始點 <em>z</em> 然後重複這一過程求 <code>Sqrt(x)</code> 的近似值：</p>
-<p><img src="https://go-tour-zh-tw.appspot.com/content/img/newton.png" alt="img"></p>
-<p>為了做到這個，只需要重複計算 10 次，並且觀察不同的值（1，2，3，……）是如何逐步逼近結果的。 然後，修改循環條件，使得當值停止改變（或改變非常小）的時候退出循環。觀察迭代次數是否變化。結果與 <a href="http://golang.org/pkg/math/#Sqrt">math.Sqrt</a> 接近嗎？</p>
-<p>提示：定義並初始化一個浮點值，向其提供一個浮點語法或使用轉換：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">z</span> <span style="color:#f92672">:=</span> float64(<span style="color:#ae81ff">1</span>)
-<span style="color:#a6e22e">z</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1.0</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<span style="color:#f92672">import</span> (
-    <span style="color:#e6db74">&#34;fmt&#34;</span>
-    <span style="color:#e6db74">&#34;math&#34;</span>
-)
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Sqrt</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">float64</span>) <span style="color:#66d9ef">float64</span> {
-    <span style="color:#a6e22e">z</span>, <span style="color:#a6e22e">k</span> <span style="color:#f92672">:=</span> float64(<span style="color:#ae81ff">1</span>), float64(<span style="color:#ae81ff">1</span>)
-    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">k</span> &gt; <span style="color:#ae81ff">1e-15</span> {
-        <span style="color:#a6e22e">d</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">z</span>
-        <span style="color:#a6e22e">z</span> = <span style="color:#a6e22e">z</span> <span style="color:#f92672">-</span> (<span style="color:#a6e22e">z</span><span style="color:#f92672">*</span><span style="color:#a6e22e">z</span><span style="color:#f92672">-</span><span style="color:#a6e22e">x</span>)<span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">z</span>)
-        <span style="color:#a6e22e">k</span> = <span style="color:#a6e22e">z</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">d</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">k</span> &lt; <span style="color:#ae81ff">0</span> {
-            <span style="color:#a6e22e">k</span> = <span style="color:#a6e22e">d</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">z</span>
-        }
-    }
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">z</span>
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">Sqrt</span>(<span style="color:#ae81ff">2</span>))
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(<span style="color:#ae81ff">2</span>))
-}
-</code></pre></div><h2 id="練習slice">練習：slice</h2>
-<p>實現 <code>Pic</code> 。它返回一個 slice 的長度 <code>dy</code> ，和 slice 中每個元素的長度的 8 位無符號整數 <code>dx</code> 。當執行這個程式，它會將整數轉換為灰度（好吧，藍度）圖片進行展示。</p>
-<p>圖片的實現已經完成。可能用到的函式包括 <code>&gt;x^y</code> ， <code>(x+y)/2</code> 和 <code>x*y</code> 。</p>
-<p>（需要使用循環來分配 <code>[][]uint8</code> 中的每個 <code>[]uint8</code>。）</p>
-<p>（使用 <code>uint8(intValue)</code> 在類型之間進行轉換。）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-
-<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;code.google.com/p/go-tour/pic&#34;</span>
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Pic</span>(<span style="color:#a6e22e">dx</span>, <span style="color:#a6e22e">dy</span> <span style="color:#66d9ef">int</span>) [][]<span style="color:#66d9ef">uint8</span> {
-    <span style="color:#a6e22e">img</span> <span style="color:#f92672">:=</span> make([][]<span style="color:#66d9ef">uint8</span>, <span style="color:#a6e22e">dy</span>)
-    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">x</span> &lt; <span style="color:#a6e22e">dy</span>; <span style="color:#a6e22e">x</span><span style="color:#f92672">++</span> {
-        <span style="color:#a6e22e">img</span>[<span style="color:#a6e22e">x</span>] = make([]<span style="color:#66d9ef">uint8</span>, <span style="color:#a6e22e">dx</span>)
-        <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">y</span> &lt; <span style="color:#a6e22e">dx</span>; <span style="color:#a6e22e">y</span><span style="color:#f92672">++</span> {
-            <span style="color:#a6e22e">img</span>[<span style="color:#a6e22e">x</span>][<span style="color:#a6e22e">y</span>] = uint8((<span style="color:#a6e22e">x</span> ^ <span style="color:#a6e22e">y</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">y</span>)
-        }
-    }
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">img</span>
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#a6e22e">pic</span>.<span style="color:#a6e22e">Show</span>(<span style="color:#a6e22e">Pic</span>)
-}
-</code></pre></div><hr>
-<h2 id="練習map">練習：map</h2>
-<p>實現 <code>WordCount</code> 。它應當返回一個含有 <code>s</code> 中每個「詞」個數的 map。函式 <code>wc.Test</code> 針對這個函式執行一個測試用例，並顯示成功或者失敗。</p>
-<p>你會發現 <a href="http://golang.org/pkg/strings/#Fields">strings.Fields</a> 很有幫助。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-
-<span style="color:#f92672">import</span> (
-    <span style="color:#e6db74">&#34;code.google.com/p/go-tour/wc&#34;</span>
-    <span style="color:#e6db74">&#34;strings&#34;</span>
-)
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">WordCount</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">int</span> {
-    <span style="color:#a6e22e">source</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">int</span>)
-  
-  <span style="color:#75715e">// 將字符串分成單個word
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">words</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Fields</span>(<span style="color:#a6e22e">s</span>)
-  
-  <span style="color:#75715e">// 遍歷單詞，出現`s`則+1
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">word</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">words</span> {
-        <span style="color:#a6e22e">source</span>[<span style="color:#a6e22e">word</span>]<span style="color:#f92672">++</span>
-    }
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">source</span>
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#a6e22e">wc</span>.<span style="color:#a6e22e">Test</span>(<span style="color:#a6e22e">WordCount</span>)
-}
-</code></pre></div><h2 id="練習斐波納契閉包">練習：斐波納契閉包</h2>
-<p>現在來通過函式做些有趣的事情。</p>
-<p>實現一個 <code>fibonacci</code> 函式，返回一個函式（一個閉包）可以返回連續的斐波納契數。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-
-<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
-
-<span style="color:#75715e">// fibonacci is a function that returns
-</span><span style="color:#75715e">// a function that returns an int.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">fibonacci</span>() <span style="color:#66d9ef">func</span>() <span style="color:#66d9ef">int</span> {
-    <span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">func</span>() <span style="color:#66d9ef">int</span> {
-        <span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> = <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span>
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span>
-    }
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#a6e22e">f</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fibonacci</span>()
-    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">f</span>())
-    }
-}
-</code></pre></div><hr>
-<h2 id="進階練習複數的立方跟">進階練習：複數的立方跟</h2>
-<p>讓我們通過 <code>complex64</code> 和 <code>complex128</code> 來探索一下 Go 內建的複數。對於立方根，牛頓法需要大量循環：</p>
-<p><img src="https://go-tour-zh-tw.appspot.com/content/img/newton3.png" alt="img"></p>
-<p>找到 2 的立方根，確保算法能夠工作。在 <code>math/cmplx</code> 包中有 <a href="http://golang.org/pkg/math/cmplx/#Pow">Pow</a> 函式。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-
-<span style="color:#f92672">import</span> (
-    <span style="color:#e6db74">&#34;fmt&#34;</span>
-    <span style="color:#e6db74">&#34;math/cmplx&#34;</span>
-)
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Cbrt</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">complex128</span>) <span style="color:#66d9ef">complex128</span> {
-    <span style="color:#a6e22e">z</span> <span style="color:#f92672">:=</span> complex128(<span style="color:#ae81ff">1</span>)
-    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">1000</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-        <span style="color:#a6e22e">z</span> = <span style="color:#a6e22e">z</span> <span style="color:#f92672">-</span> (<span style="color:#a6e22e">cmplx</span>.<span style="color:#a6e22e">Pow</span>(<span style="color:#a6e22e">z</span>, complex128(<span style="color:#ae81ff">3</span>))<span style="color:#f92672">-</span><span style="color:#a6e22e">x</span>)<span style="color:#f92672">/</span>(<span style="color:#ae81ff">3</span><span style="color:#f92672">*</span><span style="color:#a6e22e">cmplx</span>.<span style="color:#a6e22e">Pow</span>(<span style="color:#a6e22e">z</span>, complex128(<span style="color:#ae81ff">2</span>)))
-    }
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">z</span>
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">Cbrt</span>(<span style="color:#ae81ff">2</span>))
-}
-</code></pre></div><h2 id="練習錯誤">練習：錯誤</h2>
-<p>​    從之前的練習中複製 <code>Sqrt</code> 函式，並修改使其返回 <code>error</code> 值。</p>
-<p>​    <code>Sqrt</code> 接收到一個負數時，應當返回一個非 nil 的錯誤值。複數同樣也不被支持。</p>
-<p>​    創建一個新類型</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ErrNegativeSqrt</span> <span style="color:#66d9ef">float64</span>
-</code></pre></div><p>​    為其實現</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">e</span> <span style="color:#a6e22e">ErrNegativeSqrt</span>) <span style="color:#a6e22e">Error</span>() <span style="color:#66d9ef">string</span>
-</code></pre></div><p>​    使其成為一個 <code>error</code>， 該方法就可以讓 <code>ErrNegativeSqrt(-2).Error()</code> 返回 <code>&quot;cannot Sqrt negative number: -2&quot;</code>。</p>
-<p>​    <strong>注意：</strong> 在 <code>Error</code> 方法內調用 <code>fmt.Print(e)</code> 將會讓程式陷入死循環。可以通過先轉換 <code>e</code> 來避免這個問題：<code>fmt.Print(float64(e))</code>。請思考這是為什麼呢？</p>
-<p>​    修改 <code>Sqrt</code> 函式，使其接受一個負數時，返回 <code>ErrNegativeSqrt</code> 值。</p>
-<h4 id="解答">解答：</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-
-<span style="color:#f92672">import</span> (
-    <span style="color:#e6db74">&#34;fmt&#34;</span>
-    <span style="color:#e6db74">&#34;math&#34;</span>
-)
-
-<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ErrNegativeSqrt</span> <span style="color:#66d9ef">float64</span>
-
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">e</span> <span style="color:#a6e22e">ErrNegativeSqrt</span>) <span style="color:#a6e22e">Error</span>() <span style="color:#66d9ef">string</span> {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;cannot Sqrt negative number: %v&#34;</span>, float64(<span style="color:#a6e22e">e</span>))
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Sqrt</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">float64</span>) (<span style="color:#66d9ef">float64</span>, <span style="color:#66d9ef">error</span>) {
-    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">x</span> &lt; <span style="color:#ae81ff">0</span> {
-        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">ErrNegativeSqrt</span>(<span style="color:#a6e22e">x</span>)
-    }
-    <span style="color:#a6e22e">z</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.0</span>
-    <span style="color:#66d9ef">for</span> {
-        <span style="color:#a6e22e">y</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">z</span> <span style="color:#f92672">-</span> (<span style="color:#a6e22e">z</span><span style="color:#f92672">*</span><span style="color:#a6e22e">z</span><span style="color:#f92672">-</span><span style="color:#a6e22e">x</span>)<span style="color:#f92672">/</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">z</span>)
-        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Abs</span>(<span style="color:#a6e22e">y</span><span style="color:#f92672">-</span><span style="color:#a6e22e">z</span>) &lt; <span style="color:#ae81ff">1e-9</span> {
-            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">y</span>, <span style="color:#66d9ef">nil</span>
-        }
-        <span style="color:#a6e22e">z</span> = <span style="color:#a6e22e">y</span>
-    }
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">z</span>, <span style="color:#66d9ef">nil</span>
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">Sqrt</span>(<span style="color:#ae81ff">2</span>))
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">Sqrt</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>))
-}
-</code></pre></div><hr>
-<h2 id="練習http-處理">練習：HTTP 處理</h2>
-<p>​    實現下面的類型，並在其上定義 ServeHTTP 方法。在 web 服務器中註冊它們來處理指定的路徑。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">String</span> <span style="color:#66d9ef">string</span>
-
-<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Struct</span> <span style="color:#66d9ef">struct</span> {
-    <span style="color:#a6e22e">Greeting</span> <span style="color:#66d9ef">string</span>
-    <span style="color:#a6e22e">Punct</span>    <span style="color:#66d9ef">string</span>
-    <span style="color:#a6e22e">Who</span>      <span style="color:#66d9ef">string</span>
-}
-</code></pre></div><p>​    例如，可以使用如下方式註冊處理方法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;/string&#34;</span>, <span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;I&#39;m a frayed knot.&#34;</span>))
-<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;/struct&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Struct</span>{<span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#e6db74">&#34;:&#34;</span>, <span style="color:#e6db74">&#34;Gophers!&#34;</span>})
-</code></pre></div><h4 id="解答-1">解答：</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">String</span> <span style="color:#66d9ef">string</span>
-
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">String</span>) <span style="color:#a6e22e">ServeHTTP</span>(
-    <span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>,
-    <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprint</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;%s&#34;</span>, <span style="color:#a6e22e">s</span>)
-}
-
-<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Struct</span> <span style="color:#66d9ef">struct</span> {
-    <span style="color:#a6e22e">Greeting</span> <span style="color:#66d9ef">string</span>
-    <span style="color:#a6e22e">Punct</span>    <span style="color:#66d9ef">string</span>
-    <span style="color:#a6e22e">Who</span>      <span style="color:#66d9ef">string</span>
-}
-
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">Struct</span>) <span style="color:#a6e22e">ServeHTTP</span>(
-    <span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>,
-    <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
-    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprint</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Greeting</span><span style="color:#f92672">+</span><span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Punct</span><span style="color:#f92672">+</span><span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Who</span>)
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;/string&#34;</span>, <span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;I&#39;m a frayed knot.&#34;</span>))
-    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;/struct&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Struct</span>{<span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#e6db74">&#34;:&#34;</span>, <span style="color:#e6db74">&#34;Gophers!&#34;</span>})
-    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;localhost:4000&#34;</span>, <span style="color:#66d9ef">nil</span>)
-}
-</code></pre></div><h2 id="練習圖片">練習：圖片</h2>
-<p>​    還記得之前編寫的圖片生成器嗎？現在來另外編寫一個，不過這次將會返回 <code>image.Image</code> 來代替 slice 的數據。</p>
-<p>​    自定義的 <code>Image</code> 類型，要實現<a href="http://golang.org/pkg/image/#Image">必要的方法</a>，並且調用 <code>pic.ShowImage</code> 。</p>
-<p>​    <code>Bounds</code> 應當返回一個 <code>image.Rectangle</code>，例如 <code>image.Rect(0, 0, w, h)</code> 。</p>
-<p>​    <code>ColorModel</code> 應當返回 <code>image.RGBAModel</code> 。</p>
-<p>​    <code>At</code> 應當返回一個顏色；在這個例子裡，在最後一個圖片生成器的值 <code>v</code> 匹配 <code>color.RGBA{v, v, 255, 255}</code> 。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-
-<span style="color:#f92672">import</span> (
-    <span style="color:#e6db74">&#34;code.google.com/p/go-tour/pic&#34;</span>
-    <span style="color:#e6db74">&#34;image&#34;</span>
-    <span style="color:#e6db74">&#34;image/color&#34;</span>
-)
-
-<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Image</span> <span style="color:#66d9ef">struct</span> {
-    <span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">h</span> <span style="color:#66d9ef">int</span>
-    <span style="color:#a6e22e">seed</span> <span style="color:#66d9ef">uint8</span>
-}
-
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">self</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Image</span>) <span style="color:#a6e22e">ColorModel</span>() <span style="color:#a6e22e">color</span>.<span style="color:#a6e22e">Model</span> {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">color</span>.<span style="color:#a6e22e">RGBAModel</span>
-}
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">self</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Image</span>) <span style="color:#a6e22e">Bounds</span>() <span style="color:#a6e22e">image</span>.<span style="color:#a6e22e">Rectangle</span> {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">image</span>.<span style="color:#a6e22e">Rect</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">self</span>.<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">self</span>.<span style="color:#a6e22e">h</span>)
-}
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">self</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Image</span>) <span style="color:#a6e22e">At</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> <span style="color:#66d9ef">int</span>) <span style="color:#a6e22e">color</span>.<span style="color:#a6e22e">Color</span> {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">color</span>.<span style="color:#a6e22e">RGBA</span>{<span style="color:#a6e22e">self</span>.<span style="color:#a6e22e">seed</span> <span style="color:#f92672">+</span> uint8(<span style="color:#a6e22e">x</span>), <span style="color:#a6e22e">self</span>.<span style="color:#a6e22e">seed</span> <span style="color:#f92672">+</span> uint8(<span style="color:#a6e22e">y</span>), <span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">255</span>}
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Image</span>{<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">120</span>}
-    <span style="color:#a6e22e">pic</span>.<span style="color:#a6e22e">ShowImage</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">m</span>)
-}
-</code></pre></div><hr>
-<h2 id="練習rot13-讀取器">練習：Rot13 讀取器</h2>
-<p>​    一般的模式是 <a href="http://golang.org/pkg/io/#Reader">io.Reader</a> 包裹另一個 <code>io.Reader</code> ，用某些途徑修改特定的流。</p>
-<p>​    例如，<a href="http://golang.org/pkg/compress/gzip/#NewReader">gzip.NewReader</a> 函式輸入一個 <code>io.Reader</code> （gzip 的數據流）並且返回一個同樣實現了 <code>io.Reader</code> 的 <code>*gzip.Reader</code>（解壓縮後的數據流）。</p>
-<p>​    實現一個實現了 <code>io.Reader</code> 的 <code>rot13Reader</code> ，用 <a href="http://en.wikipedia.org/wiki/ROT13">ROT13</a> 修改數據流中的所有的字母進行密文替換。</p>
-<p>​    <code>rot13Reader</code> 已經提供。通過實現其 <code>Read</code> 方法使得它匹配 <code>io.Reader</code> 。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-
-<span style="color:#f92672">import</span> (
-    <span style="color:#e6db74">&#34;io&#34;</span>
-    <span style="color:#e6db74">&#34;os&#34;</span>
-    <span style="color:#e6db74">&#34;strings&#34;</span>
-)
-
-<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">rot13Reader</span> <span style="color:#66d9ef">struct</span> {
-    <span style="color:#a6e22e">r</span> <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Reader</span>
-}
-
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">self</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">rot13Reader</span>) <span style="color:#a6e22e">Read</span>(<span style="color:#a6e22e">p</span> []<span style="color:#66d9ef">byte</span>) (<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">error</span>) {
-    <span style="color:#a6e22e">self</span>.<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Read</span>(<span style="color:#a6e22e">p</span>)
-    <span style="color:#a6e22e">leng</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">p</span>)
-    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">leng</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-        <span style="color:#66d9ef">switch</span> {
-        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#39;a&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] &lt; <span style="color:#e6db74">&#39;n&#39;</span>:
-            <span style="color:#66d9ef">fallthrough</span>
-        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#39;A&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] &lt; <span style="color:#e6db74">&#39;N&#39;</span>:
-            <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">13</span>
-        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#39;n&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;z&#39;</span>:
-            <span style="color:#66d9ef">fallthrough</span>
-        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#39;N&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;Z&#39;</span>:
-            <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">13</span>
-        }
-    }
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">leng</span>, <span style="color:#66d9ef">nil</span>
-}
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-    <span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">NewReader</span>(
-        <span style="color:#e6db74">&#34;Lbh penpxrq gur pbqr!&#34;</span>)
-    <span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rot13Reader</span>{<span style="color:#a6e22e">s</span>}
-    <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Copy</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stdout</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">r</span>)
-}
-</code></pre></div>
+    
+    <a href="https://bbyy.io/sc/code/a-tour-of-go-exercise-solutions/" class="more"></a>
+    
     
 </div>
 
@@ -604,23 +321,123 @@
         
     <div class="article-wrapper u-cf">
         
-            <a class="bubble" href="https://bbyy.io/sc/article/sqlalchemy-add-page/">
-    <i class="fas fa-fw fa-pencil-alt"></i>
+            <a class="bubble" href="https://bbyy.io/sc/code/docker-gitlab-deploy/">
+    <i class="fas fa-fw fa-code"></i>
 </a>
 
 <article class="default article">
     
     <div class="featured-image">
-        <a href="https://bbyy.io/sc/article/sqlalchemy-add-page/">
+        <a href="https://bbyy.io/sc/code/docker-gitlab-deploy/">
             
-                <img src="/sc/article/sqlalchemy-add-page/featuredImage.png" alt="">
+                <img src="/sc/code/docker-gitlab-deploy/featuredImage.png" alt="">
             
         </a>
     </div>
 
 
     <div class="content">
-    <h1 class="article-title"><a href="https://bbyy.io/sc/article/sqlalchemy-add-page/">为 SqlAlchemy 添加分页逻辑</a></h1>
+    <h1 class="article-title"><a href="https://bbyy.io/sc/code/docker-gitlab-deploy/">Docker搭建维护Gitlab </a></h1>
+    <div class="meta">
+        
+        
+        <span class="date moment">2020-01-20</span>
+        
+        
+
+        
+
+        
+        <span class="categories">
+            
+                
+                <a href="https://bbyy.io/sc/categories/code/">Code</a>
+                
+            
+        </span>
+        
+
+        
+        <span class="author">
+            
+            <a href="https://bbyy.io/sc/author/fancy/">Fancy</a>
+            
+        </span>
+        
+    </div>
+
+    
+    <p>Gitlab 从安装到升级维护，内含 Gitlab 的维护指南，Docker基本操作，Crontab基本操作</p>
+
+    
+    <a href="https://bbyy.io/sc/code/docker-gitlab-deploy/" class="more"></a>
+    
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                
+                <a href="https://bbyy.io/sc/tags/crontab/">Crontab</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/gitlab/">Gitlab</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/docker/">Docker</a>
+                
+                
+            </div>
+        </div>
+    
+
+    
+    <div class="languages">
+        <i class="fa fa-language"></i>
+        <div class="links">
+            
+                <a href="https://bbyy.io/code/docker-gitlab-deploy/">tc</a>
+            
+        </div>
+    </div>
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            <a class="bubble" href="https://bbyy.io/sc/code/sqlalchemy-add-page/">
+    <i class="fas fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://bbyy.io/sc/code/sqlalchemy-add-page/">
+            
+                <img src="/sc/code/sqlalchemy-add-page/featuredImage.png" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h1 class="article-title"><a href="https://bbyy.io/sc/code/sqlalchemy-add-page/">为 SqlAlchemy 添加分页逻辑</a></h1>
     <div class="meta">
         
         
@@ -650,162 +467,11 @@
     </div>
 
     
-    <p>有过这样一个需求，需要返回的RESTful API里，需要通过后端实现不同字段的排序或筛选或者兼而有之，以及分页逻辑，ORM引擎为SQLAlchemy，这个确实做起来比较坑，大量的代码非常不优雅，秉着不重复造轮子的做法，通过阅读Flask-SQLAlchemy的源码，为SQLALchemy添加分页逻辑。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> math <span style="color:#f92672">import</span> ceil
+    <p>有过这样一个需求，需要返回的RESTful API里，需要通过后端实现不同字段的排序或筛选或者兼而有之，并返回给前端包含当前页码以及总页数的分页逻辑。</p>
 
-<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> request, abort
-<span style="color:#f92672">from</span> flask_sqlalchemy <span style="color:#f92672">import</span> xrange
-<span style="color:#f92672">from</span> sqlalchemy.orm <span style="color:#f92672">import</span> Query
-
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Pagination</span>(object):
-    <span style="color:#e6db74">&#34;&#34;&#34;
-</span><span style="color:#e6db74">    Sqlalchemy 的分页对象模块
-</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
-
-    <span style="color:#66d9ef">def</span> __init__(self, query, page, per_page, total, items):
-        self<span style="color:#f92672">.</span>query <span style="color:#f92672">=</span> query
-        self<span style="color:#f92672">.</span>page <span style="color:#f92672">=</span> page
-        self<span style="color:#f92672">.</span>per_page <span style="color:#f92672">=</span> per_page
-        self<span style="color:#f92672">.</span>total <span style="color:#f92672">=</span> total
-        self<span style="color:#f92672">.</span>items <span style="color:#f92672">=</span> items
-
-    <span style="color:#a6e22e">@property</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pages</span>(self):
-        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>per_page <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-            pages <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-        <span style="color:#66d9ef">else</span>:
-            pages <span style="color:#f92672">=</span> int(ceil(self<span style="color:#f92672">.</span>total <span style="color:#f92672">/</span> float(self<span style="color:#f92672">.</span>per_page)))
-        <span style="color:#66d9ef">return</span> pages
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">prev</span>(self, error_out<span style="color:#f92672">=</span>False):
-        <span style="color:#66d9ef">assert</span> self<span style="color:#f92672">.</span>query <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None, <span style="color:#e6db74">&#39;a query object is required &#39;</span> \
-                                       <span style="color:#e6db74">&#39;for this method to work&#39;</span>
-        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>query<span style="color:#f92672">.</span>paginate(self<span style="color:#f92672">.</span>page <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, self<span style="color:#f92672">.</span>per_page, error_out)
-
-    <span style="color:#a6e22e">@property</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">prev_num</span>(self):
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>has_prev:
-            <span style="color:#66d9ef">return</span> None
-        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>page <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
-
-    <span style="color:#a6e22e">@property</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">has_prev</span>(self):
-        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>page <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">next</span>(self, error_out<span style="color:#f92672">=</span>False):
-        <span style="color:#66d9ef">assert</span> self<span style="color:#f92672">.</span>query <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None, <span style="color:#e6db74">&#39;a query object is required &#39;</span> \
-                                       <span style="color:#e6db74">&#39;for this method to work&#39;</span>
-        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>query<span style="color:#f92672">.</span>paginate(self<span style="color:#f92672">.</span>page <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, self<span style="color:#f92672">.</span>per_page, error_out)
-
-    <span style="color:#a6e22e">@property</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">has_next</span>(self):
-        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>page <span style="color:#f92672">&lt;</span> self<span style="color:#f92672">.</span>pages
-
-    <span style="color:#a6e22e">@property</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">next_num</span>(self):
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>has_next:
-            <span style="color:#66d9ef">return</span> None
-        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>page <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iter_pages</span>(self, left_edge<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, left_current<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,
-                   right_current<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, right_edge<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>):
-        last <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-        <span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> xrange(<span style="color:#ae81ff">1</span>, self<span style="color:#f92672">.</span>pages <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
-            <span style="color:#66d9ef">if</span> num <span style="color:#f92672">&lt;=</span> left_edge <span style="color:#f92672">or</span> \
-               (num <span style="color:#f92672">&gt;</span> self<span style="color:#f92672">.</span>page <span style="color:#f92672">-</span> left_current <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">and</span>
-                num <span style="color:#f92672">&lt;</span> self<span style="color:#f92672">.</span>page <span style="color:#f92672">+</span> right_current) <span style="color:#f92672">or</span> \
-               num <span style="color:#f92672">&gt;</span> self<span style="color:#f92672">.</span>pages <span style="color:#f92672">-</span> right_edge:
-                <span style="color:#66d9ef">if</span> last <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">!=</span> num:
-                    <span style="color:#66d9ef">yield</span> None
-                <span style="color:#66d9ef">yield</span> num
-                last <span style="color:#f92672">=</span> num
-
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">paginate</span>(self, page<span style="color:#f92672">=</span>None, per_page<span style="color:#f92672">=</span>None, error_out<span style="color:#f92672">=</span>True):
-    <span style="color:#e6db74">&#34;&#34;&#34;
-</span><span style="color:#e6db74">    分页函数
-</span><span style="color:#e6db74">    :param self:
-</span><span style="color:#e6db74">    :param page:
-</span><span style="color:#e6db74">    :param per_page:
-</span><span style="color:#e6db74">    :param error_out:
-</span><span style="color:#e6db74">    :return: 分页对象
-</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
-    <span style="color:#66d9ef">if</span> request:
-        <span style="color:#66d9ef">if</span> page <span style="color:#f92672">is</span> None:
-            <span style="color:#66d9ef">try</span>:
-                page <span style="color:#f92672">=</span> int(request<span style="color:#f92672">.</span>args<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;page&#39;</span>, <span style="color:#ae81ff">1</span>))
-            <span style="color:#66d9ef">except</span> (<span style="color:#a6e22e">TypeError</span>, <span style="color:#a6e22e">ValueError</span>):
-                <span style="color:#66d9ef">if</span> error_out:
-                    abort(<span style="color:#ae81ff">404</span>)
-
-                page <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-
-        <span style="color:#66d9ef">if</span> per_page <span style="color:#f92672">is</span> None:
-            <span style="color:#66d9ef">try</span>:
-                per_page <span style="color:#f92672">=</span> int(request<span style="color:#f92672">.</span>args<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;per_page&#39;</span>, <span style="color:#ae81ff">20</span>))
-            <span style="color:#66d9ef">except</span> (<span style="color:#a6e22e">TypeError</span>, <span style="color:#a6e22e">ValueError</span>):
-                <span style="color:#66d9ef">if</span> error_out:
-                    abort(<span style="color:#ae81ff">404</span>)
-
-                per_page <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
-    <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">if</span> page <span style="color:#f92672">is</span> None:
-            page <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-
-        <span style="color:#66d9ef">if</span> per_page <span style="color:#f92672">is</span> None:
-            per_page <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
-
-    <span style="color:#66d9ef">if</span> error_out <span style="color:#f92672">and</span> page <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>:
-        abort(<span style="color:#ae81ff">404</span>)
-
-    items <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>limit(per_page)<span style="color:#f92672">.</span>offset((page <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> per_page)<span style="color:#f92672">.</span>all()
-
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> items <span style="color:#f92672">and</span> page <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">and</span> error_out:
-        abort(<span style="color:#ae81ff">404</span>)
-
-    <span style="color:#66d9ef">if</span> page <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">and</span> len(items) <span style="color:#f92672">&lt;</span> per_page:
-        total <span style="color:#f92672">=</span> len(items)
-    <span style="color:#66d9ef">else</span>:
-        total <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>order_by(None)<span style="color:#f92672">.</span>count()
-
-    <span style="color:#66d9ef">return</span> Pagination(self, page, per_page, total, items)
-
-
-Query<span style="color:#f92672">.</span>paginate <span style="color:#f92672">=</span> paginate  <span style="color:#75715e"># add method for SQLAlchemy from flask-SQLAlchemy</span>
-</code></pre></div><p>这样引用本模块</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> paginate_plugin <span style="color:#f92672">import</span> Query
-</code></pre></div><p>使用中，我们初始化的session就可以简单的直接调用模块里定义的<code>paginate</code>分页函数, 举个栗子：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">...</span>
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">paginate_main</span>(user_id, t_id, page_size, page_index, sort, order, search):
-    session <span style="color:#f92672">=</span> Database()<span style="color:#f92672">.</span>Session()
-    <span style="color:#66d9ef">try</span>:
-        per_page, page <span style="color:#f92672">=</span> int(page_size), int(page_index)
-        db_check <span style="color:#f92672">=</span> Task<span style="color:#f92672">.</span>valid_field_attr(Task, str(sort))
-        sort_func <span style="color:#f92672">=</span> sort <span style="color:#66d9ef">if</span> db_check <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;added_on&#34;</span>
-        order_func <span style="color:#f92672">=</span> desc <span style="color:#66d9ef">if</span> order <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;descend&#34;</span> <span style="color:#66d9ef">else</span> asc
-        <span style="color:#66d9ef">if</span> search:
-            task_all <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>query(Task)<span style="color:#f92672">.</span>filter(
-                Task<span style="color:#f92672">.</span>user <span style="color:#f92672">==</span> user_id)<span style="color:#f92672">.</span>filter(
-                Task<span style="color:#f92672">.</span>task_name<span style="color:#f92672">.</span>like(
-                    <span style="color:#e6db74">&#34;%&#34;</span> <span style="color:#f92672">+</span>
-                    search <span style="color:#f92672">+</span>
-                    <span style="color:#e6db74">&#34;%&#34;</span>))<span style="color:#f92672">.</span>group_by(
-                Task<span style="color:#f92672">.</span>task_id)<span style="color:#f92672">.</span>order_by(
-                order_func(sort_func))<span style="color:#f92672">.</span>paginate(
-                    page,
-                per_page)
-<span style="color:#f92672">...</span>
-    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
-        logger<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#34;Exception: {0}&#34;</span><span style="color:#f92672">.</span>format(traceback<span style="color:#f92672">.</span>format_exc()))
-        ret <span style="color:#f92672">=</span> APIResponse(ret_code<span style="color:#f92672">=</span>ECODE_UNKNOWN)<span style="color:#f92672">.</span>get_resp()
-    <span style="color:#66d9ef">else</span>:
-        ret <span style="color:#f92672">=</span> APIResponse(ret_code<span style="color:#f92672">=</span>ECODE_SUCCESS, ret_data<span style="color:#f92672">=</span>ret_task)<span style="color:#f92672">.</span>get_resp()
-    <span style="color:#66d9ef">finally</span>:
-        session<span style="color:#f92672">.</span>close()
-
-    <span style="color:#66d9ef">return</span> ret
-</code></pre></div>
+    
+    <a href="https://bbyy.io/sc/code/sqlalchemy-add-page/" class="more"></a>
+    
     
 </div>
 
@@ -1110,23 +776,23 @@ Query<span style="color:#f92672">.</span>paginate <span style="color:#f92672">=<
         
     <div class="article-wrapper u-cf">
         
-            <a class="bubble" href="https://bbyy.io/sc/article/uwsgi-gunicorn/">
-    <i class="fas fa-fw fa-pencil-alt"></i>
+            <a class="bubble" href="https://bbyy.io/sc/code/uwsgi-gunicorn/">
+    <i class="fas fa-fw fa-code"></i>
 </a>
 
 <article class="default article">
     
     <div class="featured-image">
-        <a href="https://bbyy.io/sc/article/uwsgi-gunicorn/">
+        <a href="https://bbyy.io/sc/code/uwsgi-gunicorn/">
             
-                <img src="/sc/article/uwsgi-gunicorn/featuredImage.jpg" alt="">
+                <img src="/sc/code/uwsgi-gunicorn/featuredImage.jpg" alt="">
             
         </a>
     </div>
 
 
     <div class="content">
-    <h1 class="article-title"><a href="https://bbyy.io/sc/article/uwsgi-gunicorn/">uWSGI和Gunicorn对比实践笔记</a></h1>
+    <h1 class="article-title"><a href="https://bbyy.io/sc/code/uwsgi-gunicorn/">uWSGI和Gunicorn对比实践笔记</a></h1>
     <div class="meta">
         
         
@@ -1136,6 +802,14 @@ Query<span style="color:#f92672">.</span>paginate <span style="color:#f92672">=<
 
         
 
+        
+        <span class="categories">
+            
+                
+                <a href="https://bbyy.io/sc/categories/code/">Code</a>
+                
+            
+        </span>
         
 
         
@@ -1149,134 +823,10 @@ Query<span style="color:#f92672">.</span>paginate <span style="color:#f92672">=<
 
     
     <p>从flask微信公众号后台分析Ubuntu+Python3+pipenv+flask环境下 uWSGI/Gunicorn+supervisor+nginx配置问题</p>
-<p>在服务器能正常通信后，Werkzeug提供的的WSGI并不适合生产环境，调试完代码第一件事就找个独立WSGI容器。我们这里选择uWSGI和gunicorn，相对来说这两个比gevent更适合大型项目，uWSGI出现的比较早，gunicorn是从Ruby的unicorn移植而来，配置也简单。为了熟悉uwsgi我都尝试一下吧</p>
-<blockquote>
-<p>这里的示例程序代码接上篇<a href="https://link.zhihu.com/?target=https%3A//fancysly.com/post/9">使用Flask创建微信公众号</a></p>
-</blockquote>
-<h2 id="uwsgi配置">uWSGI配置</h2>
-<p>这里我们先配置uwsgi，或者使用gunicorn，这两个任选其一。 如果是新浪SAE的话记得删除app.run()里的port，并且以下所有端口都是5050。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pipenv install uwsgi
-</code></pre></div><p>然后运行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ uwsgi --socket 0.0.0.0:5000 -w main:app
-</code></pre></div><p>可以加上&ndash;protocol=http以指定协议，我们的项目启动文件名为<code>main.py</code>对应修改即可，运行<code>http://server_domain_or_IP:5000</code>倘若能看到我们在视图函数写的<code>Hello World!</code>即可。 如果开了防火墙莫忘了开启端口，以Ubuntu的ufw为例：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ufw allow <span style="color:#ae81ff">5000</span>
-</code></pre></div><p>到此，可以到项目根目录创建配置文件wepub_uwsgi.ini，这里名字随意。</p>
-<p><em>wepub_uwsgi.ini:</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">[uwsgi]
-module = main:app
-<span style="color:#75715e">#用以启动程序名</span>
-master = <span style="color:#66d9ef">true</span>
-processes = <span style="color:#ae81ff">4</span>
-<span style="color:#75715e">#子进程数量</span>
-chdir = /root/WePub/wepub
-<span style="color:#75715e">#python启动程序目录</span>
-socket = /root/WePub/wepub/wepub_uwsgi.sock
-<span style="color:#75715e">#uwsgi 启动后所需要创建的文件，和 Nginx 通信，配置 Nginx 时用</span>
-logto = /root/WePub/wepub/%n.log
-chmod-socket = <span style="color:#ae81ff">660</span>
-<span style="color:#75715e">#赋予 .sock 文件权限与 Nginx 通信</span>
-vacuum = <span style="color:#66d9ef">true</span>
-http = <span style="color:#ae81ff">0.0.0.0</span>:<span style="color:#ae81ff">5050</span>
-<span style="color:#75715e">#http地址和端口</span>
-</code></pre></div><p>保存后运行：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ uwsgi --ini wepub_uwsgi.ini
-</code></pre></div><p>此时<strong>运行时</strong>会在设置的目录生成与配置文件同名的.sock文件，先不要关闭，等配置好Nginx后方可关闭确认后跳过gunicorn章节，即配置Nginx。</p>
-<h2 id="gunicorn配置">gunicorn配置</h2>
-<p>个人偏好于gunicorn，用的比较多了，至于区别，gunicorn比较好部署理解，性能上的短板还在我身上，安装gunicorn</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pipenv install gunicorn
-</code></pre></div><p>运行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gunicorn -w <span style="color:#ae81ff">4</span> -b 0.0.0.0:8000 main:app
-</code></pre></div><p>其中-w 是&ndash;workers是定义同步worker的数量，&ndash;bind为主机地址和端口，不用异步的话这就够了 gunicorn的配置文件还能实现复杂的配置，目前学有不精，先不做讨论</p>
-<h2 id="uwsgi配置nginx">uWSGI配置nginx</h2>
-<p>nginx反向代理使用比较多了，流程都比较一致，这里就简洁带过吧</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install nginx
-</code></pre></div><p>这里我们先把nginx的配置文件找个位置备份好</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mv /etc/nginx/sites-enabled/default ~/nginx.backup
-</code></pre></div><p>而后直接定义server块，listen监听80端口 (新浪SAE为5050端口）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vi /etc/nginx/sites-enabled/wepub
-</code></pre></div><p><em>wepub:</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">server <span style="color:#f92672">{</span>
-    listen  80<span style="color:#f92672">;</span>
-    server_name _<span style="color:#f92672">;</span>
 
-    location <span style="color:#f92672">/</span> <span style="color:#f92672">{</span>
-    include      uwsgi_params<span style="color:#f92672">;</span>
-    uwsgi_pass unix<span style="color:#f92672">:/</span>root<span style="color:#f92672">/</span>WePub<span style="color:#f92672">/</span>wepub<span style="color:#f92672">/</span>wepub_uwsgi<span style="color:#f92672">.</span><span style="color:#a6e22e">sock</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p><code>server_name</code>可以指定HOST域名解析后的公网地址，这里默认用的是通配符 这里是最简配置，定义日志存放重写请求头部这些，有机会再详细说明吧 如果项目有静态文件的话，设置路径与过期时间</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">location <span style="color:#f92672">/</span><span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
-    alias <span style="color:#f92672">/</span>the<span style="color:#f92672">/</span>path<span style="color:#f92672">/</span>to<span style="color:#f92672">/</span>staitic<span style="color:#f92672">;</span>
-    expires 30d<span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>保存退出，最后 sudo nginx -t 检查语法错误，期待返回</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-nginx: configuration file /etc/nginx/nginx.conf test is successful
-</code></pre></div><p>有错误的话检查一下，而后重启nginx使配置生效</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo service nginx restart
-</code></pre></div><h2 id="gunicorn配置nginx">gunicorn配置nginx</h2>
-<p>只是配置文件不同</p>
-<p><em>wepub:</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">server <span style="color:#f92672">{</span>
-    listen 80<span style="color:#f92672">;</span>
-    server_name example<span style="color:#f92672">.</span><span style="color:#a6e22e">org</span><span style="color:#f92672">;</span>
-
-
-    location <span style="color:#f92672">/</span> <span style="color:#f92672">{</span>
-    proxy_pass http<span style="color:#f92672">:</span><span style="color:#75715e">//127.0.0.1:8000; #转发gunicorn运行地址
-</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
- <span style="color:#f92672">}</span>
-</code></pre></div><p>location 只需要直接转发gunicorn运行地址即可运行，这里是最简配置，成功后直接80地址即可访问服务器反向代理部分：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    location <span style="color:#f92672">/</span> <span style="color:#f92672">{</span>
-        proxy_pass         http<span style="color:#f92672">:</span><span style="color:#75715e">//localhost:8000/; #gunicorn 运行地址
-</span><span style="color:#75715e"></span>        proxy_redirect     off<span style="color:#f92672">;</span>
-
-        proxy_set_header   Host             $http_host<span style="color:#f92672">;</span>
-        proxy_set_header   X<span style="color:#f92672">-</span>Real<span style="color:#f92672">-</span>IP        $remote_addr<span style="color:#f92672">;</span>
-        proxy_set_header   X<span style="color:#f92672">-</span>Forwarded<span style="color:#f92672">-</span>For  $proxy_add_x_forwarded_for<span style="color:#f92672">;</span>
-   <span style="color:#f92672">}</span>
-</code></pre></div><h2 id="管理uwsgi进程">管理uWSGI进程：</h2>
-<p>这里的差别主要就各自的命令而已，就放在一起说吧 对于uWSGI来说，uWSGI服务与nginx通信时依赖于sock文件，网站运行时无法关闭，始终不可靠，这里我们利用Supervisor管理并监控uWSGI的进程，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install supervisor
-</code></pre></div><p>这里我们不更改全局配置，为我们的程序单独创建配置文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo vi /etc/supervisor/conf.d/wepub.conf
-</code></pre></div><p><em>wepub.conf:</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">[program:wepub]
-command = pipenv run uwsgi /root/WePub/wepub/wepub_uwsgi.ini ;监控uWSGI
-<span style="color:#75715e"># command=pipenv run gunicorn -w 4 main:app       监控Gunicorn</span>
-directory=/root/WePub/wepub                    ;程序目录
-user=root                    ; 程序启动用户，最好不要用root
-autostart=<span style="color:#66d9ef">true</span>                 ; 随supervisor启动而启动
-autorestart=<span style="color:#66d9ef">true</span>              ; 自动重启
-stopasgroup=<span style="color:#66d9ef">true</span>           ; 关闭程序时关闭子进程
-killasgroup=<span style="color:#66d9ef">true</span>             ; 杀死程序时杀死子进程
-stderr_logfile=/root/WePub/wepub/err.log   ;错误日志文件
-stdout_logfile=/root/WePub/wepub/out.log  ;程序日志文件
-stopsignal=INT          ; 杀死进程的自定信号
-startretries=<span style="color:#ae81ff">10</span>               ; 启动失败时的重试次数
-
-[supervisord]
-</code></pre></div><p>我们:wq保存后检查配置文件是否正确：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ supervisord -c /path/to/my/config.conf
-</code></pre></div><p>返回的错误信息挺详细的，根据问题修改即可。确认无返回的时候重启supervisor</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo service supervisor restart
-</code></pre></div><p>如果运行过程中出现错误，可以查看supervisor的错误日志。也可以在<code>supervisorctl</code>命令行中进行查看与操作程序，也可以开启9001浏览器访问。</p>
-<hr>
-<p>浏览器输入Nginx显示502badway，一般这时候是防火墙没打开或者sock文件位置有误</p>
-<p>提示<code>unix:///var/run/supervisor.sock no such file</code>除了supervisor安装问题之外， 一般来说是指定位置或者和权限的问题</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">[unix_http_server]
-file=/var/run/supervisor.sock   ; (socket 文件位置)
-chmod=<span style="color:#ae81ff">0700</span>                       ; sockef file mode (default <span style="color:#ae81ff">0700</span>)
-</code></pre></div><p>如果是提示编码出错还需解决pipenv的编码问题</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo vi /etc/supervisor/supervisord.conf
-</code></pre></div><p>在[supervisord]的最后添加环境设置：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">environment<span style="color:#f92672">=</span>LC_ALL<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;zh_CN.UTF-8&#39;</span>, LANG<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;zh_CN.UTF-8&#39;</span>
-</code></pre></div><ul>
-<li>不知道新浪SAE怎么搞得非要debian系限定的C.UTF-8，我想这并不是个好办法</li>
-</ul>
-<p><img src="https://pic4.zhimg.com/80/v2-d553a36c276824c97c686d079d873d33_1440w.jpg" alt="img"></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">environment<span style="color:#f92672">=</span>LC_ALL<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;C.UTF-8&#39;</span>, LANG<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;C.UTF-8&#39;</span>
-</code></pre></div><p>至此应该能得到一个还算稳定安全的部署程序了，应该足以应对个人微信公众号这些并发不高无需协程的了。 关于每个部分的详细设置都有很多，还是详细阅读文档吧。这里如果遇到什么问题的话还请指教</p>
+    
+    <a href="https://bbyy.io/sc/code/uwsgi-gunicorn/" class="more"></a>
+    
     
 </div>
 
@@ -1310,7 +860,7 @@ chmod=<span style="color:#ae81ff">0700</span>                       ; sockef fil
         <i class="fa fa-language"></i>
         <div class="links">
             
-                <a href="https://bbyy.io/article/uwsgi-gunicorn/">tc</a>
+                <a href="https://bbyy.io/code/uwsgi-gunicorn/">tc</a>
             
         </div>
     </div>
@@ -1326,23 +876,23 @@ chmod=<span style="color:#ae81ff">0700</span>                       ; sockef fil
         
     <div class="article-wrapper u-cf">
         
-            <a class="bubble" href="https://bbyy.io/sc/article/flask-wechat-official-accounts/">
-    <i class="fas fa-fw fa-pencil-alt"></i>
+            <a class="bubble" href="https://bbyy.io/sc/code/flask-wechat-official-accounts/">
+    <i class="fas fa-fw fa-code"></i>
 </a>
 
 <article class="default article">
     
     <div class="featured-image">
-        <a href="https://bbyy.io/sc/article/flask-wechat-official-accounts/">
+        <a href="https://bbyy.io/sc/code/flask-wechat-official-accounts/">
             
-                <img src="/sc/article/flask-wechat-official-accounts/featuredImage.png" alt="">
+                <img src="/sc/code/flask-wechat-official-accounts/featuredImage.png" alt="">
             
         </a>
     </div>
 
 
     <div class="content">
-    <h1 class="article-title"><a href="https://bbyy.io/sc/article/flask-wechat-official-accounts/">使用Flask创建微信公众号</a></h1>
+    <h1 class="article-title"><a href="https://bbyy.io/sc/code/flask-wechat-official-accounts/">使用Flask创建微信公众号</a></h1>
     <div class="meta">
         
         
@@ -1375,7 +925,7 @@ chmod=<span style="color:#ae81ff">0700</span>                       ; sockef fil
     <p>基于Python3搭建Flask微信公众号后台</p>
 
     
-    <a href="https://bbyy.io/sc/article/flask-wechat-official-accounts/" class="more"></a>
+    <a href="https://bbyy.io/sc/code/flask-wechat-official-accounts/" class="more"></a>
     
     
 </div>
@@ -1410,7 +960,7 @@ chmod=<span style="color:#ae81ff">0700</span>                       ; sockef fil
         <i class="fa fa-language"></i>
         <div class="links">
             
-                <a href="https://bbyy.io/article/flask-wechat-official-accounts/">tc</a>
+                <a href="https://bbyy.io/code/flask-wechat-official-accounts/">tc</a>
             
         </div>
     </div>
@@ -1423,29 +973,11 @@ chmod=<span style="color:#ae81ff">0700</span>                       ; sockef fil
     </div>
 
     
-        
-    <div class="article-wrapper u-cf">
-        
-            <a class="bubble" href="https://bbyy.io/sc/quote/xing-you-bu-de/">
-    <i class="fas fa-fw fa-quote-right"></i>
-</a>
-
-<article class="quote">
-    
-    <blockquote>
-        <p>行 有 不 得 ， 反 求 諸 己</p>
-
-        <cite><a href="/sc/author/%E5%AD%9F%E5%AD%90%E7%A6%BB%E5%A8%84%E4%B8%8A">孟子·离娄上</a></cite>
-    </blockquote>
-</article>
-
-        
-    </div>
-
-    
 
     
     <div class="paginator">
+        
+            <a href="/sc/page/2/" class="older"><i class="fa fa-angle-double-left"></i> </a>
         
 
         
@@ -1473,7 +1005,11 @@ chmod=<span style="color:#ae81ff">0700</span>                       ; sockef fil
                 </li>
                 
                 <li>
-                    <a href="https://bbyy.io/sc/article/sqlalchemy-add-page/">为 SqlAlchemy 添加分页逻辑</a>
+                    <a href="https://bbyy.io/sc/code/docker-gitlab-deploy/">Docker搭建维护Gitlab </a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/sqlalchemy-add-page/">为 SqlAlchemy 添加分页逻辑</a>
                 </li>
                 
                 <li>
@@ -1482,10 +1018,6 @@ chmod=<span style="color:#ae81ff">0700</span>                       ; sockef fil
                 
                 <li>
                     <a href="https://bbyy.io/sc/audio/may-it-be/">May It Be - 恩雅</a>
-                </li>
-                
-                <li>
-                    <a href="https://bbyy.io/sc/code/gunicorn-supervisor-deploy/">Gunicorn Supervisor Deploy</a>
                 </li>
                 
             </ul>
@@ -1499,7 +1031,7 @@ chmod=<span style="color:#ae81ff">0700</span>                       ; sockef fil
                 
                 <li>
                     <a href="/sc/categories/code">Code
-                        (6)</a>
+                        (8)</a>
                 </li>
                 
                 <li>
@@ -1561,7 +1093,7 @@ chmod=<span style="color:#ae81ff">0700</span>                       ; sockef fil
                 
                 2020
                 
-                by Fancy
+                 by Fancy 
             </a>
             -
             <a href="https://bbyy.io/sc/index.xml">RSS</a>
