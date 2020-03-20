@@ -318,11 +318,6 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/sc/tags/code/</loc>
-    <lastmod>2020-01-13T22:40:20+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/sc/tags/sqlalchemy/</loc>
     <lastmod>2020-01-13T22:40:20+08:00</lastmod>
   </url>
@@ -478,6 +473,51 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/sc/tags/flask/</loc>
+    <lastmod>2019-03-01T17:22:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/flask/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/flask/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/tags/redis/</loc>
+    <lastmod>2019-03-01T17:22:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/redis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/redis/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/code/flask-caching-with-redis/</loc>
+    <lastmod>2019-03-01T17:22:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/flask-caching-with-redis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/flask-caching-with-redis/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/sc/tags/uwsgi/</loc>
     <lastmod>2019-01-27T12:13:48+08:00</lastmod>
     <xhtml:link
@@ -564,21 +604,6 @@
                 rel="alternate"
                 hreflang="sc"
                 href="https://bbyy.io/sc/tags/translate/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/sc/tags/flask/</loc>
-    <lastmod>2018-11-26T13:07:13+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/flask/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/tags/flask/"
                 />
   </url>
   

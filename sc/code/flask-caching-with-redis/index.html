@@ -1,0 +1,573 @@
+<!doctype html>
+<html class="no-js" lang="sc">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Fancy">
+    <meta name="description" content="Bilberry Premium Theme for Hugo.">
+    <meta name="keywords" content="blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts">
+    <meta name="generator" content="Hugo 0.67.0" />
+    <title> 利用Redis做Flask缓存后端 | Fancy‘s Technology Blog</title>
+    <meta name="description" content="利用Redis做Flask缓存后端 - Bilberry Premium Theme for Hugo.">
+    <meta itemprop="name" content="利用Redis做Flask缓存后端">
+    <meta itemprop="description" content="利用Redis做Flask缓存后端 - Bilberry Premium Theme for Hugo.">
+    <meta property="og:title" content="利用Redis做Flask缓存后端">
+    <meta property="og:description" content="利用Redis做Flask缓存后端 - Bilberry Premium Theme for Hugo.">
+    <meta property="og:image" content="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?size=200">
+    <meta property="og:url" content="https://bbyy.io/sc/code/flask-caching-with-redis/">
+    <meta property="og:site_name" content="Fancy‘s Technology Blog">
+    <meta property="og:type" content="article">
+
+    
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e2619c">
+<meta name="msapplication-TileColor" content="#e2619c">
+<meta name="theme-color" content="#e2619c">
+
+    
+    <link href="/sc/code/flask-caching-with-redis/" rel="alternate" type="application/rss+xml" title="Fancy‘s Technology Blog" />
+    <link href="/sc/code/flask-caching-with-redis/" rel="feed" type="application/rss+xml" title="Fancy‘s Technology Blog" />
+    
+
+    
+
+    <link rel="stylesheet" href="https://bbyy.io/theme.css">
+
+    
+
+    
+    
+    
+</head>
+
+<body class="bilberry-hugo-theme">
+
+    
+    <nav class="permanentTopNav sticky">
+
+    <div class="container">
+        <ul class="topnav">
+            
+            
+            <li><a href="https://bbyy.io/sc/page/about-me/">关于本人</a></li>
+            
+            
+            
+            <li><a href="https://github.com/hallucigenia" target="_blank">Github</a></li>
+            
+            
+        </ul>
+
+        
+        <div id="search-box" class="search">
+            <i class="fas fa-search"></i>
+            <input id="search" type="text" placeholder="">
+        </div>
+        
+    </div>
+</nav>
+
+
+    
+<header class="sticky">
+
+    <div class="container">
+        <div class="logo">
+            <a id="siteBaseUrl" href="/sc" class="logo">
+                
+                <img src="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?d=mm&size=200" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-tape"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a
+                    href="/sc">Fancy‘s Technology Blog</a></h3>
+            
+            <span class="subtitle">Fancy的技术博客</span>
+            
+        </div>
+
+        <div class="languages">
+        
+            
+                <a href="https://bbyy.io/">tc</a>
+            
+        
+            
+                <a href="https://bbyy.io/sc/" class="active">sc</a>
+            
+        
+            
+                <a href="https://bbyy.io/en/">en</a>
+            
+        
+        </div>
+        
+
+        
+        <div class="toggler permanentTopNav">
+            
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+</header>
+
+
+    <div class="main container">
+        
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="https://bbyy.io/sc/code/flask-caching-with-redis/">
+    <i class="fas fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title"><a href="https://bbyy.io/sc/code/flask-caching-with-redis/">利用Redis做Flask缓存后端</a></h1>
+    <div class="meta">
+        
+        
+        <span class="date moment">2019-03-01</span>
+        
+        
+
+        
+
+        
+        <span class="categories">
+            
+                
+                <a href="https://bbyy.io/sc/categories/code/">Code</a>
+                
+            
+        </span>
+        
+
+        
+        <span class="author">
+            
+            <a href="https://bbyy.io/sc/author/fancy/">Fancy</a>
+            
+        </span>
+        
+    </div>
+
+    
+    <p>Flask项目中使用Flask-Caching实现Redis缓存</p>
+<blockquote>
+<p>NoSQL数据库中的Redis，其key-value支持的value类型相当丰富，数据库完全保存在内存里，支持使用硬盘持久化，甚至为数据结构服务器。基于Redis集群原理后期还可以做分布式缓存</p>
+</blockquote>
+<h1 id="使用-flask-caching">使用 Flask-Caching</h1>
+<p>在这里我们调用<a href="https://github.com/thadeusb/flask-cache">Flask-Caching</a>以更加便利的实现Redis的后端缓存。这次就以本Blog为例，典型化介绍Redis缓存的实现。
+Flask-Caching基本的功能继承于flask-cache，大致可以分为</p>
+<ul>
+<li>记忆参数型缓存：由@cached装饰器实现</li>
+<li>无记忆参数型缓存：由@memoize装饰器实现</li>
+</ul>
+<p><em>Flask-Caching是Flask-Cache的fork版本，原来的Flask-Cache已经四年没更新了，最后一个版本只支持到python 3.3</em></p>
+<pre><code>pipenv install flask-caching
+</code></pre>
+<p>如果没有安装redis必须的</p>
+<pre><code>pipenv install redis
+</code></pre>
+<p>工厂函数里实例化Cache类，创建一个cache对象，如果没实例化redis也是必须的(这里我把拓展工厂函数分开了，根据自身情况做相应更改即可)：
+<em>extensions.py :</em></p>
+<pre><code>from redis import Redis
+from flask_caching import Cache
+
+# ...
+redis = Redis()
+cache = Cache(config={
+    'CACHE_TYPE': 'redis',
+    'CACHE_KEY_PREFIX': 'fancycache',
+    'CACHE_REDIS_URL': 'redis://localhost:6379'
+    })
+</code></pre>
+<p>这里只是实例，Flask-Caching除了调用redis缓存后端之外还可以使用本地Python字典，uwsgi的缓存框架，mamcached等等，详见<a href="https://pythonhosted.org/Flask-Caching/#configuring-flask-caching">官方文档</a></p>
+<p>其中<code>RedisCache</code>有以下字段可用：</p>
+<table>
+<thead>
+<tr>
+<th align="left">CACHE_TYPE&rsquo;: &lsquo;redis&rsquo;</th>
+<th align="left">Flask-Caching调用redis缓存后端必须的字段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">CACHE_DEFAULT_TIMEOUT</td>
+<td align="left">未指定缓存超时时间时的默认缓存超时时间，默认为300秒</td>
+</tr>
+<tr>
+<td align="left">CACHE_KEY_PREFIX</td>
+<td align="left">在所有鍵之前添加的前綴。让不同的應用程序可以使用相同的服务器。</td>
+</tr>
+<tr>
+<td align="left">CACHE_REDIS_HOST</td>
+<td align="left">Redis的服务主机，未指定则为<code>localhost</code>即<code>127.0.0.1</code></td>
+</tr>
+<tr>
+<td align="left">CACHE_REDIS_PORT</td>
+<td align="left">Redis的服务端口，默认即Redis默认为<code>6379</code></td>
+</tr>
+<tr>
+<td align="left">CACHE_REDIS_PASSWORD</td>
+<td align="left">Redis如指定密码时的设置</td>
+</tr>
+<tr>
+<td align="left">CACHE_REDIS_DB</td>
+<td align="left">Redis的db库（基于零号索引），默认为零</td>
+</tr>
+<tr>
+<td align="left">CACHE_ARGS</td>
+<td align="left">在缓存类实例化的时候会对该列表进行解包拆分并传递。</td>
+</tr>
+<tr>
+<td align="left">CACHE_OPTIONS</td>
+<td align="left">在缓存类实例化的时候会传递该字典</td>
+</tr>
+<tr>
+<td align="left">CACHE_REDIS_URL</td>
+<td align="left">连接到Redis服务器的URL，如：<code>redis://user:password@localhost:6379/2. </code>相当于把前面的几点整合一下，</td>
+</tr>
+</tbody>
+</table>
+<p>传入参数并初始化拓展，注册到app对象：
+<em><strong>init</strong>.py :</em></p>
+<pre><code>from cryptic.extensions import cache
+# ...
+def register_extensions(app):
+    # ...
+    cache.init_app(app)
+</code></pre>
+<h1 id="设置调试程序">设置调试程序</h1>
+<p>这里为了对比测试，我们可以在开发环境中安装<a href="https://pypi.org/project/Flask-DebugToolbar/">Flask-DebugToolbar</a>来直观的监测Redis后端缓存的状态</p>
+<p>安装Flask-DebugToolbar:</p>
+<pre><code>$ pipenv install flask-debugtoolbar --dev
+</code></pre>
+<blockquote>
+<p>这里我们看到资源消耗最高的，我们可以使用Celery异步任务队列来优化，这里目前没太多要求，刚接触Celery没多久，Celery这个坑就留以后讨论吧。
+实例化并初始化：</p>
+</blockquote>
+<pre><code>from flask import Flask
+from flask_debugtoolbar import DebugToolbarExtension
+
+app = Flask(__name__)
+
+app.debug = True
+#意仅在debug模式启用
+
+app.config['SECRET_KEY'] = '&lt;replace with a secret key&gt;'
+#设置以开启cookies
+
+toolbar = DebugToolbarExtension(app)
+</code></pre>
+<p>此时设置app.debug = False就可以关闭DebugToolbar了
+运行时点击右侧的FDT即可开启Flask-DebugToolbar侧栏，
+<img src="https://raw.githubusercontent.com/hallucigenia/grimalog/master/content/code/flask-caching-with-redis/01.png" alt="click" title="click"></p>
+<p>另外，如果要载入性能分析器 可以点击Profiler的勾，勾选后再次刷新即可看到加载时间，你还可以点击查看具体函数的运行性能，以更好的优化代码。</p>
+<p><strong>请最好不要在生产环境启用</strong>，另外更方便设置环境变量可使用<code>flask-dotenv</code></p>
+<h1 id="缓存视图函数">缓存视图函数</h1>
+<p>一般视图函数缓存优先考虑计算较多，调用数据库频繁的视图函数。并且更新不是很频繁，对我们的Blog来说，一般需要缓存的主要还是首页，除了缓存主页外，另外缓存下可能点击多的视图函数，以主页为例，我的主页里放了文章预览，在刷新后载入还是比较慢的。</p>
+<pre><code>@blog_bp.route('/')
+@cache.cached(timeout= 20 * 60, unless=is_login)
+def index():
+    time.sleep(1)  #根据函数复杂度可以调整或取消
+    # ...
+    return render_template('blog/index.html')
+</code></pre>
+<p>这里我们需要设置一个20分钟过期时间，毕竟我除了自己应该不会在我博客停留这么久，这里如果不是很常改变的界面，可以设置一个小时乃至更久。
+我们可以传入一个<code>key_prefix</code>做缓存键，这样的好处在于对Redis可以使用cache.clear()方法完全清除缓存。
+其他界面也可以设置缓存，比如我把个人介绍页就设置了二小时，文章页设置了30分钟，我们可以在本地测试一下</p>
+<p>未设置缓存的时候，平均刷新一次主页需要27ms左右，实际的博客会更长
+<img src="https://raw.githubusercontent.com/hallucigenia/grimalog/master/content/code/flask-caching-with-redis/02.png" alt="未缓存的载入时间" title="uncaching">
+而在部署完Redis缓存之后，近百倍的速度提升，这里我的提升还不是很明显
+<img src="https://raw.githubusercontent.com/hallucigenia/grimalog/master/content/code/flask-caching-with-redis/03.png" alt="after redis" title="after redis"></p>
+<h1 id="缓存其他函数">缓存其他函数</h1>
+<p>Flask-Caching的支持不仅仅是视图函数，你可以缓存非视图相关函数的结果，与缓存视图函数不同，如果没有传入参数<code>key_prefix</code>关键字来替换默认的cache_key的话，它将会默认使用当前请求的<code>request.path</code>值作为cache_key，造成直接覆写视图函数数据的情况，这里**务必使用<code>key_prefix</code>
+**面对复杂的函数可以继续设置一个<code>time.sleep()</code>以模拟估算运算时间。
+我还没有找到合适的应用地方，这里以官方文档给的实例代码为例：</p>
+<pre><code>@cache.cached(key_prefix='MyCachedList')
+def get_list():
+    return [random.randrange(0, 1) for i in range(50000)]
+my_list = get_list()
+</code></pre>
+<p>#memoize()装饰器
+@cache.memoize()装饰器与@cache.cached()用法类似，函数的参数也包含在cache_key中：不同的是 @cache.memoize() 装饰器只会在再次调用相同参数时调用缓存，于是可以在函数接收到不同的实参后返回不同的结果.。 @cache.memoize() 不仅仅会缓存运行的结果, 还缓存调用时的参数值。</p>
+<hr>
+<p>#更新缓存
+以上的缓存都是计时清理的模式，但是对于博客来说，登陆的时候以及退出登录时如果没有清理缓存将会使显示错误，
+cache.delete()方法可以删除缓存，其参数key_prefix默认为 <code>‘view/%(request.path)s’</code>，我们使用url_for()定位的函数键替换他以删除缓存</p>
+<p><em>auth.py:</em></p>
+<pre><code>@auth_bp.route('/login', methods=['GET', 'POST'])
+def login():
+    cache.delete('view/%s' % url_for('blog.index'))
+    # ...
+    return render_template('auth/login.html', form=form)
+
+
+@auth_bp.route('/logout')
+@login_required
+def logout():
+    cache.delete('view/%s' % url_for('blog.index'))
+    logout_user()
+    flash('Logout success.', 'info')
+    return redirect_back()
+</code></pre>
+<p>相似的，如果我们新建了文章或者编辑了文章，为便于自己即时预览新更改的内容，可以在新建编辑删除文章的地方调用cache.delete()，例如：</p>
+<p><em>admin.py :</em></p>
+<pre><code>@admin_bp.route('/post/&lt;int:post_id&gt;/delete', methods=['POST'])
+@login_required
+def delete_post(post_id):
+    cache.delete('view/%s' % url_for('blog.index'))
+    post = Post.query.get_or_404(post_id)
+    db.session.delete(post)
+    db.session.commit()
+    flash('Post deleted.', 'success')
+    return redirect_back()
+</code></pre>
+<p>在我们删除文章的时候，通过构建缓存键同步清除首页缓存，再运行博客程序，就不会遇到删除后文章还在的问题了。
+另外在编辑文章的视图函数，需要清除首页和文章页两份的缓存</p>
+<p><code>memoize()</code>装饰器的缓存对应的方法为<code>delete_memorized()</code>使用方法相似。</p>
+<p>还存在一种<code>cache.clear()</code>的方法，可以实现清除缓存（某些后端实现并不支持）。对于我们的redis来说，倘若在其他地方也调用了Redis数据的话，一定要确保使用<code>key_prefix</code>，否则<code>cache.clear()</code>将刷新整个数据库。</p>
+<p>其他大部分问题都可以详见<a href="https://pythonhosted.org/Flask-Caching/">Flask-Caching的文档</a>开发者写的很详细，目前我也在空闲时在Sphinx翻译文档，如果这边合适的话我会多做做贡献吧。</p>
+<p>有错漏之处，欢迎指正</p>
+<blockquote>
+<p>按：本计划好好做下微信公众号后端的，实在抱歉微信公众号平台那边没提前熟悉，没想微信开放的权限束手束脚，尤其是对于个人公众号，连认证的机会都没有。但相关的项目我不会抛弃，未来如果有机会申请到开放我还是会继续开发的，如果实在没有机会，我会转到<code>Telegram</code>Robot继续实现，不必在一棵假槟榔树上吊死。</p>
+</blockquote>
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                
+                <a href="https://bbyy.io/sc/tags/flask/">Flask</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/python/">Python</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/redis/">Redis</a>
+                
+                
+            </div>
+        </div>
+    
+
+    
+    <div class="languages">
+        <i class="fa fa-language"></i>
+        <div class="links">
+            
+                <a href="https://bbyy.io/code/flask-caching-with-redis/">tc</a>
+            
+        </div>
+    </div>
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hallucigenia" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+     
+
+    </div>
+
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong></strong>
+            <ul>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/getting-started-gdb/">Python标准库 —— pdb调试工具使用</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/a-tour-of-go-exercise-solutions/">Golang 练习N则</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/docker-gitlab-deploy/">Docker搭建维护Gitlab </a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/sqlalchemy-add-page/">为 SqlAlchemy 添加分页逻辑</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/openpyxl_tutorial/">Openpyxl使用 —— Python操作Excel文件总结</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/audio/may-it-be/">May It Be - 恩雅</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="/sc/categories/"><strong></strong></a>
+            <ul>
+                
+                <li>
+                    <a href="/sc/categories/code">Code
+                        (10)</a>
+                </li>
+                
+                <li>
+                    <a href="/sc/categories/music">Music
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/sc/categories/%E5%AD%9F%E5%AD%90">孟子
+                        (1)</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong></strong>
+
+                
+                <a href="https://twitter.com/_fancyan" target="_blank"><i class="fab fa-twitter"></i></a>
+                
+                <a href="https://www.instagram.com/monophoton" target="_blank"><i class="fab fa-instagram"></i></a>
+                
+                <a href="https://github.com/hallucigenia" target="_blank"><i class="fab fa-github"></i></a>
+                
+            </div>
+            
+
+            <div class="languages">
+                <strong></strong>
+                
+                
+                <a href="https://bbyy.io/">tc</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/" class="active">sc</a>
+                
+                
+                
+                <a href="https://bbyy.io/en/">en</a>
+                
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://t.me/hallucigenia" target="_blank">
+                &copy;
+                
+                2020
+                
+                 by Fancy 
+            </a>
+            
+        </div>
+        <div class="author">
+            <a href="https://bbyy.io"
+                target="_blank">Fancy&#39;s Blog</a>
+        </div>
+    </div>
+</div>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-160694437-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+
+    <script type="text/javascript" src="https://bbyy.io/theme.js"></script>
+
+    
+    
+    
+
+    
+    <div id="activate-algolia-search" class="hidden">
+  <input type="hidden" id="algolia-search-appId" value="8JWRQ9KNXC">
+  <input type="hidden" id="algolia-search-apiKey" value="0f05c447096335c55a457fe4cfaae96a">
+  <input type="hidden" id="algolia-search-indexName" value="grimalog">
+  <input type="hidden" id="algolia-search-noSearchResults" value="">
+
+  
+</div>
+
+    
+
+
+</body>
+
+</html>

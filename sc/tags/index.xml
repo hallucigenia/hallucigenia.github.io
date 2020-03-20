@@ -74,15 +74,6 @@
     </item>
     
     <item>
-      <title>Code</title>
-      <link>https://bbyy.io/sc/tags/code/</link>
-      <pubDate>Mon, 13 Jan 2020 22:40:20 +0800</pubDate>
-      
-      <guid>https://bbyy.io/sc/tags/code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>SQLAlchemy</title>
       <link>https://bbyy.io/sc/tags/sqlalchemy/</link>
       <pubDate>Mon, 13 Jan 2020 22:40:20 +0800</pubDate>
@@ -146,6 +137,24 @@
     </item>
     
     <item>
+      <title>Flask</title>
+      <link>https://bbyy.io/sc/tags/flask/</link>
+      <pubDate>Fri, 01 Mar 2019 17:22:21 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/tags/flask/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>https://bbyy.io/sc/tags/redis/</link>
+      <pubDate>Fri, 01 Mar 2019 17:22:21 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>uWSGI</title>
       <link>https://bbyy.io/sc/tags/uwsgi/</link>
       <pubDate>Sun, 27 Jan 2019 12:13:48 +0800</pubDate>
@@ -169,15 +178,6 @@
       <pubDate>Wed, 02 Jan 2019 15:25:52 +0800</pubDate>
       
       <guid>https://bbyy.io/sc/tags/translate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Flask</title>
-      <link>https://bbyy.io/sc/tags/flask/</link>
-      <pubDate>Mon, 26 Nov 2018 13:07:13 +0800</pubDate>
-      
-      <guid>https://bbyy.io/sc/tags/flask/</guid>
       <description></description>
     </item>
     

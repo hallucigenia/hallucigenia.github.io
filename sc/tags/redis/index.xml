@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis on Fancy‘s Technology Blog</title>
+    <link>https://bbyy.io/sc/tags/redis/</link>
+    <description>Recent content in Redis on Fancy‘s Technology Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 01 Mar 2019 17:22:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://bbyy.io/sc/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>利用Redis做Flask缓存后端</title>
+      <link>https://bbyy.io/sc/code/flask-caching-with-redis/</link>
+      <pubDate>Fri, 01 Mar 2019 17:22:21 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/code/flask-caching-with-redis/</guid>
+      <description>&lt;p&gt;Flask项目中使用Flask-Caching实现Redis缓存&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

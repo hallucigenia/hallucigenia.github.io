@@ -664,6 +664,51 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/tags/flask/</loc>
+    <lastmod>2019-03-01T17:22:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/flask/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/flask/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/redis/</loc>
+    <lastmod>2019-03-01T17:22:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/redis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/redis/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/code/flask-caching-with-redis/</loc>
+    <lastmod>2019-03-01T17:22:21+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/code/flask-caching-with-redis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/code/flask-caching-with-redis/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/tags/uwsgi/</loc>
     <lastmod>2019-01-27T12:13:48+08:00</lastmod>
     <xhtml:link
@@ -750,21 +795,6 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/tags/translate/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/tags/flask/</loc>
-    <lastmod>2018-11-26T13:07:13+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/tags/flask/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/flask/"
                 />
   </url>
   
