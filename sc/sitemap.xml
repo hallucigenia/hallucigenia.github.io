@@ -508,6 +508,66 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/sc/article/</loc>
+    <lastmod>2019-01-02T15:25:52+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/article/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/article/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/tags/sphinx/</loc>
+    <lastmod>2019-01-02T15:25:52+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/sphinx/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/sphinx/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/article/sphinx-flask-pymongo/</loc>
+    <lastmod>2019-01-02T15:25:52+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/article/sphinx-flask-pymongo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/article/sphinx-flask-pymongo/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/sc/tags/translate/</loc>
+    <lastmod>2019-01-02T15:25:52+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/translate/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/translate/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/sc/tags/flask/</loc>
     <lastmod>2018-11-26T13:07:13+08:00</lastmod>
     <xhtml:link

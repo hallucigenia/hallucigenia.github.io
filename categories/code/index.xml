@@ -65,6 +65,15 @@
     </item>
     
     <item>
+      <title>Sphinx翻譯Flask-PyMongo小記</title>
+      <link>https://bbyy.io/article/sphinx-flask-pymongo/</link>
+      <pubDate>Wed, 02 Jan 2019 15:25:52 +0800</pubDate>
+      
+      <guid>https://bbyy.io/article/sphinx-flask-pymongo/</guid>
+      <description>&lt;p&gt;restructuredText語法編寫Sphinx翻譯&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>使用Flask創建微信公眾號</title>
       <link>https://bbyy.io/code/flask-wechat-official-accounts/</link>
       <pubDate>Mon, 26 Nov 2018 13:07:13 +0800</pubDate>

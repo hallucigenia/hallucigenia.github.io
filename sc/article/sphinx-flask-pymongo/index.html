@@ -1,0 +1,487 @@
+<!doctype html>
+<html class="no-js" lang="sc">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Fancy">
+    <meta name="description" content="Bilberry Premium Theme for Hugo.">
+    <meta name="keywords" content="blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts">
+    <meta name="generator" content="Hugo 0.67.0" />
+    <title> Sphinx翻译Flask-PyMongo小记 | Fancy‘s Technology Blog</title>
+    <meta name="description" content="Sphinx翻译Flask-PyMongo小记 - Bilberry Premium Theme for Hugo.">
+    <meta itemprop="name" content="Sphinx翻译Flask-PyMongo小记">
+    <meta itemprop="description" content="Sphinx翻译Flask-PyMongo小记 - Bilberry Premium Theme for Hugo.">
+    <meta property="og:title" content="Sphinx翻译Flask-PyMongo小记">
+    <meta property="og:description" content="Sphinx翻译Flask-PyMongo小记 - Bilberry Premium Theme for Hugo.">
+    <meta property="og:image" content="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?size=200">
+    <meta property="og:url" content="https://bbyy.io/sc/article/sphinx-flask-pymongo/">
+    <meta property="og:site_name" content="Fancy‘s Technology Blog">
+    <meta property="og:type" content="article">
+
+    
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e2619c">
+<meta name="msapplication-TileColor" content="#e2619c">
+<meta name="theme-color" content="#e2619c">
+
+    
+    <link href="/sc/article/sphinx-flask-pymongo/" rel="alternate" type="application/rss+xml" title="Fancy‘s Technology Blog" />
+    <link href="/sc/article/sphinx-flask-pymongo/" rel="feed" type="application/rss+xml" title="Fancy‘s Technology Blog" />
+    
+
+    
+
+    <link rel="stylesheet" href="https://bbyy.io/theme.css">
+
+    
+
+    
+    
+    
+</head>
+
+<body class="bilberry-hugo-theme">
+
+    
+    <nav class="permanentTopNav sticky">
+
+    <div class="container">
+        <ul class="topnav">
+            
+            
+            <li><a href="https://bbyy.io/sc/page/about-me/">关于本人</a></li>
+            
+            
+            
+            <li><a href="https://github.com/hallucigenia" target="_blank">Github</a></li>
+            
+            
+        </ul>
+
+        
+        <div id="search-box" class="search">
+            <i class="fas fa-search"></i>
+            <input id="search" type="text" placeholder="">
+        </div>
+        
+    </div>
+</nav>
+
+
+    
+<header class="sticky">
+
+    <div class="container">
+        <div class="logo">
+            <a id="siteBaseUrl" href="/sc" class="logo">
+                
+                <img src="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?d=mm&size=200" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-tape"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a
+                    href="/sc">Fancy‘s Technology Blog</a></h3>
+            
+            <span class="subtitle">Fancy的技术博客</span>
+            
+        </div>
+
+        <div class="languages">
+        
+            
+                <a href="https://bbyy.io/">tc</a>
+            
+        
+            
+                <a href="https://bbyy.io/sc/" class="active">sc</a>
+            
+        
+            
+                <a href="https://bbyy.io/en/">en</a>
+            
+        
+        </div>
+        
+
+        
+        <div class="toggler permanentTopNav">
+            
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+</header>
+
+
+    <div class="main container">
+        
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="https://bbyy.io/sc/article/sphinx-flask-pymongo/">
+    <i class="fas fa-fw fa-pencil-alt"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://bbyy.io/sc/article/sphinx-flask-pymongo/">
+            
+                <img src="/sc/article/sphinx-flask-pymongo/featuredImage.webp" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h1 class="article-title"><a href="https://bbyy.io/sc/article/sphinx-flask-pymongo/">Sphinx翻译Flask-PyMongo小记</a></h1>
+    <div class="meta">
+        
+        
+        <span class="date moment">2019-01-02</span>
+        
+        
+
+        
+
+        
+        <span class="categories">
+            
+                
+                <a href="https://bbyy.io/sc/categories/code/">Code</a>
+                
+            
+        </span>
+        
+
+        
+        <span class="author">
+            
+            <a href="https://bbyy.io/sc/author/fancy/">Fancy</a>
+            
+        </span>
+        
+    </div>
+
+    
+    <p>restructuredText语法编写Sphinx翻译</p>
+<p>#环境准备</p>
+<p>可能你和我一样早就注意到， 许多Python的文档甚至是翻译文档无论是风格还是结构都十分相似，赏心悦目条理清楚的文档让阅读变得舒心。而其中大部分都是通过Sphinx撰写的，我之前的所有知识，哪怕学到学到一点</p>
+<p>Sphinx是一个Python编写的一个非常好用的撰写文档框架，http://www.sphinx-doc.org/en/stable/#
+主要使用reStructuredText语法来提供文档控制，也支持Markdown等的文档标记语言。restructuredText语法相较严格正规，好用的Directive Latex集成注释等等使得完全可以满足提供正规出版文档的需求。
+这次翻译文档之前需要先熟悉restructuredText语法，语法相较简单，编写文档的话还是要慢慢熟悉。</p>
+<h1 id="项目引入">项目引入</h1>
+<p>我们先fork一份要翻译的文档项目，比如我们这回的<code>flask-pymongo</code>为例，因为是初次翻译，避重就轻了一点，其实最好还是和作者联系一下。</p>
+<p><img src="/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/01.png" alt="github" title="github"></p>
+<p>拷贝到本地后仅保留docs文件夹即可。然后在github里新建一个仓库。
+作者这里之前用的pip，我们使用pipenv创建环境后需要手动安装reqirements.txt的依赖。这是非必须的，作者在这里借助包同步版本号，我们更新并没有那么及时，可以手动更改本地化的版本。</p>
+<p>部署完pipenv环境后首先安装Sphinx，以Ubuntu环境为例</p>
+<p>$ pipenv install sphinx
+$ pipenv install sphinix-intl</p>
+<p>这里的<code>sphinix-intl</code>是本地化翻译用的命令行工具，可以方便我们抽取<code>.po</code>文件Sphinx的操作基本还是依赖命令行。</p>
+<blockquote>
+<p>另外，可能你在StackOverFlow已经遇到过一个奇葩的缩写了，真的这里带了三个概念</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>国际化 (Internationalzation) 因为<code>I</code>与<code>N</code>之间有18个字母所以缩写为<code>I18n</code></li>
+</ol>
+</blockquote>
+<ol start="2">
+<li>本地化 (Localization) 因为<code>L</code>与<code>N</code>之间有10个字母所以缩写为<code>L10n</code></li>
+<li>全球化 (Globalization)  同时进行了国际化与本地话，缩写<code>G11n</code></li>
+</ol>
+<p>.po文件是GNU下gettext的一套应用规范，类似于Babel等诸多L10n工作都会用得到</p>
+<p>这里我们配置下conf.py这里储存了Sphinx的配置，我们添加一个中文支持
+<em>vi conf.py:</em></p>
+<pre><code>  # The language for content autogenerated by Sphinx. Refer to documentation      
+  # for a list of supported languages.                                            
+  language = 'zh_CN'        #语言支持
+  locale_dirs = ['locale/'] # 目录必须要定义，这里仅是示例
+  gettext_compact = False #可选项，提供gettext兼容 
+</code></pre><h1 id="翻译">翻译</h1>
+<p>整个翻译过程有四个步骤：</p>
+<ol>
+<li>我们这里提取标记文本，生成POT文件，拓展名即为.pot(Portable Object Template)即可移植对象模板</li>
+</ol>
+<p>$ make gettext</p>
+<p>如果前方配置正确的话，sphinx可能会这样显示</p>
+<blockquote>
+<p>sphinx-build -b gettext   . _build/locale
+Running Sphinx v1.8.2
+loading translations [zh_CN]&hellip; done
+making output directory&hellip;
+&hellip;
+Build finished. The message catalogs are in _build/locale.</p>
+</blockquote>
+<p>_build目录下出现我们定义的locale文件夹，里面对应生成的.pot即是我们要翻译的文档，我这里是index.pot</p>
+<p>更新对应语言，提取文件到po列表</p>
+<p>$ sphinx-intl update -p _build/locale -l zh_CN</p>
+<p>Sphinx可能会这样显示</p>
+<blockquote>
+<p>Create: locale/zh_CN/LC_MESSAGES/index.po</p>
+</blockquote>
+<p>据Sphinx提示，本地生成了locale文件夹，里面的LC_MESSAGES中的index.po即是我们的po文件，要翻译的片段由三部分组成</p>
+<p>#: ../../index.rst:12 #片段所在文件与代码行数
+msgid &ldquo;提取出待翻译的源片段&rdquo;
+msgstr &ldquo;你要翻译的汉语位置&rdquo;</p>
+<p>用VIM的PO插件<code>po.vim</code>,或者是<a href="https://poedit.net">Poedit</a>
+这世界上翻译有两种，Google翻译和其他翻译，Poedit免费版提供的就是没什么卵用的其他翻译。
+<img src="/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/02.png" alt="poedit" title="poedit"></p>
+<p>编辑需特别注意rst文件格式语法存在的大量半角空格，
+编辑后我们make即可生成对应的编译MO文件和PO在同一目录，
+可以<code>make html</code>生成html查看效果。
+如果出现这种情况，
+<img src="/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/03.png" alt="Error" title="Error">
+系语法错误，对照生成在_build/html里的对应html文件修改
+<img src="/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/04.png" alt="fininshed" title="finished"></p>
+<p>至此，编译完成，我们先将编译好的文档上传到github。然后选择文档托管平台，这里以Read the Docs为例。</p>
+<hr>
+<p>##推送至Read the Docs</p>
+<p>我们需要进入到 <a href="https://readthedocs.org/">ReadtheDocs官网</a>注册个账号，注册后如果个人界面，点<code>Import a Respository</code>导入Github项目</p>
+<p>命名好名字，进入设置里，Setting里下拖Language选择<code>Simplfied Chinese</code>或者其他翻译的语言
+<img src="/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/05.png" alt="setting" title="setting"></p>
+<p><code>Advanced Settings</code>更改好本地化语言与Python3 环境，可以去掉<code>Enable PDF build:</code>的勾以防止
+<img src="/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/06.png" alt="change" title="change">
+点Build version</p>
+<p><img src="/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/07.png" alt="import" title="import"></p>
+<p>完成，等网站地图更新后，我们就可以在搜索里找到自己翻译的文档了</p>
+<p><img src="/Users/dilophosaurus/Golang/grimalog/content/article/sphinx-flask-pymongo/08.png" alt="over" title="over"></p>
+<p>#后记</p>
+<blockquote>
+<p>其实真的不知道如何才能报答开源社区，到目前为止我的所有知识都是社区所教，如果我学得了一丝一毫的能力，得到了哪怕一点点成就，那都得感谢社区里的大家。</p>
+</blockquote>
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                
+                <a href="https://bbyy.io/sc/tags/translate/">Translate</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/python/">Python</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/sphinx/">Sphinx</a>
+                
+                
+            </div>
+        </div>
+    
+
+    
+    <div class="languages">
+        <i class="fa fa-language"></i>
+        <div class="links">
+            
+                <a href="https://bbyy.io/article/sphinx-flask-pymongo/">tc</a>
+            
+        </div>
+    </div>
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hallucigenia" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+     
+
+    </div>
+
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong></strong>
+            <ul>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/getting-started-gdb/">Python标准库 —— pdb调试工具使用</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/a-tour-of-go-exercise-solutions/">Golang 练习N则</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/docker-gitlab-deploy/">Docker搭建维护Gitlab </a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/sqlalchemy-add-page/">为 SqlAlchemy 添加分页逻辑</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/openpyxl_tutorial/">Openpyxl使用 —— Python操作Excel文件总结</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/audio/may-it-be/">May It Be - 恩雅</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="/sc/categories/"><strong></strong></a>
+            <ul>
+                
+                <li>
+                    <a href="/sc/categories/code">Code
+                        (9)</a>
+                </li>
+                
+                <li>
+                    <a href="/sc/categories/music">Music
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/sc/categories/%E5%AD%9F%E5%AD%90">孟子
+                        (1)</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong></strong>
+
+                
+                <a href="https://twitter.com/_fancyan" target="_blank"><i class="fab fa-twitter"></i></a>
+                
+                <a href="https://www.instagram.com/monophoton" target="_blank"><i class="fab fa-instagram"></i></a>
+                
+                <a href="https://github.com/hallucigenia" target="_blank"><i class="fab fa-github"></i></a>
+                
+            </div>
+            
+
+            <div class="languages">
+                <strong></strong>
+                
+                
+                <a href="https://bbyy.io/">tc</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/" class="active">sc</a>
+                
+                
+                
+                <a href="https://bbyy.io/en/">en</a>
+                
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://t.me/hallucigenia" target="_blank">
+                &copy;
+                
+                2020
+                
+                 by Fancy 
+            </a>
+            
+        </div>
+        <div class="author">
+            <a href="https://bbyy.io"
+                target="_blank">Fancy&#39;s Blog</a>
+        </div>
+    </div>
+</div>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-160694437-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+
+    <script type="text/javascript" src="https://bbyy.io/theme.js"></script>
+
+    
+    
+    
+
+    
+    <div id="activate-algolia-search" class="hidden">
+  <input type="hidden" id="algolia-search-appId" value="8JWRQ9KNXC">
+  <input type="hidden" id="algolia-search-apiKey" value="0f05c447096335c55a457fe4cfaae96a">
+  <input type="hidden" id="algolia-search-indexName" value="grimalog">
+  <input type="hidden" id="algolia-search-noSearchResults" value="">
+
+  
+</div>
+
+    
+
+
+</body>
+
+</html>

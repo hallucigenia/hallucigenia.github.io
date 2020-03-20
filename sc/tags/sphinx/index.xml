@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sphinx on Fancy‘s Technology Blog</title>
+    <link>https://bbyy.io/sc/tags/sphinx/</link>
+    <description>Recent content in Sphinx on Fancy‘s Technology Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 02 Jan 2019 15:25:52 +0800</lastBuildDate>
+    
+	<atom:link href="https://bbyy.io/sc/tags/sphinx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sphinx翻译Flask-PyMongo小记</title>
+      <link>https://bbyy.io/sc/article/sphinx-flask-pymongo/</link>
+      <pubDate>Wed, 02 Jan 2019 15:25:52 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/article/sphinx-flask-pymongo/</guid>
+      <description>&lt;p&gt;restructuredText语法编写Sphinx翻译&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
