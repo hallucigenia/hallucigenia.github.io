@@ -359,10 +359,308 @@
 
     
     <p>Gitlab 从安装到升级维护，内含 Gitlab 的维护指南，Docker基本操作，Crontab基本操作</p>
+<h2 id="docker的gitlab安装流程">Docker的Gitlab安装流程</h2>
+<blockquote>
+<p>碎碎念：目前家里运行的14个docker容器11个是在Debian，hassio，qbittorent，pihole，openwrt，supervisor，Don&rsquo;t starve Togeter Server，Minecarft Server，Netease Music API其他乱七八糟各种服务 自从有了Docker再也找不到不用的理由。</p>
+</blockquote>
+<ul>
+<li>添加 CA 证书（Debian系）:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    apt-transport-https <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    ca-certificates <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    curl <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    software-properties-common
+</code></pre></div><ul>
+<li>添加 GPG 密钥（Debian系）:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+</code></pre></div><ul>
+<li>添加 source.list: Debian上游额外安装</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo add-apt-repository <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+</span><span style="color:#e6db74">    </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> \
+</span><span style="color:#e6db74">    stable&#34;</span>
+</code></pre></div><ul>
+<li>安装 Docker CE:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt-get update
 
-    
-    <a href="https://bbyy.io/sc/code/docker-gitlab-deploy/" class="more"></a>
-    
+$ sudo apt-get install docker-ce
+</code></pre></div><ul>
+<li>启动 Docker CE:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo service docker start
+</code></pre></div><ul>
+<li>测试 Docker CE:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo service docker start
+</code></pre></div><ul>
+<li>Docker 构建命令 (我这里命名为v2 )</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo docker run --detach <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--hostname gitlab.bbyy.io <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--publish 10443:443 --publish 8099:80 --publish 22:22 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--name gitlab <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--restart always <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--volume /gitlab/gitlabv2/config:/etc/gitlab <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--volume /gitlab/gitlabv2/logs:/var/log/gitlab <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--volume /gitlab/gitlabv2/data:/var/opt/gitlab <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span> gitlab/gitlab-ce
+</code></pre></div><ul>
+<li>Gitlab 部署命令</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Please enter the gitlab<span style="color:#f92672">-</span>ci coordinator URL
+
+<span style="color:#75715e"># http://39.178.143.204:8099/ci 部署位置</span>
+
+Please enter the gitlab<span style="color:#f92672">-</span>ci token <span style="color:#66d9ef">for</span> this runner
+
+<span style="color:#75715e"># t8fCtUsbPcx_SfsakdnRF</span>
+
+Please enter the gitlab<span style="color:#f92672">-</span>ci description <span style="color:#66d9ef">for</span> this runner[f11b51cf68dc]:
+
+<span style="color:#75715e"># 输入简介</span>
+
+Please enter the gitlab<span style="color:#f92672">-</span>ci tags <span style="color:#66d9ef">for</span> this runner (comma separated):
+
+<span style="color:#75715e"># 帮这个runner加上tag，这tag会影响到runner要抓哪个工作来执行 (有多个以逗号分开，例如tag1,tag2)</span>
+
+Please enter the executor: ssh, docker<span style="color:#f92672">+</span>machine, docker<span style="color:#f92672">-</span>ssh<span style="color:#f92672">+</span>machine, kubernetes, docker, parallels, virtualbox, docker<span style="color:#f92672">-</span>ssh, shell:
+
+<span style="color:#75715e"># docker</span>
+
+Please enter the Docker image (eg<span style="color:#f92672">.</span> alpine:latest):
+
+<span style="color:#75715e"># 预设使用的docker-image</span>
+</code></pre></div><h1 id="gitlab-跨版本迁移及更新流程">Gitlab 跨版本迁移及更新流程</h1>
+<ul>
+<li>查询版本</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat /opt/gitlab/embedded/service/gitlab-rails/VERSION 
+<span style="color:#75715e"># 以最初为8.8.5为例，这差不多是我找到最早的还有大量用户的版本了，其他的版本均适用</span>
+</code></pre></div><ul>
+<li>备份</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo gitlab-rake gitlab:backup:create STRATEGY<span style="color:#f92672">=</span>copy  
+<span style="color:#75715e"># 备份后的文件一般是位于/var/opt/gitlab/backups下, 自动生成文件名文件名如1541739348_2020_01_19_10.3.3_gitlab_backup.tar</span>
+</code></pre></div><ul>
+<li>关闭部分gitlab服务</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gitlab-ctl stop unicorn
+$ gitlab-ctl stop sidekiq
+$ gitlab-ctl stop nginx
+
+</code></pre></div><ul>
+<li>利用大版本号的最新版本，按照以下推荐升级顺序</li>
+</ul>
+<p><code>8.8.5 &gt; 8.17.7 &gt; 9.5.10 &gt; 10.8.7 &gt; 11.11.8 &gt; 12.0.12 &gt; 12.3.5</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yum list gitlab-ce-10*
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yum update gitlab-ce-10.8.7
+<span style="color:#75715e"># $ wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-10.6.2-ce.0.el7.x86_64.rpm</span>
+</code></pre></div><ul>
+<li>同理多次，直到最后一次</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yum update gitlab-ce
+<span style="color:#75715e"># $ rpm -Uvh gitlab-ce-10.8.7-ce.0.el7.x86_64.rpm</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gitlab-ctl reconfigure
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gitlab-ctl restart
+</code></pre></div><ul>
+<li>中文社区版汉化</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd
+<span style="color:#75715e"># $ git clone https://gitlab.com/xhang/gitlab.git -b v8.17.8-zh</span>
+$ git clone https://gitlab.com/xhang/gitlab.git
+$ cat gitlab/VERSION
+<span style="color:#75715e"># 12.3.5</span>
+</code></pre></div><pre><code class="language-git" data-lang="git">$ gitlab-ctl stop
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /root/gitlab
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git diff v11.9.6 v11.9.6-zh &gt; ../11.9.6-zh.diff
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd ..
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yum install patch
+$ patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 &lt; 11.9.6-zh.diff
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gitlab-ctl start
+</code></pre></div><ul>
+<li>重更新</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gitlab-ctl reconfigure
+$ gitlab-ctl restart
+</code></pre></div><ul>
+<li>数据迁移</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ scp -pr 1541677863_2020_01_18_11.4.5_gitlab_backup.tar root@10.101.45.12:/var/opt/gitlab/backups
+<span style="color:#75715e"># 把对应版本的数据从旧服务器上拷贝到新服务器的gitlab备份目录里</span>
+<span style="color:#75715e"># 新服务器执行恢复命令</span>
+$ chown -R git.git /var/opt/gitlab/backups/
+$ gitlab-rake gitlab:backup:restore RAILS_ENV<span style="color:#f92672">=</span>production BACKUP<span style="color:#f92672">=</span>1541677863_2020_01_18_11.4.5
+
+注意：这里没有后面的_gitlab_backup.tar名字
+一路yes，恢复是会先删除新服务器上所有gitlab数据的。
+
+</code></pre></div><h1 id="qa">Q&amp;A</h1>
+<ol>
+<li>报错信息</li>
+</ol>
+<pre><code>The data directory was initialized by PostgreSQL version 9.2.18, which is not compatible with this version 9.6.2.
+</code></pre><ul>
+<li>
+<p>Postgresql版本过低</p>
+<ul>
+<li>备份</li>
+</ul>
+<pre><code> $ mv /usr/local/var/postgres /usr/local/var/postgres9351
+</code></pre><ul>
+<li>初始化新数据库</li>
+</ul>
+<pre><code>  $ initdb /usr/local/var/postgres -E utf8
+</code></pre><ul>
+<li>升级</li>
+</ul>
+<pre><code> $ pg_upgrade -b oldbindir -B newbindir -d olddatadir -D newdatadir
+</code></pre></li>
+</ul>
+<ol start="2">
+<li>报错信息</li>
+</ol>
+<pre><code>Removals:
+* git_data_dir has been deprecated since 8.10 and was removed in 11.0. Use git_data_dirs instead.
+</code></pre><ul>
+<li>
+<p><code>git_data_dir</code> 写法更新，仅出现在11.0之前的老版本</p>
+<ul>
+<li>原语法</li>
+</ul>
+<pre><code> git_data_dir /data/git
+</code></pre><ul>
+<li>新语法</li>
+</ul>
+<pre><code>  git_data_dirs({
+     &quot;default&quot; =&gt; {
+        &quot;path&quot; =&gt; &quot;/data/git&quot;
+     }
+  })
+</code></pre><pre><code> gitlab-ctl reconfigure
+</code></pre></li>
+</ul>
+<h2 id="docker-基本操作">Docker 基本操作</h2>
+<ul>
+<li>查看镜像</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker images
+</code></pre></div><ul>
+<li>打包提交</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker commit -a <span style="color:#e6db74">&#34;fancy&#34;</span> -m <span style="color:#e6db74">&#34;fancy‘s backup&#34;</span>
+</code></pre></div><p>容器名称或id 打包的镜像名称:标签</p>
+<ul>
+<li>OPTIONS说明：
+-a :提交的镜像作者；
+-c :使用Dockerfile指令来创建镜像；
+-m :提交时的说明文字；
+-p :在commit时，将容器暂停。</li>
+</ul>
+<p>例：<code>docker commit -p d479774b6e8e -a &quot;fancy&quot; -m &quot;Gitlab before L10n&quot; Gitlab-001</code></p>
+<ul>
+<li>备份镜像</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker save -o /data/images-backup/container-gitlab-backup.tar container-gitlab-backup
+</code></pre></div><ul>
+<li>
+<p>说明:
+<code>/data/images-backup/container-gitlab-backup.tar</code>镜像导出存放路径
+<code>container-gitlab-backup</code> 镜像在docker里面的名字</p>
+</li>
+<li>
+<p>恢复镜像</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker import <span style="color:#f92672">[</span>OPTIONS<span style="color:#f92672">]</span> URL|- <span style="color:#f92672">[</span>REPOSITORY<span style="color:#f92672">[</span>:TAG<span style="color:#f92672">]]</span>
+<span style="color:#75715e"># 导入hello快照，并制定镜像标签为gitlab:1.0</span>
+$ cat gitlab.tar | sudo docker import - hello:1.0
+</code></pre></div><h2 id="docker-gitlab-操作">Docker Gitlab 操作</h2>
+<ul>
+<li>任意位置进入Docker内Gitlab环境</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo docker exec -it gitlab /bin/bash
+</code></pre></div><ul>
+<li>目录/文件</li>
+</ul>
+<pre><code>主配置文件：/etc/gitlab/gitlab.rb
+程序安装目录：/opt/gitlab
+程序配置和运行目录：/var/opt/gitlab
+程序日志目录：/var/log/gitlab
+</code></pre><ul>
+<li>命令</li>
+</ul>
+<pre><code>升级数据库：gitlab-rake db:migrate
+显示配置环境：gitlab-rake gitlab:env:info
+检查gitlab运行环境：gitlab-rake gitlab:check
+gitlab安装（慎用，会清数据库）：gitlab-rake gitlab:setup
+gitlab启动/停止/重启：gitlab-ctl start/stop/restart
+</code></pre><h2 id="目录与crontab自动备份">目录与Crontab自动备份</h2>
+<blockquote>
+<p>这里继承我的Docker run 命令，如果改动的目录也会变更</p>
+</blockquote>
+<ul>
+<li>备份目录</li>
+</ul>
+<pre><code>/gitlab/gitlabv2/data/backups
+</code></pre><ul>
+<li>设置目录</li>
+</ul>
+<pre><code>/gitlab/gitlabv2/config
+</code></pre><ul>
+<li>日志目录</li>
+</ul>
+<pre><code>/gitlab/gitlabv2/logs
+</code></pre><ul>
+<li>手动备份</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-BASH" data-lang="BASH">$ docker exec -it gitlab bash <span style="color:#75715e"># 进入容器</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gitlab-rake gitlab:backup:create
+</code></pre></div><ul>
+<li>
+<p>自动备份<code>借助corntab，RHEL等发行版需自行安装</code></p>
+<ul>
+<li>
+<p><code>vi /etc/rc.d/rc.local </code>添加 cron 设置开机启动</p>
+<pre><code>/sbin/service crond start   
+</code></pre></li>
+<li>
+<p><code>vi ~/gitlab_backup.sh</code> 编辑cron脚本</p>
+<pre><code>#！ /bin/bash
+case &quot;$1&quot; in 
+    start)
+            docker exec gitlab gitlab-rake gitlab:backup:create
+            ;;
+esac
+</code></pre></li>
+<li>
+<p><code>gitlab_backup.sh start</code></p>
+</li>
+<li>
+<p><code>crontab -e</code></p>
+</li>
+</ul>
+<pre><code>0 13 * * * /root/gitlab_backup.sh start
+0 18 * * * /root/gitlab_backup.sh start
+0 23 * * * /root/gitlab_backup.sh start
+</code></pre><ul>
+<li>附：cron 语法</li>
+</ul>
+<pre><code>*  *  *  *  *  command
+分  时  日  月  周  命令
+  
+其中，
+第1列表示分钟，1~59，每分钟用*表示
+第2列表示小时，1~23，（0表示0点）
+第3列表示日期，1~31
+第4列表示月份，1~12
+第5列表示星期，0~6（0表示星期天）
+第六列表示要运行的命令。
+</code></pre></li>
+</ul>
     
 </div>
 
@@ -775,107 +1073,11 @@
             
         </div>
     
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="https://bbyy.io/sc/code/flask-wechat-official-accounts/">
-    <i class="fas fa-fw fa-code"></i>
-</a>
-
-<article class="default article">
-    
-    <div class="featured-image">
-        <a href="https://bbyy.io/sc/code/flask-wechat-official-accounts/">
-            
-                <img src="/sc/code/flask-wechat-official-accounts/featuredImage.png" alt="">
-            
-        </a>
-    </div>
-
-
-    <div class="content">
-    <h1 class="article-title"><a href="https://bbyy.io/sc/code/flask-wechat-official-accounts/">使用Flask创建微信公众号</a></h1>
-    <div class="meta">
-        
-        
-        <span class="date moment">2018-11-26</span>
-        
-        
-
-        
-
-        
-        <span class="categories">
-            
-                
-                <a href="https://bbyy.io/sc/categories/code/">Code</a>
-                
-            
-        </span>
-        
-
-        
-        <span class="author">
-            
-            <a href="https://bbyy.io/sc/author/fancy/">Fancy</a>
-            
-        </span>
-        
-    </div>
-
-    
-    <p>基于Python3搭建Flask微信公众号后台</p>
-
-    
-    <a href="https://bbyy.io/sc/code/flask-wechat-official-accounts/" class="more"></a>
-    
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                
-                <a href="https://bbyy.io/sc/tags/flask/">Flask</a>
-                
-                
-                
-                <a href="https://bbyy.io/sc/tags/python/">Python</a>
-                
-                
-                
-                <a href="https://bbyy.io/sc/tags/wechat/">Wechat</a>
-                
-                
-            </div>
-        </div>
-    
-
-    
-    <div class="languages">
-        <i class="fa fa-language"></i>
-        <div class="links">
-            
-                <a href="https://bbyy.io/code/flask-wechat-official-accounts/">tc</a>
-            
-        </div>
-    </div>
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
 
     
     <div class="paginator">
+        
+            <a href="/sc/code/page/2/" class="older"><i class="fa fa-angle-double-left"></i> </a>
         
 
         

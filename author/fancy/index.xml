@@ -70,7 +70,7 @@
       <pubDate>Sun, 27 Jan 2019 12:13:48 +0800</pubDate>
       
       <guid>https://bbyy.io/code/uwsgi-gunicorn/</guid>
-      <description>&lt;p&gt;在服務器能正常通信後，Werkzeug提供的的WSGI並不適合生產環境，調試完代碼第一件事就找個獨立WSGI容器。我們這裏選擇uWSGI和gunicorn，相對來說這兩個比gevent更適合大型項目，uWSGI出現的比較早，gunicorn是從Ruby的unicorn移植而來，配置也簡單。為了熟悉uwsgi我都嘗試一下吧&lt;/p&gt;</description>
+      <description>&lt;p&gt;从flask微信公众号后台分析Ubuntu+Python3+pipenv+flask环境下 uWSGI/Gunicorn+supervisor+nginx配置问题&lt;/p&gt;</description>
     </item>
     
     <item>
