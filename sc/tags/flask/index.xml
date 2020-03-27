@@ -5,7 +5,7 @@
     <link>https://bbyy.io/sc/tags/flask/</link>
     <description>Recent content in Flask on Fancy‘s Technology Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Mar 2019 17:22:21 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Apr 2019 17:22:21 +0800</lastBuildDate>
     
 	<atom:link href="https://bbyy.io/sc/tags/flask/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +13,7 @@
     <item>
       <title>利用Redis做Flask缓存后端</title>
       <link>https://bbyy.io/sc/code/flask-caching-with-redis/</link>
-      <pubDate>Fri, 01 Mar 2019 17:22:21 +0800</pubDate>
+      <pubDate>Mon, 01 Apr 2019 17:22:21 +0800</pubDate>
       
       <guid>https://bbyy.io/sc/code/flask-caching-with-redis/</guid>
       <description>&lt;p&gt;Flask项目中使用Flask-Caching实现Redis缓存&lt;/p&gt;</description>

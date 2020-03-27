@@ -1,0 +1,611 @@
+<!doctype html>
+<html class="no-js" lang="sc">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Fancy">
+    <meta name="description" content="Bilberry Premium Theme for Hugo.">
+    <meta name="keywords" content="blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts">
+    <meta name="generator" content="Hugo 0.67.0" />
+    <title> 使用Flask的Signals | Fancy‘s Technology Blog</title>
+    <meta name="description" content="使用Flask的Signals - Bilberry Premium Theme for Hugo.">
+    <meta itemprop="name" content="使用Flask的Signals">
+    <meta itemprop="description" content="使用Flask的Signals - Bilberry Premium Theme for Hugo.">
+    <meta property="og:title" content="使用Flask的Signals">
+    <meta property="og:description" content="使用Flask的Signals - Bilberry Premium Theme for Hugo.">
+    <meta property="og:image" content="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?size=200">
+    <meta property="og:url" content="https://bbyy.io/sc/code/flask-signals-tutorial/">
+    <meta property="og:site_name" content="Fancy‘s Technology Blog">
+    <meta property="og:type" content="article">
+
+    
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e2619c">
+<meta name="msapplication-TileColor" content="#e2619c">
+<meta name="theme-color" content="#e2619c">
+
+    
+    <link href="/sc/code/flask-signals-tutorial/" rel="alternate" type="application/rss+xml" title="Fancy‘s Technology Blog" />
+    <link href="/sc/code/flask-signals-tutorial/" rel="feed" type="application/rss+xml" title="Fancy‘s Technology Blog" />
+    
+
+    
+
+    <link rel="stylesheet" href="https://bbyy.io/theme.css">
+
+    
+
+    
+    
+    
+</head>
+
+<body class="bilberry-hugo-theme">
+
+    
+    <nav class="permanentTopNav sticky">
+
+    <div class="container">
+        <ul class="topnav">
+            
+            
+            <li><a href="https://bbyy.io/sc/page/about-me/">关于本人</a></li>
+            
+            
+            
+            <li><a href="https://github.com/hallucigenia" target="_blank">Github</a></li>
+            
+            
+        </ul>
+
+        
+        <div id="search-box" class="search">
+            <i class="fas fa-search"></i>
+            <input id="search" type="text" placeholder="">
+        </div>
+        
+    </div>
+</nav>
+
+
+    
+<header class="sticky">
+
+    <div class="container">
+        <div class="logo">
+            <a id="siteBaseUrl" href="/sc" class="logo">
+                
+                <img src="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?d=mm&size=200" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-tape"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a
+                    href="/sc">Fancy‘s Technology Blog</a></h3>
+            
+            <span class="subtitle">Fancy的技术博客</span>
+            
+        </div>
+
+        <div class="languages">
+        
+            
+                <a href="https://bbyy.io/">tc</a>
+            
+        
+            
+                <a href="https://bbyy.io/sc/" class="active">sc</a>
+            
+        
+            
+                <a href="https://bbyy.io/en/">en</a>
+            
+        
+        </div>
+        
+
+        
+        <div class="toggler permanentTopNav">
+            
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+</header>
+
+
+    <div class="main container">
+        
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="https://bbyy.io/sc/code/flask-signals-tutorial/">
+    <i class="fas fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h1 class="article-title"><a href="https://bbyy.io/sc/code/flask-signals-tutorial/">使用Flask的Signals</a></h1>
+    <div class="meta">
+        
+        
+        <span class="date moment">2019-12-26</span>
+        
+        
+
+        
+
+        
+        <span class="categories">
+            
+                
+                <a href="https://bbyy.io/sc/categories/code/">Code</a>
+                
+            
+        </span>
+        
+
+        
+        <span class="author">
+            
+            <a href="https://bbyy.io/sc/author/fancy/">Fancy</a>
+            
+        </span>
+        
+    </div>
+
+    
+    <p>Blinker触发信号记录与实践</p>
+<p>blinker 是 python 语言中一个强大的信号库， 提供了一些非常有用的特性，支持命名空间、匿名信号,弱引用实现与接收者之间的自动断开连接以及指定发送者,接收返回值等，同时具有线程安全的特性. (回顾之后, 发现这些特性对于我们的实现至关重要)</p>
+<p>早期的Flask（0.6+）版本开始,Flask就集成了一个基于blinker的Signal库。并没有太多人使用, 但却是是一个很有以哦那个的功能. 类似于类Unix系统里的Signal, 同样是基于发布-订阅（Publish/Subscribe）的观察者（Observer）模式的设计模式.</p>
+<p>在没有安装blinker库时Flask内置的Singal 可以提供支持，但注意目前的版本如果不安装blinker的话Signal是无法使用的，blinker可通过pip包进行安装<code>pip3 install blinker</code></p>
+<p>通过Ipython测试是否正确的调用了blinker库</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">In [<span style="color:#ae81ff">1</span>]: <span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> signals
+
+In [<span style="color:#ae81ff">2</span>]: signals<span style="color:#f92672">.</span>signals_available
+Out[<span style="color:#ae81ff">2</span>]: True   <span style="color:#75715e"># 如果信号系统不可用（未安装Blinker）则为False</span>
+</code></pre></div><p>至此，我们就可以在项目中使用Signal系统了。</p>
+<h2 id="flask内置信号">Flask内置信号</h2>
+<p>在项目中使用时，Flask已经内置了一些Signal，下表展示了Flask内置的Signals，详细请参考<a href="https://link.jianshu.com?t=http://flask.pocoo.org/docs/0.12/api/#core-signals-list">Flask built-in signals</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Signals</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>template_rendered</td>
+<td>模版成功渲染之后触发</td>
+</tr>
+<tr>
+<td>before_render_template</td>
+<td>模版渲染之前触发</td>
+</tr>
+<tr>
+<td>request_started</td>
+<td>请求上下文建立之后，请求被处理之前触发</td>
+</tr>
+<tr>
+<td>request_finished</td>
+<td>响应发送给客户端之前被触发</td>
+</tr>
+<tr>
+<td>got_request_exception</td>
+<td>处理过程中发生异常时（早于程序异常处理，Debug模式也会）触发</td>
+</tr>
+<tr>
+<td>request_tearing_down</td>
+<td>请求中断时（即使发生异常也会）触发</td>
+</tr>
+<tr>
+<td>appcontext_tearing_down</td>
+<td>应用上下文中断时触发</td>
+</tr>
+<tr>
+<td>appcontext_pushed</td>
+<td>推送应用上下文时触发，由应用发送（单元测试常用）</td>
+</tr>
+<tr>
+<td>appcontext_popped</td>
+<td>pop弹出应用上下文时触发，由应用发送</td>
+</tr>
+<tr>
+<td>message_flashed</td>
+<td>应用发送消息时触发</td>
+</tr>
+</tbody>
+</table>
+<p>这些内置的信号模块，可以直接在回调函数通过 from flask import 导入，通过<code>connect()</code>方法进行订阅，用<code>disconnect()</code>方法来退订信号。要确保订阅一个信号，请确保也提供一个发送者以防监听全部应用的信号</p>
+<h3 id="订阅">订阅</h3>
+<p>比如一个找出模板被渲染和传入模板的变量的助手的订阅端:</p>
+<pre><code>from flask import template_rendered
+from contextlib import contextmanager
+
+@contextmanager
+def captured_templates(app):
+    recorded = []
+    def record(sender, template, context, **extra):
+        recorded.append((template, context))
+    template_rendered.connect(record, app)
+    try:
+        yield recorded
+    finally:
+        template_rendered.disconnect(record, app)
+</code></pre><p>客户端:</p>
+<pre><code>with captured_templates(app) as templates:
+    rv = app.test_client().get('/')
+    assert rv.status_code == 200
+    assert len(templates) == 1
+    template, context = templates[0]
+    assert template.name == 'index.html'
+    assert len(context['items']) == 10
+</code></pre><p>通过注册一个回调函数进行接受，在测试完成后，再取消注册该回调函数，这种方法在单元测试中非常好用。</p>
+<p>在定义回调函数时，第一个参数必须是信号发出要调用的函数（信号发送对象），第二个参数**extra是可选的， 用于接受额外的参数。</p>
+<p>Blinker 1.4 新增了方便的方法<code>connected_to()</code>，允许使用上下文管理器把函数临时订阅到信号。由于上下文管理器的返回值是指定的，故必须将列表作为参数传递。</p>
+<p>订阅的用法:</p>
+<pre><code>from flask import template_rendered
+
+def captured_templates(app, recorded, **extra):
+    def record(sender, template, context):
+        recorded.append((template, context))
+    return template_rendered.connected_to(record, app)
+</code></pre><p>之前那个助手的例子会像这样:</p>
+<pre><code>templates = []
+with captured_templates(app, templates, **extra):
+    ...
+    template, context = templates[0]
+</code></pre><p>我们举个完整的例子:</p>
+<p>发送示例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">render_templete</span>(template, context, app):
+    res <span style="color:#f92672">=</span> template<span style="color:#f92672">.</span>render(context)
+    template_rendered<span style="color:#f92672">.</span>send(app, template<span style="color:#f92672">=</span>template, context<span style="color:#f92672">=</span>context)
+    <span style="color:#66d9ef">return</span> res
+</code></pre></div><p>订阅示例:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">log_template_renders</span>(sender, template, context, <span style="color:#f92672">**</span>extra):
+    sender<span style="color:#f92672">.</span>logger<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#39;Rendering template &#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34; with context </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span>,
+                        template<span style="color:#f92672">.</span>name <span style="color:#f92672">or</span> <span style="color:#e6db74">&#39;string template&#39;</span>,
+                        context)
+
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> template_rendered
+template_rendered<span style="color:#f92672">.</span>connect(log_template_renders, app)
+</code></pre></div><p>如果以上的Signal无法满足需求，Flask还提供了命名空间用于自定义信号， 限制就是只支持send方式进行传递信号，如果调用其他的操作（包括connecting）将会抛出RuntimeError异常。</p>
+<h1 id="blinker-自定义信号">Blinker 自定义信号</h1>
+<p>我们这里可以直接使用Blinker库，在大型Flask项目结构中，通常当作插件调用，我们可以在存放插件实例化的地方定义命名空间，例：<code>extensions.py</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> blinker <span style="color:#f92672">import</span> Namespace
+
+my_signals <span style="color:#f92672">=</span> Namespace()
+
+</code></pre></div><p>此时，我们就可以使用自定义的命名空间定义signal了， 根据需求也可以定义多个，这里个人假设以<code>Blueprint</code>蓝本为单位定义多个信号, 以订阅特定发布者。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model_saved <span style="color:#f92672">=</span> my_signals<span style="color:#f92672">.</span>signal(<span style="color:#e6db74">&#39;model-saved&#39;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">...</span>
+auth_log <span style="color:#f92672">=</span> log_signals<span style="color:#f92672">.</span>signal(<span style="color:#e6db74">&#34;auth_log&#34;</span>) <span style="color:#75715e"># 用户验证蓝本</span>
+v1_log <span style="color:#f92672">=</span> log_signals<span style="color:#f92672">.</span>signal(<span style="color:#e6db74">&#34;v1_log&#34;</span>)     <span style="color:#75715e"># RESTful API 蓝本</span>
+main_log <span style="color:#f92672">=</span> log_signals<span style="color:#f92672">.</span>signal(<span style="color:#e6db74">&#34;main_log&#34;</span>) <span style="color:#75715e"># 主路由蓝本</span>
+</code></pre></div><p>如果是编写插件的话，调用<code>flask.signals.Namespace</code>类可以脱离Blinker的依赖限制。</p>
+<h3 id="发送">发送</h3>
+<p>可以通过<code>send()</code>方法进行传递信号,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Model</span>(objext):
+    <span style="color:#f92672">...</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">model_test</span>(self):
+        main_log<span style="color:#f92672">.</span>send(self)
+</code></pre></div><p>如同<code>Blinker</code>提供的那样， <code>send()</code>同样自由的支持额外传递关键字参数给订阅者。</p>
+<p>如果有信号的类，把 <code>self</code> 作为发送者。如果你从一个随机的函数发出信号，发送者则为<code>current_app._get_current_object()</code>。</p>
+<p>例:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> current_app
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">liker_article</span>(article, user_id):
+    <span style="color:#f92672">...</span>
+    liker_article<span style="color:#f92672">.</span>send(current_app<span style="color:#f92672">.</span>_get_current_object())
+</code></pre></div><p>我们以蓝本中登录登出的路由为例, 传递区分的自定义信号来告知订阅者用户的访问路由行为。</p>
+<p>例:<code>blueprint/auth.py</code></p>
+<pre><code>#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+
+&quot;&quot;&quot;
+API的验证逻辑
+&quot;&quot;&quot;
+
+
+import inspect
+from backend.extensions import auth
+from flask import Blueprint,  url_for, redirect, request, jsonify, g, session
+from backend.util import auth_log
+
+auth_bp = Blueprint('auth', __name__)
+
+
+@auth_bp.route('/login', methods=['POST', 'GET'])
+def login():
+&quot;&quot;&quot;
+login method
+&quot;&quot;&quot;    
+    if request.method == &quot;POST&quot;:
+    ... # 验证逻辑
+        ref = request.base_url
+        ip = request.remote_addr #获取登录IP
+        auth_log.send(inspect.stack()[0][3], track=&quot;use test login_route login success&quot;, user=g.user, ip=ip)  # 发送登录信号
+    return redirect(url_for('main.home'))
+
+
+@auth_bp.route('/logout', methods=['GET'])
+@auth.login_required
+def logout():
+&quot;&quot;&quot;
+logout method
+&quot;&quot;&quot;
+    session.pop(g.user, None)
+    ip = request.remote_addr
+    auth_log.send(inspect.stack()[0][3], track=&quot;logout success&quot;, user=g.user, ip=ip) # 发送登出信号
+    g.user = None
+    ret = &quot;logout success&quot;
+    return jsonify(ret)
+
+...
+
+</code></pre><h3 id="订阅-1">订阅</h3>
+<p>默认情况下任何发布者的信号都会传送给订阅者,不会加以区分, 这里我们为了区分我们可以给<code>Signal.connect()</code>传递一个参数，实现订阅者与订阅特定的发送者。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">auth_subscriber</span>(sender):
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Got an auth signal&#34;</span>)
+    <span style="color:#66d9ef">assert</span> sender<span style="color:#f92672">.</span>name <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;auth&#34;</span>
+   
+<span style="color:#f92672">&gt;&gt;&gt;</span> auth_log<span style="color:#f92672">.</span>connect(auth_subscriber, sender<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anomalous&#34;</span>)
+</code></pre></div><p>更简单的, 我更加建议使用装饰器的形式，同样能达到区分发送者的效果, 样例中我们简单定义一个日志，记录每个用户的登录IP使用插件实例化的db（Flask-SQLAlchemy）使用ORM语句写入数据库</p>
+<p>这个例子中用了一个装饰器<code>@connect</code>，除了 <code>@connect</code> ,Blinker 1.1还新增了 <code>@connect_via(app)</code>来简化此过程，AOP设计模式不得不说方便了许多, 轻松的订阅指定的信号</p>
+<p>例：<code>util.py</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> backend.extensions <span style="color:#f92672">import</span> auth_log, main_log, v1_log, db
+
+<span style="color:#f92672">...</span>
+
+<span style="color:#75715e"># Singal</span>
+<span style="color:#a6e22e">@auth_log.connect</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">auth_subscriber</span>(sender,<span style="color:#f92672">**</span>kwargs):
+    user <span style="color:#f92672">=</span> kwargs<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;user&#34;</span>)
+    <span style="color:#66d9ef">if</span> user:
+        <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#39;Got auth signal sent by {sender}&#39;</span>)
+        track <span style="color:#f92672">=</span> kwargs<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;track&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+        level <span style="color:#f92672">=</span> sender
+        ip <span style="color:#f92672">=</span> kwargs<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;ip&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+        log <span style="color:#f92672">=</span> Log(user<span style="color:#f92672">=</span>str(user), login_ip<span style="color:#f92672">=</span>str(ip), level<span style="color:#f92672">=</span>str(level), track<span style="color:#f92672">=</span>str(track))
+        db<span style="color:#f92672">.</span>session<span style="color:#f92672">.</span>add(log)
+        db<span style="color:#f92672">.</span>session<span style="color:#f92672">.</span>commit()
+</code></pre></div><blockquote>
+<p>在简单的Flask内部的消息分发中,例如日志记录,  路由通知, Signal的实用性显现出来, 倘若是更简单的改变行为类要求, 就使用请求钩子(Hooks)吧,如果涉及Flask外调用或者更加复杂的消息通信时,不妨考虑使用Redis或者RabbitMQ, Kafka等消息队列, 消息中间件实现.</p>
+</blockquote>
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                
+                <a href="https://bbyy.io/sc/tags/signal/">Signal</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/blinker/">Blinker</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/tags/python/">Python</a>
+                
+                
+            </div>
+        </div>
+    
+
+    
+    <div class="languages">
+        <i class="fa fa-language"></i>
+        <div class="links">
+            
+                <a href="https://bbyy.io/code/flask-signals-tutorial/">tc</a>
+            
+        </div>
+    </div>
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hallucigenia" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+     
+
+    </div>
+
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong></strong>
+            <ul>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/getting-started-gdb/">Python标准库 —— pdb调试工具使用</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/a-tour-of-go-exercise-solutions/">Golang 练习N则</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/docker-gitlab-deploy/">Docker搭建维护Gitlab </a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/sqlalchemy-add-page/">为 SqlAlchemy 添加分页逻辑</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/code/openpyxl_tutorial/">Openpyxl使用 —— Python操作Excel文件总结</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/sc/audio/may-it-be/">May It Be - 恩雅</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="/sc/categories/"><strong></strong></a>
+            <ul>
+                
+                <li>
+                    <a href="/sc/categories/code">Code
+                        (11)</a>
+                </li>
+                
+                <li>
+                    <a href="/sc/categories/music">Music
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/sc/categories/%E5%AD%9F%E5%AD%90">孟子
+                        (1)</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong></strong>
+
+                
+                <a href="https://twitter.com/_fancyan" target="_blank"><i class="fab fa-twitter"></i></a>
+                
+                <a href="https://www.instagram.com/monophoton" target="_blank"><i class="fab fa-instagram"></i></a>
+                
+                <a href="https://github.com/hallucigenia" target="_blank"><i class="fab fa-github"></i></a>
+                
+            </div>
+            
+
+            <div class="languages">
+                <strong></strong>
+                
+                
+                <a href="https://bbyy.io/">tc</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/" class="active">sc</a>
+                
+                
+                
+                <a href="https://bbyy.io/en/">en</a>
+                
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://t.me/hallucigenia" target="_blank">
+                &copy;
+                
+                2020
+                
+                 by Fancy 
+            </a>
+            
+        </div>
+        <div class="author">
+            <a href="https://bbyy.io"
+                target="_blank">Fancy&#39;s Blog</a>
+        </div>
+    </div>
+</div>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-160694437-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+
+    <script type="text/javascript" src="https://bbyy.io/theme.js"></script>
+
+    
+    
+    
+
+    
+    <div id="activate-algolia-search" class="hidden">
+  <input type="hidden" id="algolia-search-appId" value="8JWRQ9KNXC">
+  <input type="hidden" id="algolia-search-apiKey" value="0f05c447096335c55a457fe4cfaae96a">
+  <input type="hidden" id="algolia-search-indexName" value="grimalog">
+  <input type="hidden" id="algolia-search-noSearchResults" value="">
+
+  
+</div>
+
+    
+
+
+</body>
+
+</html>

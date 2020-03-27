@@ -5,7 +5,7 @@
     <link>https://bbyy.io/tags/supervisor/</link>
     <description>Recent content in Supervisor on Fancy‘s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 25 Dec 2019 16:53:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Sep 2019 16:53:48 +0800</lastBuildDate>
     
 	<atom:link href="https://bbyy.io/tags/supervisor/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +13,7 @@
     <item>
       <title>Gunicorn Supervisor Deploy</title>
       <link>https://bbyy.io/code/gunicorn-supervisor-deploy/</link>
-      <pubDate>Wed, 25 Dec 2019 16:53:48 +0800</pubDate>
+      <pubDate>Wed, 25 Sep 2019 16:53:48 +0800</pubDate>
       
       <guid>https://bbyy.io/code/gunicorn-supervisor-deploy/</guid>
       <description>&lt;p&gt;服務器部署 Pipenv + Gunicorn + Supervisor + Flask 項目標準化流程&lt;/p&gt;</description>

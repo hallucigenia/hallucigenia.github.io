@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Signal on Fancy‘s Blog</title>
+    <link>https://bbyy.io/tags/signal/</link>
+    <description>Recent content in Signal on Fancy‘s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 26 Dec 2019 15:34:53 +0800</lastBuildDate>
+    
+	<atom:link href="https://bbyy.io/tags/signal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Flask的Signals</title>
+      <link>https://bbyy.io/code/flask-signals-tutorial/</link>
+      <pubDate>Thu, 26 Dec 2019 15:34:53 +0800</pubDate>
+      
+      <guid>https://bbyy.io/code/flask-signals-tutorial/</guid>
+      <description>&lt;p&gt;Blinker觸發信號記錄與實踐&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -56,9 +56,18 @@
     </item>
     
     <item>
+      <title>使用Flask的Signals</title>
+      <link>https://bbyy.io/sc/code/flask-signals-tutorial/</link>
+      <pubDate>Thu, 26 Dec 2019 15:34:53 +0800</pubDate>
+      
+      <guid>https://bbyy.io/sc/code/flask-signals-tutorial/</guid>
+      <description>&lt;p&gt;Blinker触发信号记录与实践&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Gunicorn Supervisor Deploy</title>
       <link>https://bbyy.io/sc/code/gunicorn-supervisor-deploy/</link>
-      <pubDate>Wed, 25 Dec 2019 16:53:48 +0800</pubDate>
+      <pubDate>Wed, 25 Sep 2019 16:53:48 +0800</pubDate>
       
       <guid>https://bbyy.io/sc/code/gunicorn-supervisor-deploy/</guid>
       <description>&lt;p&gt;服务器部署 Pipenv + Gunicorn + Supervisor + Flask 项目标准化流程&lt;/p&gt;</description>
@@ -67,7 +76,7 @@
     <item>
       <title>利用Redis做Flask缓存后端</title>
       <link>https://bbyy.io/sc/code/flask-caching-with-redis/</link>
-      <pubDate>Fri, 01 Mar 2019 17:22:21 +0800</pubDate>
+      <pubDate>Mon, 01 Apr 2019 17:22:21 +0800</pubDate>
       
       <guid>https://bbyy.io/sc/code/flask-caching-with-redis/</guid>
       <description>&lt;p&gt;Flask项目中使用Flask-Caching实现Redis缓存&lt;/p&gt;</description>
