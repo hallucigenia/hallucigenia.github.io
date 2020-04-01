@@ -129,7 +129,7 @@
     <div class="featured-image">
         <a href="https://bbyy.io/code/kubernetes-get-start/">
             
-                <img src="/code/kubernetes-get-start/featuredImage_hu9cb6926f710044adbc2bb4511056dac4_31339_700x350_fill_q95_box_smart1.jpeg" alt="">
+                <img src="/code/kubernetes-get-start/featuredImage_hueb294555e793643b0fbfe0f4f011c00a_398256_700x350_fill_q95_box_smart1.jpeg" alt="">
             
         </a>
     </div>
@@ -386,11 +386,11 @@ Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options liste
 
 Then you can join any number of worker nodes by running the following on each as root:
 
-kubeadm join 192.168.6.163:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
+kubeadm join 192.168.123.181:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
     --discovery-token-ca-cert-hash sha256:a407b3d77b8cb9942c06d32a3aa51ed4ed34e4faec3186d9eabd0c4ef307562e
 </code></pre><h4 id="node加入集群node">node加入集群：(Node)</h4>
 <p>如以上的最後壹句，我們可以使用root權限將Worker添加節點進來集群。</p>
-<pre><code>sudo kubeadm join 192.168.6.163:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
+<pre><code>sudo kubeadm join 192.168.123.181:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
     --discovery-token-ca-cert-hash sha256:a407b3d77b8cb9942c06d32a3aa51ed4ed34e4faec3186d9eabd0c4ef307562e
 </code></pre><pre><code>W0401 18:20:37.196454   22044 join.go:346] [preflight] WARNING: JoinControlPane.controlPlane settings will be ignored when control-plane flag is not set.
 [preflight] Running pre-flight checks
