@@ -1,0 +1,743 @@
+<!doctype html>
+<html class="no-js" lang="tc">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Fancy">
+    <meta name="description" content="Bilberry Premium Theme for Hugo.">
+    <meta name="keywords" content="blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts">
+    <meta name="generator" content="Hugo 0.67.0" />
+    <title> kubeadm搭建部署kubernetes集群 | Fancy‘s Blog</title>
+    <meta name="description" content="kubeadm搭建部署kubernetes集群 - Bilberry Premium Theme for Hugo.">
+    <meta itemprop="name" content="kubeadm搭建部署kubernetes集群">
+    <meta itemprop="description" content="kubeadm搭建部署kubernetes集群 - Bilberry Premium Theme for Hugo.">
+    <meta property="og:title" content="kubeadm搭建部署kubernetes集群">
+    <meta property="og:description" content="kubeadm搭建部署kubernetes集群 - Bilberry Premium Theme for Hugo.">
+    <meta property="og:image" content="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?size=200">
+    <meta property="og:url" content="https://bbyy.io/code/kubernetes-get-start/">
+    <meta property="og:site_name" content="Fancy‘s Blog">
+    <meta property="og:type" content="article">
+
+    
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e2619c">
+<meta name="msapplication-TileColor" content="#e2619c">
+<meta name="theme-color" content="#e2619c">
+
+    
+    <link href="/code/kubernetes-get-start/" rel="alternate" type="application/rss+xml" title="Fancy‘s Blog" />
+    <link href="/code/kubernetes-get-start/" rel="feed" type="application/rss+xml" title="Fancy‘s Blog" />
+    
+
+    
+
+    <link rel="stylesheet" href="https://bbyy.io/theme.css">
+
+    
+
+    
+    
+    
+</head>
+
+<body class="bilberry-hugo-theme">
+
+    
+    <nav class="permanentTopNav sticky">
+
+    <div class="container">
+        <ul class="topnav">
+            
+            
+            <li><a href="https://bbyy.io/page/about-me/">關於本人</a></li>
+            
+            
+        </ul>
+
+        
+        <div id="search-box" class="search">
+            <i class="fas fa-search"></i>
+            <input id="search" type="text" placeholder="">
+        </div>
+        
+    </div>
+</nav>
+
+
+    
+<header class="sticky">
+
+    <div class="container">
+        <div class="logo">
+            <a id="siteBaseUrl" href="/" class="logo">
+                
+                <img src="https://www.gravatar.com/avatar/3776f719d93bf9d357bf83b6e50e10d6?d=mm&size=200" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-tape"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a
+                    href="/">Fancy‘s Blog</a></h3>
+            
+            <span class="subtitle">Fancy的個人Blog，技術Blog可移步SC語言</span>
+            
+        </div>
+
+        <div class="languages">
+        
+            
+                <a href="https://bbyy.io/" class="active">tc</a>
+            
+        
+            
+                <a href="https://bbyy.io/sc/">sc</a>
+            
+        
+            
+                <a href="https://bbyy.io/en/">en</a>
+            
+        
+        </div>
+        
+
+        
+        <div class="toggler permanentTopNav">
+            
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+</header>
+
+
+    <div class="main container">
+        
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="https://bbyy.io/code/kubernetes-get-start/">
+    <i class="fas fa-fw fa-code"></i>
+</a>
+
+<article class="default article">
+    
+    <div class="featured-image">
+        <a href="https://bbyy.io/code/kubernetes-get-start/">
+            
+                <img src="/code/kubernetes-get-start/featuredImage_hu9cb6926f710044adbc2bb4511056dac4_31339_700x350_fill_q95_box_smart1.jpeg" alt="">
+            
+        </a>
+    </div>
+
+
+    <div class="content">
+    <h1 class="article-title"><a href="https://bbyy.io/code/kubernetes-get-start/">kubeadm搭建部署kubernetes集群</a></h1>
+    <div class="meta">
+        
+        
+        <span class="date moment">2020-03-22</span>
+        
+        
+
+        
+
+        
+        <span class="categories">
+            
+                
+                <a href="https://bbyy.io/categories/code/">Code</a>
+                
+            
+        </span>
+        
+
+        
+        <span class="author">
+            
+            <a href="https://bbyy.io/author/fancy/">Fancy</a>
+            
+        </span>
+        
+    </div>
+
+    
+    <blockquote>
+<p>零零散散看了不少k8s的文檔，搭建過幾次，每次都有不同的收獲，姿勢也是五花八門，網上關於K8s部署的文檔坑實在是太多了，想著能否好好總結下，學習下部署設計，便於自己查閱以及更好的學習。</p>
+</blockquote>
+<p>目前kubeadm支持：</p>
+<ul>
+<li>Ubuntu 16.04+</li>
+<li>Debian 9+</li>
+<li>CentOS 7</li>
+<li>Red Hat Enterprise Linux (RHEL) 7</li>
+<li>Fedora 25+</li>
+<li>HypriotOS v1.0.1 +</li>
+<li>Container Linux (tested with 1800.6.0)</li>
+</ul>
+<p>官方建議至少2G內存，要求雙核及以上。並檢查網絡鏈接以及用的端口是否開放。更改下防火墻設置放行端口</p>
+<p>我這裏利用了<code>斐訊N1</code>刷的<code>Armbian</code>和<code>Raspberry Pi 3B+</code>的 <code>HypriotOS</code>組成最小單元的集成作為示例，之所以選擇這兩個，主要是因為硬件便宜（家裏已經4個N1了），另外想試試HypriotOS這麽好用的Docker專用系統，同是debian系的也便於安裝命令復用。剛好作為最小集群壹個Master節點壹個Node節點。</p>
+<p>比如Item2 就使用⌘(command) + d 左右分屏，⌘(command) + ⇧(shift) + i 開啟多窗口輸入命令。省很多功夫。</p>
+<p>首先按要求關閉Swap（性能考慮，不關閉會拖慢速度，官方說的是必須的）</p>
+<pre><code>sudo swapoff -a
+</code></pre><p>關閉Selinux：</p>
+<pre><code>setenforce 0
+sed -i 's/^SELINUX=enforcing$/SELINUX=disabled/' /etc/selinux/config
+</code></pre><p>確保主機名（hostname）和MAC， product_uuid是否唯壹的，這些是用於K8s辨別Node節點唯壹性的值，都相同會導致安裝失敗，可以分別用以下命令查看
+畢竟是ARM，我們的armbian內核是沒有加載 dmi sysfs的，所以product_uuid無從談起。</p>
+<pre><code>cat /etc/hostname 
+sudo ifconfig -a
+sudo cat /sys/class/dmi/id/product_uuid
+</code></pre><p>我的建議是首先更改<code>Hostname</code>，後期便利很多。</p>
+<pre><code># Master節點
+sudo hostnamectl --static set-hostname k8s-master
+# Node節點1
+sudo hostnamectl --static set-hostname k8s-node1
+</code></pre><h3 id="修改橋接網絡配置">修改橋接網絡配置</h3>
+<p><code>lsmod | grep br_netfilter</code>. 檢查br_netfilter是否運行，如果沒有的話可以用 <code>modprobe br_netfilter</code>顯式調用。然後運行防止iptables被繞過：</p>
+<pre><code>cat &lt;&lt;EOF &gt; /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+sysctl --system
+</code></pre><h3 id="安裝docker">安裝Docker</h3>
+<p>截至2020年3月30號，官方推薦的Docker版本是 <code>19.03.8</code>。我們通過<code>docker -v</code>確保版本是在能穩定運行k8s的<code>1.13.1, 17.03, 17.06, 17.09, 18.06, 18.09, 19.03.08 </code>之中。</p>
+<p>安裝Docker CE老生常談了，Azure阿裏雲這些鏡像加速畢竟是有N1的程序員我表示根本不需要，網上也有很多參考，這裏可以使用壹鍵腳本</p>
+<pre><code>curl -fsSL &quot;https://get.docker.com/&quot; | sh
+systemctl enable --now docker
+</code></pre><p>或者Docker官網https://docs.docker.com/install/linux/docker-ce/debian/根據不同發行版和架構安裝，我貼的這份僅限Arm架構的Debian安裝。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 允許apt透過HTTPS使用軟件包</span>
+apt update <span style="color:#f92672">&amp;&amp;</span> apt install -y <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  apt-transport-https ca-certificates curl software-properties-common gnupg2
+
+<span style="color:#75715e"># 添加Docker的GPGkey</span>
+curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+
+<span style="color:#75715e"># 添加Docker apt軟件包</span>
+add-apt-repository <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>   <span style="color:#e6db74">&#34;deb [arch=arm64] https://download.docker.com/linux/debian \
+</span><span style="color:#e6db74">   </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> \
+</span><span style="color:#e6db74">   stable&#34;</span>
+
+<span style="color:#75715e"># 安裝 Docker CE 及 Container.</span>
+apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install -y <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  containerd.io<span style="color:#f92672">=</span>1.2.13-1 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  docker-ce<span style="color:#f92672">=</span>5:19.03.8~3-0~debian-<span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  docker-ce-cli<span style="color:#f92672">=</span>5:19.03.8~3-0~debian-<span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span>
+<span style="color:#75715e"># sudo apt-get install docker-ce docker-ce-cli containerd.io</span>
+
+</code></pre></div><p>###配置鏡像</p>
+<p>修改<code>daemon.json</code>，配置cgroup驅動，與k8s壹致，如果添加鏡像加速的話添加多句<code> &quot;registry-mirrors&quot;: [&quot;https://xxx.mirror.aliyuncs.com&quot;],</code>之類，之後重啟，如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 這裏使用systemd作為Docker croup</span>
+cat &gt; /etc/docker/daemon.json <span style="color:#e6db74">&lt;&lt;EOF
+</span><span style="color:#e6db74">{
+</span><span style="color:#e6db74">  &#34;exec-opts&#34;: [&#34;native.cgroupdriver=systemd&#34;],
+</span><span style="color:#e6db74">  &#34;log-driver&#34;: &#34;json-file&#34;,
+</span><span style="color:#e6db74">  &#34;log-opts&#34;: {
+</span><span style="color:#e6db74">    &#34;max-size&#34;: &#34;100m&#34;
+</span><span style="color:#e6db74">  },
+</span><span style="color:#e6db74">  &#34;storage-driver&#34;: &#34;overlay2&#34;
+</span><span style="color:#e6db74">}
+</span><span style="color:#e6db74">EOF</span>
+
+<span style="color:#75715e"># 創建Docker服務目錄</span>
+
+mkdir -p /etc/systemd/system/docker.service.d
+
+<span style="color:#75715e"># 重啟Docker，開啟開機啟動</span>
+systemctl daemon-reload
+systemctl enable docker
+systemctl restart docker
+
+<span style="color:#75715e"># 檢查Docker</span>
+docker -v
+<span style="color:#75715e"># &gt;&gt;&gt; Docker version 19.03.8, build afacb8b</span>
+docker run hello-world
+</code></pre></div><h3 id="安裝runtime">安裝Runtime</h3>
+<h3 id="kubeadm的方案">kubeadm的方案</h3>
+<h3 id="安裝kubeadm-kubelet-和-kubectlmaster--node">安裝kubeadm, kubelet 和 kubectl（Master &amp; Node）</h3>
+<p>Debian系：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get update <span style="color:#f92672">&amp;&amp;</span> sudo apt-get install -y apt-transport-https curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+cat <span style="color:#e6db74">&lt;&lt;EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+</span><span style="color:#e6db74">deb https://apt.kubernetes.io/ kubernetes-xenial main
+</span><span style="color:#e6db74">EOF</span>
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+
+
+systemctl enable kubelet <span style="color:#f92672">&amp;&amp;</span> systemctl start kubelet
+</code></pre></div><p>RedHat系：</p>
+<pre><code>cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOF
+
+# Set SELinux in permissive mode (effectively disabling it)
+setenforce 0
+sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+
+yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+
+systemctl enable --now kubelet
+</code></pre><h3 id="配置cgroup-drive">配置Cgroup drive</h3>
+<p>檢查docker的cgroup驅動，應與kubelet 的cgroup drive保持壹致。</p>
+<pre><code>docker info | grep -i cgroup
+# &gt;&gt;&gt; Cgroup Driver: cgroupfs / systemd
+</code></pre><h3 id="初始化部署mastermaster">初始化部署Master（Master）</h3>
+<p>兩種常用的方式，我個人更建議第二種生成文件的部署方式。</p>
+<ul>
+<li>
+<p><strong>直接初始化init部署</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo kubeadm init <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --kubernetes-version<span style="color:#f92672">=</span>v1.18.0 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --apiserver-advertise-address<span style="color:#f92672">=</span>192.168.123.181 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --pod-network-cidr<span style="color:#f92672">=</span>10.244.0.0/16 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --service-cidr<span style="color:#f92672">=</span>10.96.0.0/12
+    --image-repository<span style="color:#f92672">=</span>registry.aliyuncs.com/google_containers
+</code></pre></div><p>參數說明**：</p>
+<ul>
+<li><strong>–-pod-network-cidr</strong>：集群所屬的Pod子網範圍，使用fannel網絡必須使用這個CIDR。</li>
+<li><strong>–-kubernetes-version</strong>：指定K8S版本，建議與kubeadm, kubelet 和 kubectl壹致。</li>
+<li><strong>–-apiserver-advertise-address</strong>：作為Master與其他Node通信的IP地址。</li>
+<li><strong>&ndash;control-plane-endpoint</strong>：標誌應該被設置成負載均衡器的地址或 DNS 和端口。會取–-apiserver-advertise-address的值</li>
+<li><strong>&ndash;image-repository</strong>：指定下載源，例：<code>registry.aliyuncs.com/google_containers</code></li>
+<li><strong>&ndash;service-cidr</strong>：service網段,負載均衡ip</li>
+<li><strong>&ndash;ignore-preflight-errors=Swap/all</strong>：忽略 swap/所有 報錯</li>
+</ul>
+</li>
+<li>
+<p><strong>配置文件部署</strong></p>
+<p>創建配置文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubeadm config print init-defaults --kubeconfig ClusterConfiguration &gt; kubeadm.yml
+</code></pre></div><p>根據情況修改配置文件內容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: kubeadm.k8s.io/v1beta2
+<span style="color:#66d9ef">bootstrapTokens</span>:
+- <span style="color:#66d9ef">groups</span>:
+  - system:bootstrappers:kubeadm:default-node-token
+  <span style="color:#66d9ef">token</span>: abcdef.0123456789abcdef
+  <span style="color:#66d9ef">ttl</span>: 24h0m0s
+  <span style="color:#66d9ef">usages</span>:
+  - signing
+  - authentication
+<span style="color:#66d9ef">kind</span>: InitConfiguration
+<span style="color:#66d9ef">localAPIEndpoint</span>: 
+  <span style="color:#66d9ef">advertiseAddress</span>: <span style="color:#ae81ff">192.168.123.181</span> <span style="color:#75715e"># 作為Master與其他Node通信的IP地址。</span>
+  <span style="color:#66d9ef">bindPort</span>: <span style="color:#ae81ff">6443</span>
+<span style="color:#66d9ef">nodeRegistration</span>:
+  <span style="color:#66d9ef">criSocket</span>: /var/run/dockershim.sock
+  <span style="color:#66d9ef">name</span>: k8s-node1
+  <span style="color:#66d9ef">taints</span>:
+  - <span style="color:#66d9ef">effect</span>: NoSchedule
+    <span style="color:#66d9ef">key</span>: node-role.kubernetes.io/master
+--
+<span style="color:#66d9ef">apiServer</span>:
+  <span style="color:#66d9ef">timeoutForControlPlane</span>: 4m0s
+<span style="color:#66d9ef">apiVersion</span>: kubeadm.k8s.io/v1beta2
+<span style="color:#66d9ef">certificatesDir</span>: /etc/kubernetes/pki
+<span style="color:#66d9ef">clusterName</span>: kubernetes
+<span style="color:#66d9ef">controllerManager</span>: {}
+<span style="color:#66d9ef">dns</span>:
+  <span style="color:#66d9ef">type</span>: CoreDNS
+<span style="color:#66d9ef">etcd</span>:
+  <span style="color:#66d9ef">local</span>:
+    <span style="color:#66d9ef">dataDir</span>: /var/lib/etcd
+<span style="color:#66d9ef">imageRepository</span>: k8s.gcr.io    <span style="color:#75715e"># 指定下載源,例：registry.aliyuncs.com/google_containers</span>
+<span style="color:#66d9ef">kind</span>: ClusterConfiguration
+<span style="color:#66d9ef">kubernetesVersion</span>: v1<span style="color:#ae81ff">.18.0</span>     <span style="color:#75715e"># 指定K8S版本，建議與kubeadm, kubelet 和 kubectl壹致。</span>
+<span style="color:#66d9ef">networking</span>:
+  <span style="color:#66d9ef">dnsDomain</span>: cluster.local
+  <span style="color:#66d9ef">podSubnet</span>: <span style="color:#ae81ff">192.168.0.0</span>/<span style="color:#ae81ff">16</span>    <span style="color:#75715e"># Pod子網默認網段範圍</span>
+  <span style="color:#66d9ef">serviceSubnet</span>: <span style="color:#ae81ff">10.96.0.0</span>/<span style="color:#ae81ff">12</span>  <span style="color:#75715e"># service網段</span>
+<span style="color:#66d9ef">scheduler</span>: {}
+</code></pre></div><p>保存kubeadm.yml後，查看及拉取鏡像</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubeadm config images list --config kubeadm.yml
+$ kubeadm config images pull --config kubeadm.yml
+</code></pre></div><p>初始化</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubeadm init --config kubeadm-init.yaml
+</code></pre></div></li>
+</ul>
+<hr>
+<p>若執行<strong>kubeadm init</strong>出錯或強制終止，則再需要執行該命令時，需要先執行<strong>kubeadm reset</strong>重置配置後再進行<strong>kubeadm init</strong>。</p>
+<p>如果兩種方法沒有異常，那麽妳將在最後看到類似這樣的返回：</p>
+<pre><code>Your Kubernetes control-plane has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+You should now deploy a pod network to the cluster.
+Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 192.168.6.163:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
+    --discovery-token-ca-cert-hash sha256:a407b3d77b8cb9942c06d32a3aa51ed4ed34e4faec3186d9eabd0c4ef307562e
+</code></pre><h4 id="node加入集群node">node加入集群：(Node)</h4>
+<p>如以上的最後壹句，我們可以使用root權限將Worker添加節點進來集群。</p>
+<pre><code>sudo kubeadm join 192.168.6.163:6443 --token 1lfiq6.tyiic0y0gjybw4vq \
+    --discovery-token-ca-cert-hash sha256:a407b3d77b8cb9942c06d32a3aa51ed4ed34e4faec3186d9eabd0c4ef307562e
+</code></pre><pre><code>W0401 18:20:37.196454   22044 join.go:346] [preflight] WARNING: JoinControlPane.controlPlane settings will be ignored when control-plane flag is not set.
+[preflight] Running pre-flight checks
+	[WARNING Hostname]: hostname &quot;k8s-node1&quot; could not be reached
+	[WARNING Hostname]: hostname &quot;k8s-node1&quot;: lookup k8s-node1 on 8.8.8.8:53: no such host
+[preflight] Reading configuration from the cluster...
+[preflight] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
+[kubelet-start] Downloading configuration for the kubelet from the &quot;kubelet-config-1.18&quot; ConfigMap in the kube-system namespace
+[kubelet-start] Writing kubelet configuration to file &quot;/var/lib/kubelet/config.yaml&quot;
+[kubelet-start] Writing kubelet environment file with flags to file &quot;/var/lib/kubelet/kubeadm-flags.env&quot;
+[kubelet-start] Starting the kubelet
+[kubelet-start] Waiting for the kubelet to perform the TLS Bootstrap...
+
+This node has joined the cluster:
+* Certificate signing request was sent to apiserver and a response was received.
+* The Kubelet was informed of the new secure connection details.
+
+Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
+</code></pre><h2 id="配置-kubectl">配置 kubectl</h2>
+<pre><code>  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config(非root才做)
+
+</code></pre><p>添加完畢後，可以在Master上查看節點狀態：</p>
+<pre><code>$ kubectl get pods --all-namespaces
+</code></pre><h2 id="使用dashboard">使用Dashboard</h2>
+<p>可以使用這句命令壹鍵部署</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+
+$ kubectl get pods --all-namespaces | grep dashboard
+
+</code></pre></div><blockquote>
+<p>可能自己這篇也不免成為壹個新坑吧。</p>
+</blockquote>
+<h3 id="附raspberry-pi-如何使用-hypriotos">附：Raspberry Pi 如何使用 HypriotOS</h3>
+<p>Etcher在寫入之後可以編輯壹下根目錄的user-data如果妳有Wifi連接的需求的話,這個步驟將是必須的.</p>
+<p>我嘗試過很多官網或者 只有在官方Github博客源代碼壹個關閉的Issue裏找到正解</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">#cloud-config</span>
+<span style="color:#75715e"># vim: syntax=yaml</span>
+<span style="color:#75715e">#</span>
+
+<span style="color:#75715e"># Set your hostname here, the manage_etc_hosts will update the hosts file entries as well</span>
+<span style="color:#66d9ef">hostname</span>: black-pearl
+<span style="color:#66d9ef">manage_etc_hosts</span>: <span style="color:#66d9ef">true</span>
+
+<span style="color:#75715e"># You could modify this for your own user information</span>
+<span style="color:#66d9ef">users</span>:
+  - <span style="color:#66d9ef">name</span>: pirate                                                <span style="color:#75715e"># 用戶名</span>
+    <span style="color:#66d9ef">gecos</span>: <span style="color:#e6db74">&#34;Hypriot Pirate&#34;</span>
+    <span style="color:#66d9ef">sudo</span>: ALL=(ALL) NOPASSWD:ALL
+    <span style="color:#66d9ef">shell</span>: /bin/bash
+    <span style="color:#66d9ef">groups</span>: users,docker,video,input
+    <span style="color:#66d9ef">plain_text_passwd</span>: hypriot                                  <span style="color:#75715e"># 明文密碼</span>
+    <span style="color:#66d9ef">lock_passwd</span>: <span style="color:#66d9ef">false</span>
+    <span style="color:#66d9ef">ssh_pwauth</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#66d9ef">chpasswd</span>: { <span style="color:#66d9ef">expire</span>: <span style="color:#66d9ef">false</span> }
+
+<span style="color:#75715e"># # Set the locale of the system</span>
+<span style="color:#66d9ef">locale</span>: <span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>
+
+<span style="color:#75715e"># # Set the timezone</span>
+<span style="color:#75715e"># # Value of &#39;timezone&#39; must exist in /usr/share/zoneinfo</span>
+<span style="color:#66d9ef">timezone</span>: <span style="color:#e6db74">&#34;Asia/Harbin&#34;</span>                                         <span style="color:#75715e"># 時區</span>
+
+<span style="color:#75715e"># # Update apt packages on first boot</span>
+<span style="color:#75715e"># package_update: true</span>
+<span style="color:#75715e"># package_upgrade: true</span>
+<span style="color:#75715e"># package_reboot_if_required: true</span>
+<span style="color:#66d9ef">package_upgrade</span>: <span style="color:#66d9ef">false</span>
+
+<span style="color:#75715e"># # Install any additional apt packages you need here</span>
+<span style="color:#75715e"># packages:</span>
+<span style="color:#75715e">#  - ntp</span>
+
+<span style="color:#75715e"># # WiFi connect to HotSpot</span>
+<span style="color:#75715e"># # - use `wpa_passphrase SSID PASSWORD` to encrypt the psk</span>
+<span style="color:#66d9ef">write_files</span>:
+  - <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">      allow-hotplug wlan0</span>
+      iface wlan0 inet dhcp
+      wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+      iface default inet dhcp
+    <span style="color:#66d9ef">path</span>: /etc/network/interfaces.d/wlan0
+  - <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">|                                                  # 如果啟動wifi則按此編輯</span>
+      country=CN
+      ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+      update_config=<span style="color:#ae81ff">1</span>
+<span style="color:#75715e"># 密碼(明文加引號)</span>
+      network={
+      ssid=<span style="color:#e6db74">&#34;YourID&#34;</span>
+      psk=<span style="color:#e6db74">&#34;12345678&#34;</span>                                            
+      key_mgmt=WPA-PSK
+      }
+    <span style="color:#66d9ef">path</span>: /etc/wpa_supplicant/wpa_supplicant.conf
+
+<span style="color:#75715e"># These commands will be ran once on first boot only</span>
+<span style="color:#66d9ef">runcmd</span>:
+  <span style="color:#75715e"># Pickup the hostname changes</span>
+  - <span style="color:#e6db74">&#39;systemctl restart avahi-daemon&#39;</span>
+
+<span style="color:#75715e">#  # Activate WiFi interface</span>
+<span style="color:#75715e"># 開啟wifi支持</span>
+  - <span style="color:#e6db74">&#39;ifup wlan0&#39;</span>
+<span style="color:#66d9ef">bootcmd</span>:
+<span style="color:#75715e"># 開機自動連接wifi</span>
+  - [ ifup, wlan0 ]
+
+</code></pre></div><p>To be continue。。。</p>
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                
+                <a href="https://bbyy.io/tags/kubernetes/">Kubernetes</a>
+                
+                
+                
+                <a href="https://bbyy.io/tags/docker/">Docker</a>
+                
+                
+            </div>
+        </div>
+    
+
+    
+    <div class="languages">
+        <i class="fa fa-language"></i>
+        <div class="links">
+            
+                <a href="https://bbyy.io/sc/code/kubernetes-get-start/">sc</a>
+            
+        </div>
+    </div>
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hallucigenia" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+     
+
+    </div>
+
+    
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong></strong>
+            <ul>
+                
+                <li>
+                    <a href="https://bbyy.io/code/kubernetes-get-start/">kubeadm搭建部署kubernetes集群</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/code/getting-started-gdb/">Python標準庫 —— pdb調試工具使用</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/code/a-tour-of-go-exercise-solutions/">Golang 练习N则</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/code/docker-gitlab-deploy/">Docker搭建維護Gitlab </a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/gallery/gallery-test/">我的旅游记录</a>
+                </li>
+                
+                <li>
+                    <a href="https://bbyy.io/code/openpyxl_tutorial/">Openpyxl使用 —— Python操作Excel文件總結</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="/categories/"><strong></strong></a>
+            <ul>
+                
+                <li>
+                    <a href="/categories/code">Code
+                        (11)</a>
+                </li>
+                
+                <li>
+                    <a href="/categories/holidays">Holidays
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/categories/lyric">Lyric
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/categories/music">Music
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/categories/privacy">Privacy
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/categories/travelling">Travelling
+                        (1)</a>
+                </li>
+                
+                <li>
+                    <a href="/categories/%E7%9B%A3%E8%A6%96%E5%99%A8">監視器
+                        (1)</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong></strong>
+
+                
+                <a href="https://twitter.com/_fancyan" target="_blank"><i class="fab fa-twitter"></i></a>
+                
+                <a href="https://www.instagram.com/monophoton" target="_blank"><i class="fab fa-instagram"></i></a>
+                
+                <a href="https://github.com/hallucigenia" target="_blank"><i class="fab fa-github"></i></a>
+                
+            </div>
+            
+
+            <div class="languages">
+                <strong></strong>
+                
+                
+                <a href="https://bbyy.io/" class="active">tc</a>
+                
+                
+                
+                <a href="https://bbyy.io/sc/">sc</a>
+                
+                
+                
+                <a href="https://bbyy.io/en/">en</a>
+                
+                
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://t.me/hallucigenia" target="_blank">
+                &copy;
+                
+                2020
+                
+                 by Fancy 
+            </a>
+            
+        </div>
+        <div class="author">
+            <a href="https://bbyy.io"
+                target="_blank">Fancy&#39;s Blog</a>
+        </div>
+    </div>
+</div>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-160694437-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+
+    <script type="text/javascript" src="https://bbyy.io/theme.js"></script>
+
+    
+    
+    
+
+    
+    <div id="activate-algolia-search" class="hidden">
+  <input type="hidden" id="algolia-search-appId" value="8JWRQ9KNXC">
+  <input type="hidden" id="algolia-search-apiKey" value="0f05c447096335c55a457fe4cfaae96a">
+  <input type="hidden" id="algolia-search-indexName" value="grimalog">
+  <input type="hidden" id="algolia-search-noSearchResults" value="">
+
+  
+</div>
+
+    
+
+
+</body>
+
+</html>
