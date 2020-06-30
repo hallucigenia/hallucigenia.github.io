@@ -3,8 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://bbyy.io/gallery/</loc>
+    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/gallery/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/gallery/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/author/</loc>
-    <lastmod>2020-03-22T01:04:10+08:00</lastmod>
+    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -23,8 +39,23 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/tags/beijing/</loc>
+    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/tags/beijing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/beijing/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/categories/</loc>
-    <lastmod>2020-03-22T01:04:10+08:00</lastmod>
+    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -39,6 +70,126 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/author/fancy/</loc>
+    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/author/fancy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/author/fancy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/author/fancy/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/</loc>
+    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/flower/</loc>
+    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/tags/flower/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/flower/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/categories/holidays/</loc>
+    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/categories/holidays/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/holidays/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/tags/</loc>
+    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/categories/travelling/</loc>
+    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/categories/travelling/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/travelling/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/gallery/c200&#43;sp3000/</loc>
+    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/gallery/c200&#43;sp3000/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/gallery/c200&#43;sp3000/"
                 />
   </url>
   
@@ -88,41 +239,6 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/author/fancy/</loc>
-    <lastmod>2020-03-22T01:04:10+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/author/fancy/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/author/fancy/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/</loc>
-    <lastmod>2020-03-22T01:04:10+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/"
-                />
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/code/kubernetes-get-start/</loc>
     <lastmod>2020-03-22T01:04:10+08:00</lastmod>
     <xhtml:link
@@ -149,26 +265,6 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/tags/kubernetes/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/tags/</loc>
-    <lastmod>2020-03-22T01:04:10+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/"
                 />
   </url>
   
@@ -348,37 +444,6 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/gallery/</loc>
-    <lastmod>2020-01-06T21:20:56+08:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/gallery/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/gallery/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/tags/beijing/</loc>
-    <lastmod>2020-01-06T21:20:56+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/tags/beijing/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/beijing/"
-                />
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/tags/canton/</loc>
     <lastmod>2020-01-06T21:20:56+08:00</lastmod>
     <xhtml:link
@@ -394,21 +459,6 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/categories/holidays/</loc>
-    <lastmod>2020-01-06T21:20:56+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/categories/holidays/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/categories/holidays/"
-                />
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/tags/qingdao/</loc>
     <lastmod>2020-01-06T21:20:56+08:00</lastmod>
     <xhtml:link
@@ -420,21 +470,6 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/tags/qingdao/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/categories/travelling/</loc>
-    <lastmod>2020-01-06T21:20:56+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/categories/travelling/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/categories/travelling/"
                 />
   </url>
   

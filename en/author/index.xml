@@ -5,10 +5,19 @@
     <link>https://bbyy.io/en/author/</link>
     <description>Recent content in Author on Fancy&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 06 Jan 2020 21:20:56 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2020 22:41:56 +0800</lastBuildDate>
     
 	<atom:link href="https://bbyy.io/en/author/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fancy</title>
+      <link>https://bbyy.io/en/author/fancy/</link>
+      <pubDate>Sun, 28 Jun 2020 22:41:56 +0800</pubDate>
+      
+      <guid>https://bbyy.io/en/author/fancy/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Lednerb</title>
