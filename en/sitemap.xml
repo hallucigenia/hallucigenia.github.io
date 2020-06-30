@@ -113,21 +113,6 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/en/tags/flower/</loc>
-    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/tags/flower/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/tags/flower/"
-                />
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/en/gallery/</loc>
     <lastmod>2020-07-01T00:11:56+08:00</lastmod>
     <xhtml:link
@@ -143,17 +128,17 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/en/categories/holidays/</loc>
+    <loc>https://bbyy.io/en/tags/landscape/</loc>
     <lastmod>2020-07-01T00:11:56+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
-                href="https://bbyy.io/categories/holidays/"
+                href="https://bbyy.io/tags/landscape/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://bbyy.io/en/categories/holidays/"
+                href="https://bbyy.io/en/tags/landscape/"
                 />
   </url>
   
@@ -204,6 +189,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/gallery/c200&#43;sp3000/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/en/tags/flower/</loc>
+    <lastmod>2020-06-25T22:41:56+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/tags/flower/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/tags/flower/"
                 />
   </url>
   
@@ -259,6 +259,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/tags/canton/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/en/categories/holidays/</loc>
+    <lastmod>2020-01-06T21:20:56+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/holidays/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/categories/holidays/"
                 />
   </url>
   

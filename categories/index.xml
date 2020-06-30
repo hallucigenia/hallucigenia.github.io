@@ -11,15 +11,6 @@
     
     
     <item>
-      <title>Holidays</title>
-      <link>https://bbyy.io/categories/holidays/</link>
-      <pubDate>Wed, 01 Jul 2020 00:02:41 +0800</pubDate>
-      
-      <guid>https://bbyy.io/categories/holidays/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Travelling</title>
       <link>https://bbyy.io/categories/travelling/</link>
       <pubDate>Wed, 01 Jul 2020 00:02:41 +0800</pubDate>
@@ -34,6 +25,15 @@
       <pubDate>Sun, 22 Mar 2020 01:04:10 +0800</pubDate>
       
       <guid>https://bbyy.io/categories/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Holidays</title>
+      <link>https://bbyy.io/categories/holidays/</link>
+      <pubDate>Mon, 06 Jan 2020 21:20:56 +0800</pubDate>
+      
+      <guid>https://bbyy.io/categories/holidays/</guid>
       <description></description>
     </item>
     
