@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://bbyy.io/gallery/</loc>
-    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -19,8 +19,23 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/gallery/xtra400&#43;qss3233/</loc>
+    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/gallery/xtra400&#43;qss3233/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/gallery/xtra400&#43;qss3233/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/author/</loc>
-    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -40,7 +55,7 @@
   
   <url>
     <loc>https://bbyy.io/tags/beijing/</loc>
-    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -55,7 +70,7 @@
   
   <url>
     <loc>https://bbyy.io/categories/</loc>
-    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -75,7 +90,7 @@
   
   <url>
     <loc>https://bbyy.io/author/fancy/</loc>
-    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -95,7 +110,7 @@
   
   <url>
     <loc>https://bbyy.io/</loc>
-    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -115,7 +130,7 @@
   
   <url>
     <loc>https://bbyy.io/tags/flower/</loc>
-    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -130,7 +145,7 @@
   
   <url>
     <loc>https://bbyy.io/categories/holidays/</loc>
-    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -145,7 +160,7 @@
   
   <url>
     <loc>https://bbyy.io/tags/</loc>
-    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -165,7 +180,7 @@
   
   <url>
     <loc>https://bbyy.io/categories/travelling/</loc>
-    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -180,7 +195,7 @@
   
   <url>
     <loc>https://bbyy.io/gallery/c200&#43;sp3000/</loc>
-    <lastmod>2020-06-28T22:20:41+08:00</lastmod>
+    <lastmod>2020-06-25T22:20:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
