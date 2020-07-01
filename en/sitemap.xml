@@ -415,6 +415,16 @@
   <url>
     <loc>https://bbyy.io/en/categories/video/</loc>
     <lastmod>2020-01-01T16:23:40+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/video/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/categories/video/"
+                />
   </url>
   
   <url>

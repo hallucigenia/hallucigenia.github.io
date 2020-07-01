@@ -209,6 +209,51 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/categories/lyric/</loc>
+    <lastmod>2020-06-03T14:47:51+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/categories/lyric/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/lyric/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/quote/</loc>
+    <lastmod>2020-06-03T14:47:51+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/quote/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/quote/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/quote/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/quote/liu-yue-fei-shuang/</loc>
+    <lastmod>2020-06-03T14:47:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/author/%E6%9E%97%E5%A4%95/</loc>
+    <lastmod>2020-06-03T14:47:51+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/categories/code/</loc>
     <lastmod>2020-03-22T01:04:10+08:00</lastmod>
     <xhtml:link
@@ -366,6 +411,11 @@
                 hreflang="tc"
                 href="https://bbyy.io/code/getting-started-gdb/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/quote/zui/</loc>
+    <lastmod>2020-02-01T22:23:43+08:00</lastmod>
   </url>
   
   <url>
@@ -759,6 +809,36 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/categories/eason/</loc>
+    <lastmod>2019-11-20T22:26:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/author/eason/</loc>
+    <lastmod>2019-11-20T22:26:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/categories/video/</loc>
+    <lastmod>2019-11-20T22:26:58+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/categories/video/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/categories/video/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/video/hao-jiu-bu-jian/</loc>
+    <lastmod>2019-11-20T22:26:58+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/tags/gunicorn/</loc>
     <lastmod>2019-09-25T16:53:48+08:00</lastmod>
     <xhtml:link
@@ -969,47 +1049,7 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/categories/lyric/</loc>
-    <lastmod>2016-12-01T14:40:32+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/categories/lyric/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/categories/lyric/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/quote/</loc>
-    <lastmod>2016-12-01T14:40:32+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/quote/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/quote/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/quote/"
-                />
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/quote/ren-lai-ren-wang/</loc>
-    <lastmod>2016-12-01T14:40:32+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/author/%E6%9E%97%E5%A4%95/</loc>
     <lastmod>2016-12-01T14:40:32+08:00</lastmod>
   </url>
   
