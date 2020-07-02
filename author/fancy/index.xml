@@ -5,28 +5,10 @@
     <link>https://bbyy.io/author/fancy/</link>
     <description>Recent content in Fancy on Fancy‘s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 01 Jul 2020 00:02:41 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 22 Mar 2020 01:04:10 +0800</lastBuildDate>
     
 	<atom:link href="https://bbyy.io/author/fancy/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>遗忘</title>
-      <link>https://bbyy.io/gallery/xtra400&#43;qss3233/</link>
-      <pubDate>Wed, 01 Jul 2020 00:02:41 +0800</pubDate>
-      
-      <guid>https://bbyy.io/gallery/xtra400&#43;qss3233/</guid>
-      <description>&lt;p&gt;接上張膠卷，同樣是在19年，昨天剛洗出來，这卷也是马马虎虎。題材會多一點。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>朝花夕拾</title>
-      <link>https://bbyy.io/gallery/c200&#43;sp3000/</link>
-      <pubDate>Mon, 29 Jun 2020 22:20:41 +0800</pubDate>
-      
-      <guid>https://bbyy.io/gallery/c200&#43;sp3000/</guid>
-      <description>&lt;p&gt;二零一九年在北京度過的第一個春天，當時還在實習，想着好好学摄影，只是找不到题材，其實不喜歡拍這麼多花啦。&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>kubeadm搭建部署kubernetes集群</title>

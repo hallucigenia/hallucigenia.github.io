@@ -19,26 +19,6 @@
   </url>
   
   <url>
-    <loc>https://bbyy.io/author/</loc>
-    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/author/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/author/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/author/"
-                />
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/tags/beijing/</loc>
     <lastmod>2020-07-01T00:02:41+08:00</lastmod>
     <xhtml:link
@@ -70,26 +50,6 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/categories/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://bbyy.io/author/fancy/</loc>
-    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="sc"
-                href="https://bbyy.io/sc/author/fancy/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/author/fancy/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/author/fancy/"
                 />
   </url>
   
@@ -209,6 +169,26 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/author/</loc>
+    <lastmod>2020-06-03T14:47:51+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/author/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/author/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/author/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/categories/lyric/</loc>
     <lastmod>2020-06-03T14:47:51+08:00</lastmod>
     <xhtml:link
@@ -295,6 +275,26 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/tags/docker/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/author/fancy/</loc>
+    <lastmod>2020-03-22T01:04:10+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sc"
+                href="https://bbyy.io/sc/author/fancy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/author/fancy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/author/fancy/"
                 />
   </url>
   
