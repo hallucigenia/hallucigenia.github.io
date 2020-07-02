@@ -65,15 +65,6 @@
     </item>
     
     <item>
-      <title>我的旅游记录</title>
-      <link>https://bbyy.io/gallery/gallery-test/</link>
-      <pubDate>Mon, 06 Jan 2020 21:20:56 +0800</pubDate>
-      
-      <guid>https://bbyy.io/gallery/gallery-test/</guid>
-      <description>照片牆測試</description>
-    </item>
-    
-    <item>
       <title>Openpyxl使用 —— Python操作Excel文件總結</title>
       <link>https://bbyy.io/code/openpyxl_tutorial/</link>
       <pubDate>Sun, 05 Jan 2020 17:32:24 +0800</pubDate>
