@@ -3,23 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://bbyy.io/en/gallery/xtra400&#43;qss3233/</loc>
-    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tc"
-                href="https://bbyy.io/gallery/xtra400&#43;qss3233/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://bbyy.io/en/gallery/xtra400&#43;qss3233/"
-                />
-  </url>
-  
-  <url>
     <loc>https://bbyy.io/en/author/</loc>
-    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -39,7 +24,7 @@
   
   <url>
     <loc>https://bbyy.io/en/tags/beijing/</loc>
-    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -54,7 +39,7 @@
   
   <url>
     <loc>https://bbyy.io/en/categories/</loc>
-    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -74,7 +59,7 @@
   
   <url>
     <loc>https://bbyy.io/en/author/fancy/</loc>
-    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -94,7 +79,7 @@
   
   <url>
     <loc>https://bbyy.io/en/</loc>
-    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -114,7 +99,7 @@
   
   <url>
     <loc>https://bbyy.io/en/gallery/</loc>
-    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -129,7 +114,7 @@
   
   <url>
     <loc>https://bbyy.io/en/tags/landscape/</loc>
-    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -143,8 +128,23 @@
   </url>
   
   <url>
+    <loc>https://bbyy.io/en/gallery/pan100&#43;hs-1800/</loc>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/gallery/pan100&#43;hs-1800/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/gallery/pan100&#43;hs-1800/"
+                />
+  </url>
+  
+  <url>
     <loc>https://bbyy.io/en/tags/</loc>
-    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -164,7 +164,7 @@
   
   <url>
     <loc>https://bbyy.io/en/categories/travelling/</loc>
-    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="tc"
@@ -174,6 +174,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://bbyy.io/en/categories/travelling/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/en/gallery/xtra400&#43;qss3233/</loc>
+    <lastmod>2020-07-01T00:11:56+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/gallery/xtra400&#43;qss3233/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/gallery/xtra400&#43;qss3233/"
                 />
   </url>
   

@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://bbyy.io/gallery/</loc>
-    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://bbyy.io/tags/beijing/</loc>
-    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -35,7 +35,7 @@
   
   <url>
     <loc>https://bbyy.io/categories/</loc>
-    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -55,7 +55,7 @@
   
   <url>
     <loc>https://bbyy.io/</loc>
-    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -75,7 +75,7 @@
   
   <url>
     <loc>https://bbyy.io/tags/landscape/</loc>
-    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -90,7 +90,7 @@
   
   <url>
     <loc>https://bbyy.io/tags/</loc>
-    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sc"
@@ -110,7 +110,7 @@
   
   <url>
     <loc>https://bbyy.io/categories/travelling/</loc>
-    <lastmod>2020-07-01T00:02:41+08:00</lastmod>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -120,6 +120,21 @@
                 rel="alternate"
                 hreflang="tc"
                 href="https://bbyy.io/categories/travelling/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://bbyy.io/gallery/pan100&#43;hs-1800/</loc>
+    <lastmod>2020-07-08T00:24:09+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://bbyy.io/en/gallery/pan100&#43;hs-1800/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tc"
+                href="https://bbyy.io/gallery/pan100&#43;hs-1800/"
                 />
   </url>
   
